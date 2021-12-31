@@ -1,7 +1,5 @@
-import Layout from "components/common/Layout";
-
 const Index = () => {
-  return <Layout>haha</Layout>;
+  return <h1>haha</h1>;
 };
 
 export default Index;
