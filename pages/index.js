@@ -1,3 +1,7 @@
-export default function Home() {
-  return <h1 className="text-3xl font-bold underline">void</h1>;
-}
+import Layout from "components/common/Layout";
+
+const Index = () => {
+  return <Layout>haha</Layout>;
+};
+
+export default Index;
