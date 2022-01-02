@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NavigationLinks from "components/common/header/NavigationLinks";
+import NavigationLinks from "components/common/Navbar/NavigationLinks";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

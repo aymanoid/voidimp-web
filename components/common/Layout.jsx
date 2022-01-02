@@ -1,4 +1,4 @@
-import Navbar from "components/common/header/Navbar";
+import Navbar from "components/common/Navbar";
 import Footer from "components/common/footer/Footer";
 
 const Layout = ({ children, pageMeta }) => {
