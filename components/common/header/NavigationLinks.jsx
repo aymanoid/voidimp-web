@@ -6,7 +6,7 @@ const NavigationLinks = ({ linkList }) => {
           <a
             key={index}
             href={link.url}
-            className="mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200"
+            className="text-grey-50 hover:text-grey-50 mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 "
           >
             {link.text}
           </a>

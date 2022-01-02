@@ -5,15 +5,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const linkList = [
-    { text: "link 1", url: "/link" },
-    { text: "link 2", url: "/link" },
-    { text: "link 3", url: "/link" },
-    { text: "link 4", url: "/link" },
-    { text: "link 5", url: "/link" },
+    { text: "Latest", url: "/latest" },
+    { text: "Leaks", url: "/leaks" },
+    { text: "Guides", url: "/guides" },
   ];
 
   return (
-    <nav className="bg-white shadow dark:bg-gray-800">
+    <nav className="bg-neutral-50 shadow">
       <div className="container px-6 py-4 mx-auto lg:flex lg:justify-between lg:items-center">
         <div className="lg:flex lg:items-center">
           <div className="flex items-center justify-between">
