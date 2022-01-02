@@ -1,7 +1,7 @@
 import Layout from "components/common/Layout";
 import "styles/globals.css";
 
-const VoidImp = ({ Component, pageProps }) => {
+const VoidImpApp = ({ Component, pageProps }) => {
   return (
     <Layout>
       <Component {...pageProps} />
@@ -9,4 +9,4 @@ const VoidImp = ({ Component, pageProps }) => {
   );
 };
 
-export default VoidImp;
+export default VoidImpApp;
