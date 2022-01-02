@@ -3,13 +3,11 @@ import Footer from "components/common/footer/Footer";
 
 const Layout = ({ children, pageMeta }) => {
   return (
-    <>
+    <div className="flex flex-col justify-between h-screen">
       <Navbar />
-      <main className="flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible">
-        {children}
-      </main>
+      <main className="mb-auto">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 
