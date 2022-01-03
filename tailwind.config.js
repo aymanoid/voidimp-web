@@ -10,6 +10,7 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
       primary: "#710193",
+      violet: colors.violet,
       neutral: {
         50: "#262626",
         100: "#222222",
