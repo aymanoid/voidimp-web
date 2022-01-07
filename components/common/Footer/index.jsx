@@ -1,4 +1,8 @@
-const Footer = () => {
+import FooterLinks from "components/common/Footer/FooterLinks";
+
+const Footer = ({ footerData }) => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-neutral-50">
       <div className="container px-6 py-4 mx-auto">
@@ -15,8 +19,7 @@ const Footer = () => {
               </div>
 
               <p className="max-w-md mt-2 text-gray-500 dark:text-gray-400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse id malesuada nibh, in porttitor.
+                {footerData.description}
               </p>
 
               <div className="flex mt-4 -mx-2">
@@ -55,64 +58,30 @@ const Footer = () => {
 
           <div className="mt-6 lg:mt-0 lg:flex-1">
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-              <div>
-                <h3 className="text-gray-700 uppercase dark:text-white">
-                  Explore
-                </h3>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                >
-                  Latest
-                </a>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                >
-                  Leaks
-                </a>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                >
-                  Guides
-                </a>
-              </div>
+              {footerData.footerLinks.map((footerLink, index) => {
+                return (
+                  <FooterLinks
+                    key={index}
+                    title={footerLink.title}
+                    links={footerLink.links}
+                  />
+                );
+              })}
 
               <div>
                 <h3 className="text-gray-700 uppercase dark:text-white">
-                  Links
+                  {footerData.footerContact.title}
                 </h3>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                >
-                  Terms
-                </a>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                >
-                  Privacy
-                </a>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                >
-                  Copyright
-                </a>
-              </div>
-
-              <div>
-                <h3 className="text-gray-700 uppercase dark:text-white">
-                  Contact
-                </h3>
-                <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">
-                  +1 234 567 8910
-                </span>
-                <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">
-                  contact@example.com
-                </span>
+                {footerData.footerContact.content.map((text, index) => {
+                  return (
+                    <span
+                      key={index}
+                      className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
+                    >
+                      {text}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -122,7 +91,7 @@ const Footer = () => {
 
         <div>
           <p className="text-center text-gray-800 dark:text-white">
-            © VoidImp 2020 - All rights reserved
+            {footerData.rights.replace("{{year}}", currentYear)}
           </p>
         </div>
       </div>

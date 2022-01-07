@@ -1,14 +1,8 @@
 import { useState } from "react";
 import NavigationLinks from "components/common/Navbar/NavigationLinks";
 
-const Navbar = () => {
+const Navbar = ({ headerData }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const linkList = [
-    { text: "Latest", url: "/latest" },
-    { text: "Leaks", url: "/leaks" },
-    { text: "Guides", url: "/guides" },
-  ];
 
   return (
     <nav className="bg-neutral-50 shadow">
@@ -47,7 +41,7 @@ const Navbar = () => {
               isOpen ? "flex" : "hidden"
             } flex-col text-gray-600 capitalize dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center`}
           >
-            <NavigationLinks linkList={linkList} />
+            <NavigationLinks links={headerData.navLinks} />
 
             <div className="relative mt-4 lg:mt-0 lg:mx-4">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -69,7 +63,7 @@ const Navbar = () => {
               <input
                 type="text"
                 className="w-full py-1 pl-10 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600"
-                placeholder="Search"
+                placeholder={headerData.search}
               />
             </div>
           </div>
