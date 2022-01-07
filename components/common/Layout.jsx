@@ -1,7 +1,7 @@
 import Navbar from "components/common/Navbar";
 import Footer from "components/common/footer/Footer";
 
-const Layout = ({ children, pageMeta }) => {
+const Layout = ({ children }) => {
   return (
     <div className="flex flex-col justify-between h-screen">
       <Navbar />

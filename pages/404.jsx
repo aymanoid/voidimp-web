@@ -1,10 +1,11 @@
+import Layout from "components/common/Layout";
 import { PageSEO } from "components/common/SEO";
 import Link from "next/link";
 
-const FourZeroFour = () => {
+const FourZeroFour = ({ pageSEO }) => {
   return (
-    <>
-      <PageSEO title="Page Not Found | VoidImp" />
+    <Layout>
+      <PageSEO title={pageSEO.title} />
       <div className="container px-6 py-16 mx-auto text-center">
         <div className="max-w-lg mx-auto">
           <h1 className="text-violet-500 text-6xl font-extrabold leading-9 tracking-tight md:text-8xl mb-8 md:leading-14 md:px-6">
@@ -23,8 +24,18 @@ const FourZeroFour = () => {
           </Link>
         </div>
       </div>
-    </>
+    </Layout>
   );
+};
+
+export const getStaticProps = () => {
+  const pageSEO = { title: "Page Not Found | VoidImp" };
+
+  return {
+    props: {
+      pageSEO,
+    },
+  };
 };
 
 export default FourZeroFour;
