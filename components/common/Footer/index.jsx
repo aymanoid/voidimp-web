@@ -19,7 +19,7 @@ const Footer = ({ footerData }) => {
               </div>
 
               <p className="max-w-md mt-2 text-gray-500 dark:text-gray-400">
-                {footerData.description}
+                {footerData.footerDescription}
               </p>
 
               <div className="flex mt-4 -mx-2">
@@ -58,31 +58,15 @@ const Footer = ({ footerData }) => {
 
           <div className="mt-6 lg:mt-0 lg:flex-1">
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-              {footerData.footerLinks.map((footerLink, index) => {
+              {footerData.footerLinkColumns.map((linkColumn, index) => {
                 return (
                   <FooterLinks
                     key={index}
-                    title={footerLink.title}
-                    links={footerLink.links}
+                    title={linkColumn.title}
+                    links={linkColumn.links}
                   />
                 );
               })}
-
-              <div>
-                <h3 className="text-gray-700 uppercase dark:text-white">
-                  {footerData.footerContact.title}
-                </h3>
-                {footerData.footerContact.content.map((text, index) => {
-                  return (
-                    <span
-                      key={index}
-                      className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                    >
-                      {text}
-                    </span>
-                  );
-                })}
-              </div>
             </div>
           </div>
         </div>
@@ -91,7 +75,7 @@ const Footer = ({ footerData }) => {
 
         <div>
           <p className="text-center text-gray-800 dark:text-white">
-            {footerData.rights.replace("{{year}}", currentYear)}
+            {footerData.footerRights.replace("{{year}}", currentYear)}
           </p>
         </div>
       </div>
