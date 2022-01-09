@@ -3,10 +3,10 @@ import { PageSEO } from "components/common/SEO";
 import { getGlobalData, get404PageData } from "utils/queries";
 import Link from "next/link";
 
-const FourZeroFour = ({ headerData, footerData, pageSEO, pageData }) => {
+const FourZeroFour = ({ headerData, footerData, seoData, pageData }) => {
   return (
     <Layout headerData={headerData} footerData={footerData}>
-      <PageSEO title={pageSEO.title} />
+      <PageSEO seoData={seoData} />
       <div className="container px-6 py-16 mx-auto text-center">
         <div className="max-w-lg mx-auto">
           <h1 className="text-violet-500 text-6xl font-extrabold leading-9 tracking-tight md:text-8xl mb-8 md:leading-14 md:px-6">

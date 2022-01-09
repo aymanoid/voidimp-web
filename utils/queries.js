@@ -32,7 +32,7 @@ export const get404PageData = async (locale) => {
   });
 
   const data = {
-    pageSEO: {
+    seoData: {
       title: response.data.seo_title,
     },
     pageData: {

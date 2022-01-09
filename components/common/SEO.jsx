@@ -8,8 +8,8 @@ const CommonSEO = ({ title }) => {
   );
 };
 
-const PageSEO = ({ title }) => {
-  return <CommonSEO title={title} />;
+const PageSEO = ({ seoData }) => {
+  return <CommonSEO title={seoData.title} />;
 };
 
 export { PageSEO };
