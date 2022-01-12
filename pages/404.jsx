@@ -28,8 +28,10 @@ const FourZeroFour = ({ headerData, footerData, seoData, pageData }) => {
 };
 
 export const getStaticProps = async ({ locale }) => {
-  const globalData = await getGlobalData(locale);
-  const pageData = await get404PageData(locale);
+  const [globalData, pageData] = await Promise.all([
+    getGlobalData(locale),
+    get404PageData(locale),
+  ]);
 
   return {
     props: {
