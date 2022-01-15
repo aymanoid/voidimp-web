@@ -4,7 +4,9 @@ class VoidImpDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link rel="icon" href="/favicon.svg" />
+        </Head>
         <body className="antialiased bg-neutral-400 text-grey-50">
           <Main />
           <NextScript />
