@@ -1,6 +1,6 @@
 import FooterLinks from "components/common/Footer/FooterLinks";
 
-const Footer = ({ footerData }) => {
+const Footer = ({ footerDescription, footerLinkColumns, footerRights }) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -19,7 +19,7 @@ const Footer = ({ footerData }) => {
               </div>
 
               <p className="max-w-md mt-2 text-gray-500 dark:text-gray-400">
-                {footerData.footerDescription}
+                {footerDescription}
               </p>
 
               <div className="flex mt-4 -mx-2">
@@ -58,7 +58,7 @@ const Footer = ({ footerData }) => {
 
           <div className="mt-6 lg:mt-0 lg:flex-1">
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-              {footerData.footerLinkColumns.map((linkColumn, index) => {
+              {footerLinkColumns.map((linkColumn, index) => {
                 return (
                   <FooterLinks
                     key={index}
@@ -75,7 +75,7 @@ const Footer = ({ footerData }) => {
 
         <div>
           <p className="text-center text-gray-800 dark:text-white">
-            {footerData.footerRights.replace("{{year}}", currentYear)}
+            {footerRights.replace("{{year}}", currentYear)}
           </p>
         </div>
       </div>

@@ -3,9 +3,9 @@ import { PageSEO } from "components/common/SEO";
 import { getGlobalData, get404PageData } from "utils/queries";
 import Link from "next/link";
 
-const FourZeroFour = ({ headerData, footerData, seoData, pageData }) => {
+const FourZeroFour = ({ globalData, seoData, pageData }) => {
   return (
-    <Layout headerData={headerData} footerData={footerData}>
+    <Layout globalData={globalData}>
       <PageSEO seoData={seoData} />
       <div className="container px-6 py-16 mx-auto text-center">
         <div className="max-w-lg mx-auto">
@@ -35,7 +35,7 @@ export const getStaticProps = async ({ locale }) => {
 
   return {
     props: {
-      ...globalData,
+      globalData,
       ...pageData,
     },
   };
