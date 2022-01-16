@@ -2,7 +2,6 @@ import { useState } from "react";
 import Logo from "components/common/Logo";
 import NavigationLinks from "components/common/Navbar/NavigationLinks";
 import SocialIcon from "components/common/SocialIcon";
-import Link from "next/link";
 import { useTheme } from "next-themes";
 import MoonIcon from "components/icons/moon.svg";
 import SunIcon from "components/icons/sun.svg";
@@ -94,6 +93,7 @@ const Navbar = ({ searchBarLabel, navbarLinks, socialLinks }) => {
               />
             )}
           </button>
+          <div className="border-r mx-2 text-gray-600 transition-colors duration-200 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"></div>
           {socialLinks.map((link, index) => (
             <SocialIcon
               key={index}

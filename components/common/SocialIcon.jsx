@@ -1,8 +1,8 @@
 import Link from "next/link";
-import TwitterIcon from "components/icons/twitter.svg";
-import InstagramIcon from "components/icons/instagram.svg";
-import YoutubeIcon from "components/icons/youtube.svg";
-import RssIcon from "components/icons/rss.svg";
+import TwitterIcon from "components/icons/social/twitter.svg";
+import InstagramIcon from "components/icons/social/instagram.svg";
+import YoutubeIcon from "components/icons/social/youtube.svg";
+import RssIcon from "components/icons/social/rss.svg";
 
 const components = {
   twitter: TwitterIcon,
