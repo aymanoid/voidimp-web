@@ -26,3 +26,5 @@ const SocialIcon = ({ kind, name, url, size = 6 }) => {
 };
 
 export default SocialIcon;
+
+// svg icons from https://simpleicons.org/

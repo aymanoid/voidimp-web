@@ -25,3 +25,5 @@ const ThemeSwitch = () => {
 };
 
 export default ThemeSwitch;
+
+// svg icons from https://iconmonstr.com/
