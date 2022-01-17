@@ -1,9 +1,12 @@
 import { useTheme } from "next-themes";
-import MoonIcon from "components/icons/moon.svg";
-import SunIcon from "components/icons/sun.svg";
+import dynamic from "next/dynamic";
 
 const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme();
+  const IconSvg =
+    theme === "dark"
+      ? dynamic(() => import("components/icons/sun.svg"))
+      : dynamic(() => import("components/icons/moon.svg"));
 
   return (
     <button
@@ -12,19 +15,11 @@ const ThemeSwitch = () => {
         setTheme(theme === "light" ? "dark" : "light");
       }}
     >
-      {theme === "light" ? (
-        <MoonIcon
-          className={`w-6 h-6 fill-current`}
-          viewBox="0 0 24 24"
-          fill="none"
-        />
-      ) : (
-        <SunIcon
-          className={`w-6 h-6 fill-current`}
-          viewBox="0 0 24 24"
-          fill="none"
-        />
-      )}
+      <IconSvg
+        className={`w-6 h-6 fill-current`}
+        viewBox="0 0 24 24"
+        fill="none"
+      />
     </button>
   );
 };
