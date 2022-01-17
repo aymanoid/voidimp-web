@@ -2,6 +2,7 @@ import { useState } from "react";
 import Logo from "components/common/Logo";
 import NavigationLinks from "components/common/Navbar/NavigationLinks";
 import ThemeSwitch from "components/common/Navbar/ThemeSwitch";
+import LangSwitch from "components/common/Navbar/LangSwitch";
 import SocialIcon from "components/common/SocialIcon";
 
 const Navbar = ({ searchBarLabel, navbarLinks, socialLinks }) => {
@@ -70,7 +71,9 @@ const Navbar = ({ searchBarLabel, navbarLinks, socialLinks }) => {
             isOpen ? "flex" : "hidden"
           } justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2`}
         >
+          <div className="border-r mx-2 text-gray-600 transition-colors duration-200 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"></div>
           <ThemeSwitch />
+          <LangSwitch />
           <div className="border-r mx-2 text-gray-600 transition-colors duration-200 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"></div>
           {socialLinks.map((link, index) => (
             <SocialIcon
