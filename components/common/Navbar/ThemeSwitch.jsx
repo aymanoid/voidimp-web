@@ -10,13 +10,13 @@ const ThemeSwitch = () => {
 
   return (
     <button
-      className="mx-2 text-gray-600 transition-colors duration-200 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"
+      className="mx-2 transition-colors duration-200 transform lg:mt-0 text-neutral-700 dark:text-neutral-200 hover:text-violet-600 dark:hover:text-violet-500"
       onClick={() => {
         setTheme(theme === "light" ? "dark" : "light");
       }}
     >
       <IconSvg
-        className={`w-6 h-6 fill-current`}
+        className="w-6 h-6 fill-current"
         viewBox="0 0 24 24"
         fill="none"
       />
