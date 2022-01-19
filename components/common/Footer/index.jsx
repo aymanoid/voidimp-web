@@ -4,7 +4,7 @@ const Footer = ({ footerDescription, footerLinkColumns, footerRights }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-neutral-50">
+    <footer className="shadow bg-neutral-100 dark:bg-neutral-800">
       <div className="container px-6 py-4 mx-auto">
         <div className="lg:flex">
           <div className="w-full -mx-6 lg:w-2/5">
