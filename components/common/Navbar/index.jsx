@@ -50,10 +50,10 @@ const Navbar = ({ searchBarLabel, navbarLinks, socialLinks }) => {
             isOpen ? "flex" : "hidden"
           } justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2`}
         >
-          <div className="mx-2 text-gray-600 transition-colors duration-200 transform border-r dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"></div>
+          <div className="mx-2 transition-colors duration-200 transform border-r text-neutral-700 dark:text-neutral-200"></div>
           <ThemeSwitch />
           <LangSwitch />
-          <div className="mx-2 text-gray-600 transition-colors duration-200 transform border-r dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"></div>
+          <div className="mx-2 transition-colors duration-200 transform border-r text-neutral-700 dark:text-neutral-200"></div>
           {socialLinks.map((link, index) => (
             <SocialIcon
               key={index}
