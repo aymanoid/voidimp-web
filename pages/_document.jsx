@@ -7,7 +7,7 @@ class VoidImpDocument extends Document {
         <Head>
           <link rel="icon" href="/favicon.svg" />
         </Head>
-        <body className="antialiased bg-neutral-400 text-grey-50">
+        <body className="antialiased bg-white dark:bg-neutral-900">
           <Main />
           <NextScript />
         </body>
