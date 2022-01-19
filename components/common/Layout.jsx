@@ -16,11 +16,12 @@ const Layout = ({ globalData, children }) => {
         navbarLinks={globalData.navbarLinks}
         socialLinks={globalData.socialLinks}
       />
-      <main className="mb-auto max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0">
+      <main className="max-w-3xl px-4 mx-auto mb-auto sm:px-6 xl:max-w-5xl xl:px-0">
         {children}
       </main>
       <Footer
         footerDescription={globalData.footerDescription}
+        socialLinks={globalData.socialLinks}
         footerLinkColumns={globalData.footerLinkColumns}
         footerRights={globalData.footerRights}
       />
