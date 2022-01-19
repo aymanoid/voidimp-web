@@ -17,7 +17,7 @@ const LangSwitch = () => {
   return (
     <button
       onClick={changeLang}
-      className="text-grey-50 hover:text-grey-50 mt-2 transition-colors duration-200 transform lg:mt-0 lg:mx-4 "
+      className="mx-2 font-semibold transition-colors duration-200 transform lg:mt-0 text-neutral-700 dark:text-neutral-200 hover:text-violet-600 dark:hover:text-violet-500"
     >
       {targetLang.name}
     </button>
