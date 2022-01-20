@@ -1,8 +1,11 @@
 import client from "utils/prismic";
+import * as prismic from "@prismicio/client";
 
 const localeMap = {
   en: "en-us",
   ar: "ar-ma",
+  "en-us": "en",
+  "ar-ma": "ar",
 };
 
 export const getGlobalData = async (locale) => {
@@ -38,5 +41,26 @@ export const get404PageData = async (locale) => {
       backButton: response.data.back_button,
     },
   };
+  return data;
+};
+
+export const getArticleData = async (slug, locale) => {
+  const response = await client.getByUID("article", slug, {
+    lang: localeMap[locale],
+  });
+
+  const data = response.data;
+  return data;
+};
+
+export const getArticlePaths = async () => {
+  const response = await client.get({
+    predicates: prismic.predicate.at("document.type", "article"),
+    lang: "*",
+  });
+
+  const data = response.results.map((result) => {
+    return { params: { slug: result.uid }, locale: localeMap[result.lang] };
+  });
   return data;
 };
