@@ -1,5 +1,6 @@
 import client from "utils/prismic";
 import * as prismic from "@prismicio/client";
+import * as prismicH from "@prismicio/helpers";
 
 const localeMap = {
   en: "en-us",
@@ -49,7 +50,30 @@ export const getArticleData = async (slug, locale) => {
     lang: localeMap[locale],
   });
 
-  const data = response.data;
+  const data = {
+    headline: prismicH.asText(response.data.headline),
+    subheadline: prismicH.asText(response.data.subheadline),
+    mainImage: response.data.main_image,
+    displayAuthor: response.data.display_author,
+    postDate: response.first_publication_date,
+    updateDate: response.last_publication_date,
+  };
+
+  if (data.displayAuthor) {
+    const authorResponse = await client.getByUID(
+      "author",
+      response.data.author.uid,
+      {
+        lang: localeMap[locale],
+      }
+    );
+
+    data.author = {
+      displayName: authorResponse.data.display_name,
+      username: authorResponse.uid,
+      pfpThumbnail: authorResponse.data.profile_picture.thumbnail,
+    };
+  }
   return data;
 };
 

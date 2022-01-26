@@ -1,8 +1,66 @@
-import Layout from "components/common/Layout";
 import { getGlobalData, getArticleData, getArticlePaths } from "utils/queries";
+import Layout from "components/common/Layout";
+import Image from "next/image";
+import Metadata from "components/articles/Metadata";
+import ShareButtons from "components/articles/ShareButtons";
 
 const Article = ({ globalData, articleData }) => {
-  return <Layout globalData={globalData}>{JSON.stringify(articleData)}</Layout>;
+  return (
+    <Layout globalData={globalData}>
+      <article className="grid grid-cols-4 gap-2">
+        <header className="mb-4 space-y-4 col-span-full">
+          <div className="flex justify-center">
+            <Image
+              src={articleData.mainImage.url}
+              alt={articleData.mainImage.alt}
+              width={1920 / 3}
+              height={1080 / 3}
+              priority
+            />
+          </div>
+          <h1 className="text-3xl font-extrabold sm:text-center sm:text-4xl text-neutral-700 dark:text-neutral-200">
+            {articleData.headline}
+          </h1>
+          <h2 className="text-xl font-semibold text-center sm:text-3xl text-neutral-600 dark:text-neutral-300">
+            {articleData.subheadline}
+          </h2>
+          <div className="flex flex-col justify-between space-y-5 lg:flex-row lg:items-end lg:space-y-0 lg:space-x-5">
+            <Metadata
+              authorData={articleData.author}
+              pubTimestamp={articleData.postDate}
+            />
+            <ShareButtons />
+          </div>
+          <div className="border-b dark:border-violet-500 border-violet-600"></div>
+        </header>
+
+        <section className="col-span-3">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            id malesuada nibh, in porttitor. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Suspendisse id malesuada nibh, in
+            porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Suspendisse id malesuada nibh, in porttitor. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Suspendisse id malesuada nibh, in
+            porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Suspendisse id malesuada nibh, in porttitor. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Suspendisse id malesuada nibh, in
+            porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Suspendisse id malesuada nibh, in porttitor. Lorem ipsum dolor
+            sitLorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Suspendisse id malesuada nibh, in porttitor. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Suspendisse id malesuada nibh, in
+            porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Suspendisse id malesuada nibh, in porttitor. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Suspendisse id malesuada nibh, in
+            porttitor. amet, consectetur adipiscing elit. Suspendisse id
+            malesuada nibh, in porttitor.
+          </p>
+        </section>
+        <aside>recommended</aside>
+      </article>
+    </Layout>
+  );
 };
 
 export const getStaticProps = async ({ locale, params }) => {

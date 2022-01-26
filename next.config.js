@@ -3,6 +3,9 @@ module.exports = {
     locales: ["en", "ar"],
     defaultLocale: "en",
   },
+  images: {
+    domains: ["images.prismic.io"],
+  },
   reactStrictMode: true,
   webpack(config) {
     config.module.rules.push({
