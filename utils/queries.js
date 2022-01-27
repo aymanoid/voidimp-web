@@ -49,6 +49,7 @@ export const getArticleData = async (slug, locale) => {
   const response = await client.getByUID("article", slug, {
     lang: localeMap[locale],
   });
+  //console.log(response.data.body[0].primary);
 
   const data = {
     headline: prismicH.asText(response.data.headline),
@@ -57,8 +58,32 @@ export const getArticleData = async (slug, locale) => {
     displayAuthor: response.data.display_author,
     postDate: response.first_publication_date,
     updateDate: response.last_publication_date,
+    segments: response.data.body.map((e) => {
+      const type = e.slice_type;
+      let primary;
+      switch (type) {
+        case "text":
+          primary = prismicH.asHTML(e.primary.text);
+          break;
+        case "image":
+          primary = {
+            dimensions: e.primary.image.dimensions,
+            alt: e.primary.image.alt,
+            copyright: e.primary.image.copyright,
+            url: e.primary.image.url,
+            caption: prismicH.asHTML(e.primary.caption),
+          };
+          break;
+        default:
+          primary = e.primary;
+      }
+      return {
+        type,
+        primary,
+      };
+    }),
   };
-
+  //console.log(data.body);
   if (data.displayAuthor) {
     const authorResponse = await client.getByUID(
       "author",

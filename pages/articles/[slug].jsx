@@ -3,6 +3,8 @@ import Layout from "components/common/Layout";
 import Image from "next/image";
 import Metadata from "components/articles/Metadata";
 import ShareButtons from "components/articles/ShareButtons";
+import TextSegment from "components/articles/TextSegment";
+import ImageSegment from "components/articles/ImageSegment";
 
 const Article = ({ globalData, articleData }) => {
   return (
@@ -18,7 +20,7 @@ const Article = ({ globalData, articleData }) => {
               priority
             />
           </div>
-          <h1 className="text-3xl font-extrabold sm:text-center sm:text-4xl text-neutral-700 dark:text-neutral-200">
+          <h1 className="text-3xl font-extrabold text-center sm:text-4xl text-neutral-700 dark:text-neutral-200">
             {articleData.headline}
           </h1>
           <h2 className="text-xl font-semibold text-center sm:text-3xl text-neutral-600 dark:text-neutral-300">
@@ -34,30 +36,16 @@ const Article = ({ globalData, articleData }) => {
           <div className="border-b dark:border-violet-500 border-violet-600"></div>
         </header>
 
-        <section className="col-span-3">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            id malesuada nibh, in porttitor. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Suspendisse id malesuada nibh, in
-            porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Suspendisse id malesuada nibh, in porttitor. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit. Suspendisse id malesuada nibh, in
-            porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Suspendisse id malesuada nibh, in porttitor. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit. Suspendisse id malesuada nibh, in
-            porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Suspendisse id malesuada nibh, in porttitor. Lorem ipsum dolor
-            sitLorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Suspendisse id malesuada nibh, in porttitor. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit. Suspendisse id malesuada nibh, in
-            porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Suspendisse id malesuada nibh, in porttitor. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit. Suspendisse id malesuada nibh, in
-            porttitor. amet, consectetur adipiscing elit. Suspendisse id
-            malesuada nibh, in porttitor.
-          </p>
+        <section className="col-span-4 space-y-4 lg:col-span-3">
+          {articleData.segments.map((segment, index) => {
+            if (segment.type === "text")
+              return <TextSegment key={index} textData={segment.primary} />;
+
+            if (segment.type === "image")
+              return <ImageSegment key={index} imageData={segment.primary} />;
+          })}
         </section>
-        <aside>recommended</aside>
+        <aside></aside>
       </article>
     </Layout>
   );
