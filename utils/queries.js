@@ -58,7 +58,7 @@ export const getArticleData = async (slug, locale) => {
     displayAuthor: response.data.display_author,
     postDate: response.first_publication_date,
     updateDate: response.last_publication_date,
-    segments: response.data.body.map((e) => {
+    segments: response.data.body?.map((e) => {
       const type = e.slice_type;
       let primary;
       switch (type) {
@@ -94,9 +94,9 @@ export const getArticleData = async (slug, locale) => {
     );
 
     data.author = {
-      displayName: authorResponse.data.display_name,
-      username: authorResponse.uid,
-      pfpThumbnail: authorResponse.data.profile_picture.thumbnail,
+      displayName: authorResponse?.data?.display_name,
+      username: authorResponse?.uid,
+      pfpThumbnail: authorResponse?.data?.profile_picture.thumbnail,
     };
   }
   return data;

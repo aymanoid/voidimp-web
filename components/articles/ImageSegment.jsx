@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 const ImageSegment = ({ imageData }) => {
-  console.log(imageData);
   const width = 426;
   const height =
     width * (imageData.dimensions.height / imageData.dimensions.width);
