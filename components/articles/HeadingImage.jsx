@@ -3,12 +3,12 @@ import Image from "next/image";
 const HeadingImage = ({ imageData }) => {
   return (
     <div className="flex justify-center">
-      <div className="flex p-2 border rounded-3xl dark:border-violet-500/50 border-violet-600/50">
+      <div className="flex rounded-3xl border border-violet-600/50 p-2 dark:border-violet-500/50">
         <Image
           src={imageData.url}
           alt={imageData.alt}
-          width={1920 / 3}
-          height={1080 / 3}
+          width={imageData.dimensions.width / 3}
+          height={imageData.dimensions.height / 3}
           className="rounded-3xl"
           priority
         />

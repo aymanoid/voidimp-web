@@ -4,7 +4,7 @@ module.exports = {
     defaultLocale: "en",
   },
   images: {
-    domains: ["images.prismic.io"],
+    domains: ["images.prismic.io", "i.imgur.com"],
   },
   reactStrictMode: true,
   webpack(config) {

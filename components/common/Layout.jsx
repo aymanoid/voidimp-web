@@ -9,16 +9,14 @@ const Layout = ({ globalData, children }) => {
   return (
     <div
       dir={locale === "ar" ? "rtl" : "ltr"}
-      className="flex flex-col justify-between h-screen"
+      className="flex h-screen flex-col justify-between"
     >
       <Navbar
         searchBarLabel={globalData.searchBarLabel}
         navbarLinks={globalData.navbarLinks}
         socialLinks={globalData.socialLinks}
       />
-      <main className="max-w-3xl px-4 mx-auto mt-10 mb-auto sm:mt-16 sm:px-6 xl:max-w-7xl xl:px-0">
-        {children}
-      </main>
+      <main className="relative p-4 lg:p-8">{children}</main>
       <Footer
         footerDescription={globalData.footerDescription}
         socialLinks={globalData.socialLinks}
