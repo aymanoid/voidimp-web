@@ -10,25 +10,25 @@ const Footer = ({
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="shadow bg-neutral-100 dark:bg-neutral-800">
-      <div className="container px-6 py-4 mx-auto">
+    <footer className="bg-neutral-100 shadow dark:bg-neutral-800">
+      <div className="container mx-auto px-6 py-4">
         <div className="lg:flex">
-          <div className="w-full -mx-6 lg:w-2/5">
+          <div className="-mx-6 w-full lg:w-2/5">
             <div className="px-6">
               <div>
                 <a
                   href="#"
-                  className="text-xl font-bold text-neutral-900 dark:text-white hover:text-neutral-700 dark:hover:text-neutral-300"
+                  className="text-xl font-bold text-neutral-900 hover:text-neutral-700 dark:text-white dark:hover:text-neutral-300"
                 >
                   VoidImp
                 </a>
               </div>
 
-              <p className="max-w-md mt-2 text-neutral-700 dark:text-neutral-200">
+              <p className="mt-2 max-w-md text-neutral-700 dark:text-neutral-200">
                 {footerDescription}
               </p>
 
-              <div className="flex mt-4 -mx-2">
+              <div className="-mx-2 mt-4 flex">
                 {socialLinks.map((link, index) => (
                   <SocialIcon
                     key={index}
@@ -56,7 +56,7 @@ const Footer = ({
           </div>
         </div>
 
-        <hr className="h-px my-6 border-none bg-violet-500 dark:bg-violet-400" />
+        <hr className="my-6 h-px border-none bg-violet-500 dark:bg-violet-400" />
 
         <div>
           <p className="text-center text-neutral-700 dark:text-neutral-200">
