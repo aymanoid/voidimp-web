@@ -25,24 +25,24 @@ const articlesData = [
   },
 ];
 
-const SidebarTrending = ({ _articlesData }) => {
+const SidebarRecommended = ({ _articlesData }) => {
   return (
-    <section>
-      <h3 className="pb-4 text-center text-lg font-semibold uppercase text-neutral-600 dark:text-neutral-300">
-        Popular Now
+    <section className="relative p-4">
+      <h3 className="text-end pb-4 text-center text-lg font-semibold uppercase text-neutral-600 dark:text-neutral-300">
+        Recommended
       </h3>
-      <div className="columns-1 space-y-6">
+      <div className="space-y-6">
         {articlesData.map((articleData, index) => {
           return (
             <article key={index}>
               <Link href={articleData.url}>
                 <a>
-                  <div className="">
+                  <div className="aspect-w-16 aspect-h-9 relative w-full">
                     <Image
                       src={articleData.thumbnail.url}
                       alt={articleData.thumbnail.alt}
-                      width={1920 / 6}
-                      height={1080 / 6}
+                      layout="fill"
+                      objectFit="cover"
                       className="rounded"
                     />
                   </div>
@@ -59,4 +59,4 @@ const SidebarTrending = ({ _articlesData }) => {
   );
 };
 
-export default SidebarTrending;
+export default SidebarRecommended;
