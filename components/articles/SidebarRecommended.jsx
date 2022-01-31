@@ -27,11 +27,11 @@ const articlesData = [
 
 const SidebarRecommended = ({ _articlesData }) => {
   return (
-    <section className="relative p-4">
-      <h3 className="text-end pb-4 text-center text-lg font-semibold uppercase text-neutral-600 dark:text-neutral-300">
-        Recommended
+    <section className="relative">
+      <h3 className="text-lg font-bold uppercase text-neutral-600 shadow-violet-500/40 drop-shadow-lg dark:text-neutral-300">
+        🔮 Recommended
       </h3>
-      <div className="space-y-6">
+      <div className="space-y-6 pt-6">
         {articlesData.map((articleData, index) => {
           return (
             <article key={index}>
@@ -43,10 +43,10 @@ const SidebarRecommended = ({ _articlesData }) => {
                       alt={articleData.thumbnail.alt}
                       layout="fill"
                       objectFit="cover"
-                      className="rounded"
+                      className="rounded-2xl"
                     />
                   </div>
-                  <h3 className="text-neutral-700 dark:text-neutral-200">
+                  <h3 className="pt-2 font-semibold text-neutral-700 decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:text-neutral-200 dark:decoration-violet-500">
                     {articleData.title}
                   </h3>
                 </a>
