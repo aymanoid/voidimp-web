@@ -5,7 +5,7 @@ const articlesData = [
   {
     title: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
     url: "/haha1",
-    thumbnail: { url: "https://i.imgur.com/cfzPJwa.jpeg", alt: "s1" },
+    thumbnail: { url: "https://i.imgur.com/r9uzP8l.jpeg", alt: "s1" },
   },
   {
     title:
@@ -37,15 +37,13 @@ const SidebarRecommended = ({ _articlesData }) => {
             <article key={index}>
               <Link href={articleData.url}>
                 <a>
-                  <div className="aspect-w-16 aspect-h-9 relative w-full">
-                    <Image
-                      src={articleData.thumbnail.url}
-                      alt={articleData.thumbnail.alt}
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded-2xl"
-                    />
-                  </div>
+                  <Image
+                    src={articleData.thumbnail.url}
+                    alt={articleData.thumbnail.alt}
+                    width={1920 / 3}
+                    height={1080 / 3}
+                    className="rounded-2xl"
+                  />
                   <h3 className="pt-2 font-semibold text-neutral-700 decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:text-neutral-200 dark:decoration-violet-500">
                     {articleData.title}
                   </h3>
