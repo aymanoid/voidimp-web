@@ -6,6 +6,7 @@ import HeadingImage from "components/articles/HeadingImage";
 import TextSegment from "components/articles/TextSegment";
 import ImageSegment from "components/articles/ImageSegment";
 import SidebarRecommended from "components/articles/SidebarRecommended";
+import TagsList from "components/articles/TagsList";
 
 const Article = ({ globalData, articleData }) => {
   return (
@@ -38,6 +39,8 @@ const Article = ({ globalData, articleData }) => {
               if (segment.type === "image")
                 return <ImageSegment key={index} imageData={segment.primary} />;
             })}
+
+            <TagsList />
           </section>
           <aside className="w-full lg:w-1/3 xl:w-1/4">
             <SidebarRecommended />
