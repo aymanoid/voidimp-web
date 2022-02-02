@@ -3,6 +3,7 @@ import {
   getArticleData,
   getArticlePaths,
   getBriefAuthorData,
+  getMultipleTagsData,
 } from "utils/queries";
 import Layout from "components/common/Layout";
 import Metadata from "components/articles/Metadata";
@@ -14,7 +15,7 @@ import SidebarRecommended from "components/articles/SidebarRecommended";
 import TagsList from "components/articles/TagsList";
 import AuthorInfo from "components/articles/AuthorInfo";
 
-const Article = ({ globalData, articleData, authorData }) => {
+const Article = ({ globalData, articleData, authorData, tagsData }) => {
   return (
     <Layout globalData={globalData}>
       <article className="container mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl">
@@ -46,7 +47,7 @@ const Article = ({ globalData, articleData, authorData }) => {
                 return <ImageSegment key={index} imageData={segment.primary} />;
             })}
 
-            <TagsList />
+            <TagsList tagsData={tagsData} />
             <div className="mt-6 border-b border-violet-600/50 dark:border-violet-500/50"></div>
             <AuthorInfo authorData={authorData} />
           </section>
@@ -65,16 +66,17 @@ export const getStaticProps = async ({ locale, params }) => {
     getArticleData(params.slug, locale),
   ]);
 
-  const authorData = await getBriefAuthorData(
-    articleData.authorUsername,
-    locale
-  );
+  const [authorData, tagsData] = await Promise.all([
+    getBriefAuthorData(articleData.authorUsername, locale),
+    getMultipleTagsData(articleData.tags, locale),
+  ]);
 
   return {
     props: {
       globalData,
       articleData,
       authorData,
+      tagsData,
     },
   };
 };

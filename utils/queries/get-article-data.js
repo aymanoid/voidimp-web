@@ -12,15 +12,15 @@ const getArticleData = async (slug, locale) => {
   const response = await client.getByUID("article", slug, {
     lang: localeMap[locale],
   });
-  //console.log(response.data.body[0].primary);
+  console.log(response.data.tags);
 
   const data = {
     headline: prismicH.asText(response.data.headline),
     subheadline: prismicH.asText(response.data.subheadline),
     mainImage: response.data.main_image,
     authorUsername: response.data.author.uid,
-    postDate: response.first_publication_date,
-    updateDate: response.last_publication_date,
+    postDate: response.data.post_date || response.first_publication_date,
+    updateDate: response.data.update_date || response.last_publication_date,
     segments: response.data.body?.map((e) => {
       const type = e.slice_type;
       let primary;
@@ -45,6 +45,7 @@ const getArticleData = async (slug, locale) => {
         primary,
       };
     }),
+    tags: response.data.tags.map((e) => e.tag.uid),
   };
 
   return data;
