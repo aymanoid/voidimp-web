@@ -19,12 +19,12 @@ const Metadata = ({ authorData, pubTimestamp }) => {
   const pubDate = formatDate(pubTimestamp, locale);
   return (
     <div className="flex flex-shrink-0 items-center font-medium">
-      <Link href={`/authors/${authorData?.username}`}>
+      <Link href={`/authors/${authorData.username}`}>
         <a className="flex items-center space-x-2">
           <div className="relative inline-flex h-12 w-12 flex-shrink-0 items-center justify-center overflow-hidden">
             <Image
-              src={authorData?.pfpThumbnail.url}
-              alt={authorData?.pfpThumbnail.alt}
+              src={authorData.avatarThumbnail.url}
+              alt={authorData.avatarThumbnail.alt}
               layout="fill"
               objectFit="cover"
               className="absolute inset-0 h-full w-full rounded-full object-cover"
@@ -34,9 +34,9 @@ const Metadata = ({ authorData, pubTimestamp }) => {
       </Link>
       <div className="ml-3 rtl:mr-3">
         <div className="flex items-center">
-          <Link href={`/authors/${authorData?.username}`}>
+          <Link href={`/authors/${authorData.username}`}>
             <a className="block text-violet-600 dark:text-violet-500">
-              {authorData?.displayName}
+              {authorData.displayName}
             </a>
           </Link>
         </div>
