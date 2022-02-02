@@ -8,6 +8,7 @@ const formatDate = (timestamp, locale) => {
   const options = {
     dateStyle: "long",
     timeStyle: "short",
+    numberingSystem: "latn",
   };
 
   return new Intl.DateTimeFormat(locale, options).format(date);
