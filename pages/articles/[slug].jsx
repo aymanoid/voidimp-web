@@ -71,6 +71,9 @@ export const getStaticProps = async ({ locale, params }) => {
     getMultipleTagsData(articleData.tags, locale),
   ]);
 
+  delete articleData.authorUsername;
+  delete articleData.tags;
+
   return {
     props: {
       globalData,
