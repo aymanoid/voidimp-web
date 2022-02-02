@@ -18,7 +18,7 @@ const getArticleData = async (slug, locale) => {
     headline: prismicH.asText(response.data.headline),
     subheadline: prismicH.asText(response.data.subheadline),
     mainImage: response.data.main_image,
-    displayAuthor: response.data.display_author,
+    authorUsername: response.data.author.uid,
     postDate: response.first_publication_date,
     updateDate: response.last_publication_date,
     segments: response.data.body?.map((e) => {
@@ -46,24 +46,7 @@ const getArticleData = async (slug, locale) => {
       };
     }),
   };
-  //console.log(data.body);
-  if (data.displayAuthor) {
-    const authorResponse = await client.getByUID(
-      "author",
-      response.data.author.uid,
-      {
-        lang: localeMap[locale],
-      }
-    );
 
-    console.log(authorResponse);
-    data.author = {
-      displayName: authorResponse?.data?.display_name,
-      username: authorResponse?.uid,
-      pfpThumbnail: authorResponse?.data?.profile_picture.thumbnail,
-      bio: authorResponse?.data?.bio,
-    };
-  }
   return data;
 };
 

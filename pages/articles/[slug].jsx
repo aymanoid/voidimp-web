@@ -1,4 +1,9 @@
-import { getGlobalData, getArticleData, getArticlePaths } from "utils/queries";
+import {
+  getGlobalData,
+  getArticleData,
+  getArticlePaths,
+  getBriefAuthorData,
+} from "utils/queries";
 import Layout from "components/common/Layout";
 import Metadata from "components/articles/Metadata";
 import ShareButtons from "components/articles/ShareButtons";
@@ -7,8 +12,9 @@ import TextSegment from "components/articles/TextSegment";
 import ImageSegment from "components/articles/ImageSegment";
 import SidebarRecommended from "components/articles/SidebarRecommended";
 import TagsList from "components/articles/TagsList";
+import AuthorInfo from "components/articles/AuthorInfo";
 
-const Article = ({ globalData, articleData }) => {
+const Article = ({ globalData, articleData, authorData }) => {
   return (
     <Layout globalData={globalData}>
       <article className="container mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl">
@@ -22,7 +28,7 @@ const Article = ({ globalData, articleData }) => {
           </h2>
           <div className="flex flex-col justify-between space-y-5 md:flex-row md:items-end md:space-y-0 md:space-x-5">
             <Metadata
-              authorData={articleData.author}
+              authorData={authorData}
               pubTimestamp={articleData.postDate}
             />
             <ShareButtons />
@@ -41,6 +47,8 @@ const Article = ({ globalData, articleData }) => {
             })}
 
             <TagsList />
+            <div className="mt-6 border-b border-violet-600/50 dark:border-violet-500/50"></div>
+            <AuthorInfo authorData={authorData} />
           </section>
           <aside className="w-full lg:w-1/3 xl:w-1/4">
             <SidebarRecommended />
@@ -57,10 +65,16 @@ export const getStaticProps = async ({ locale, params }) => {
     getArticleData(params.slug, locale),
   ]);
 
+  const authorData = await getBriefAuthorData(
+    articleData.authorUsername,
+    locale
+  );
+
   return {
     props: {
       globalData,
       articleData,
+      authorData,
     },
   };
 };
