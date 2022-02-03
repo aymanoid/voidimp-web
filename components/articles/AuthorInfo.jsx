@@ -1,7 +1,15 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 
 const AuthorInfo = ({ authorData }) => {
+  const { locale } = useRouter();
+
+  const strings = {
+    en: { writtenBy: "Written By" },
+    ar: { writtenBy: "كتب بواسطة" },
+  }[locale];
+
   return (
     <div className="mt-6 flex">
       <Link href={`/authors/${authorData.username}`}>
@@ -19,7 +27,7 @@ const AuthorInfo = ({ authorData }) => {
       </Link>
       <div className="ml-3 flex max-w-lg flex-col rtl:mr-3 sm:ml-5">
         <span className="text-xs uppercase tracking-wider text-neutral-400">
-          Written By
+          {strings.writtenBy}
         </span>
         <h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-200">
           <Link href={`/authors/${authorData?.username}`}>

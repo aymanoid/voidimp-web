@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -26,10 +27,17 @@ const articlesData = [
 ];
 
 const SidebarRecommended = ({ _articlesData }) => {
+  const { locale } = useRouter();
+
+  const strings = {
+    en: { recommended: "Recommended" },
+    ar: { recommended: "موصى به" },
+  }[locale];
+
   return (
     <section className="relative mt-6 lg:mt-0">
       <h3 className="text-lg font-bold uppercase text-neutral-600 shadow-violet-500/40 drop-shadow-lg dark:text-neutral-300">
-        🔮 Recommended
+        🔮 {strings.recommended}
       </h3>
       <div className="space-y-6 pt-6">
         {articlesData.map((articleData, index) => {
