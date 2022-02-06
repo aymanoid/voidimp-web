@@ -12,7 +12,6 @@ const getArticleData = async (slug, locale) => {
   const response = await client.getByUID("article", slug, {
     lang: localeMap[locale],
   });
-  console.log(response.data.tags);
 
   const data = {
     headline: prismicH.asText(response.data.headline),
