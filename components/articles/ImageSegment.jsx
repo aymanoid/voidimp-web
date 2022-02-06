@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Imgix from "react-imgix";
 
 const ImageSegment = ({ imageData }) => {
   const width = 426;
@@ -6,7 +6,7 @@ const ImageSegment = ({ imageData }) => {
     width * (imageData.dimensions.height / imageData.dimensions.width);
   return (
     <div className="flex justify-center">
-      <Image
+      <Imgix
         src={imageData.url}
         alt={imageData.alt}
         width={width}
