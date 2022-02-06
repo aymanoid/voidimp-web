@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Imgix from "react-imgix";
+import "lazysizes";
+import "lazysizes/plugins/attrchange/ls.attrchange";
 
 const articlesData = [
   {
@@ -58,11 +60,15 @@ const SidebarRecommended = ({ _articlesData }) => {
               <Link href={articleData.url}>
                 <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-500">
                   <Imgix
+                    className="lazyload rounded-2xl"
                     src={articleData.thumbnail.url}
                     alt={articleData.thumbnail.alt}
-                    width={1920 / 3}
-                    height={1080 / 3}
-                    className="rounded-2xl"
+                    sizes="100vw"
+                    attributeConfig={{
+                      src: "data-src",
+                      srcSet: "data-srcset",
+                      sizes: "data-sizes",
+                    }}
                   />
                   <h3 className="pt-2 font-semibold text-neutral-700 dark:text-neutral-200 ">
                     {articleData.title}
