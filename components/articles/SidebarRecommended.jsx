@@ -1,28 +1,40 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
+import Imgix from "react-imgix";
 
 const articlesData = [
   {
     title: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
     url: "/haha1",
-    thumbnail: { url: "https://i.imgur.com/r9uzP8l.jpeg", alt: "s1" },
+    thumbnail: {
+      url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
+      alt: "s1",
+    },
   },
   {
     title:
       "Black Myth: Wukong New Year Trailer Reveals Cats Can Be Difficult Mo-Cap Actors",
     url: "/haha1",
-    thumbnail: { url: "https://i.imgur.com/4rYm8jR.png", alt: "s2" },
+    thumbnail: {
+      url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
+      alt: "s2",
+    },
   },
   {
     title: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
     url: "/haha1",
-    thumbnail: { url: "https://i.imgur.com/krNaVuU.jpeg", alt: "s3" },
+    thumbnail: {
+      url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
+      alt: "s3",
+    },
   },
   {
     title: "So, What Games Are Women Supposed To Play, Exactly?",
     url: "/haha1",
-    thumbnail: { url: "https://i.imgur.com/HbQN8w0.png", alt: "s4" },
+    thumbnail: {
+      url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
+      alt: "s4",
+    },
   },
 ];
 
@@ -44,15 +56,15 @@ const SidebarRecommended = ({ _articlesData }) => {
           return (
             <article key={index}>
               <Link href={articleData.url}>
-                <a>
-                  <Image
+                <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-500">
+                  <Imgix
                     src={articleData.thumbnail.url}
                     alt={articleData.thumbnail.alt}
                     width={1920 / 3}
                     height={1080 / 3}
                     className="rounded-2xl"
                   />
-                  <h3 className="pt-2 font-semibold text-neutral-700 decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:text-neutral-200 dark:decoration-violet-500">
+                  <h3 className="pt-2 font-semibold text-neutral-700 dark:text-neutral-200 ">
                     {articleData.title}
                   </h3>
                 </a>
