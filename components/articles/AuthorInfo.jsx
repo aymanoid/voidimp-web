@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
+import Imgix, { Picture, Source } from "react-imgix";
+import "lazysizes";
+import "lazysizes/plugins/attrchange/ls.attrchange";
 
 const AuthorInfo = ({ authorData }) => {
   const { locale } = useRouter();
@@ -15,13 +17,32 @@ const AuthorInfo = ({ authorData }) => {
       <Link href={`/authors/${authorData.username}`}>
         <a className="flex items-center ">
           <div className="relative inline-flex h-12 w-12 flex-shrink-0 items-center justify-center overflow-hidden text-lg font-semibold uppercase sm:h-24 sm:w-24 sm:text-xl ">
-            <Image
-              src={authorData.avatarThumbnail.url}
-              alt={authorData.avatarThumbnail.alt}
-              layout="fill"
-              objectFit="cover"
-              className="absolute inset-0 h-full w-full rounded-xl object-cover"
-            />
+            <Picture>
+              <Source
+                src={authorData.avatarThumbnail.url}
+                width={96}
+                height={96}
+                htmlAttributes={{ media: "(min-width: 640px)" }}
+              />
+              <Source
+                src={authorData.avatarThumbnail.url}
+                width={48}
+                height={48}
+                htmlAttributes={{ media: "(min-width: 0px)" }}
+              />
+              <Imgix
+                className="lazyload absolute inset-0 h-full w-full rounded-xl object-cover"
+                src={authorData.avatarThumbnail.url}
+                width={authorData.avatarThumbnail.dimensions.width}
+                height={authorData.avatarThumbnail.dimensions.height}
+                htmlAttributes={{ alt: authorData.avatarThumbnail.alt }}
+                attributeConfig={{
+                  src: "data-src",
+                  srcSet: "data-srcset",
+                  sizes: "data-sizes",
+                }}
+              />
+            </Picture>
           </div>
         </a>
       </Link>
