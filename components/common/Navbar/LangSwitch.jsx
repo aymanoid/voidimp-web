@@ -4,10 +4,10 @@ const LangSwitch = () => {
   const router = useRouter();
   const { pathname, asPath, query, locale } = router;
 
-  const targetLang =
-    locale === "en"
-      ? { name: "العربية", locale: "ar" }
-      : { name: "English", locale: "en" };
+  const targetLang = {
+    en: { name: "العربية", locale: "ar" },
+    ar: { name: "English", locale: "en" },
+  }[locale];
 
   const changeLang = () => {
     router.push({ pathname, query }, asPath, { locale: targetLang.locale });
