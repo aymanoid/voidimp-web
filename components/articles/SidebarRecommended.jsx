@@ -80,21 +80,25 @@ const SidebarRecommended = ({ _articlesData }) => {
                       <Source
                         src={articleData.thumbnail.url}
                         width={320}
+                        height={320 / (16 / 9)}
                         htmlAttributes={{ media: "(min-width: 1024px)" }}
                       />
                       <Source
                         src={articleData.thumbnail.url}
                         width={1024}
+                        height={1024 / (16 / 9)}
                         htmlAttributes={{ media: "(min-width: 768px)" }}
                       />
                       <Source
                         src={articleData.thumbnail.url}
                         width={768}
+                        height={768 / (16 / 9)}
                         htmlAttributes={{ media: "(min-width: 640px)" }}
                       />
                       <Source
                         src={articleData.thumbnail.url}
                         width={640}
+                        height={640 / (16 / 9)}
                         htmlAttributes={{ media: "(min-width: 0px)" }}
                       />
                       <Imgix
