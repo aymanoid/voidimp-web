@@ -12,7 +12,7 @@ const defaultData = {
     displayName: "VoidImp",
     username: "ayman",
     avatarThumbnail: {
-      url: "/default_author_avatar.png",
+      url: "https://images.unsplash.com/photo-1608889175123-8ee362201f81",
       alt: "Default Author Avatar",
     },
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ultrices tincidunt arcu non sodales neque. In metus vulputate eu scelerisque felis imperdiet proin fermentum leo.",
@@ -21,7 +21,7 @@ const defaultData = {
     displayName: "VoidImp",
     username: "ayman",
     avatarThumbnail: {
-      url: "/default_author_avatar.png",
+      url: "https://images.unsplash.com/photo-1608889175123-8ee362201f81",
       alt: "صورة الكاتب الإفتراضية",
     },
     bio: "الألم بحد ذاته هو حب الألم ، المشاكل البيئية الرئيسية ، لكني أعطي هذا النوع من الوقت للتراجع ، بحيث يكون هناك بعض الألم والألم العظيمين. حتى رؤساء القوس المنتقمون ليسوا أعضاء ولا. في خوف من لحوم البقر وموت الأسد.",
