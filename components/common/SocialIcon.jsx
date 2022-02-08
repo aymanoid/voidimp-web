@@ -15,7 +15,7 @@ const SocialIcon = ({ kind, name, url, size = 6 }) => {
   return (
     <Link href={url}>
       <a
-        className="mx-2 transform text-neutral-700 transition-colors duration-200 hover:text-violet-600 dark:text-neutral-200 dark:hover:text-violet-500 lg:mt-0"
+        className="mx-2 transform text-neutral-700 transition-colors duration-200 hover:text-violet-600 dark:text-neutral-200 dark:hover:text-violet-400 lg:mt-0"
         aria-label={name}
       >
         <IconSvg

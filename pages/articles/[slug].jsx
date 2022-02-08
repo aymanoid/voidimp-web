@@ -34,7 +34,7 @@ const Article = ({ globalData, articleData, authorData, tagsData }) => {
             />
             <ShareButtons />
           </div>
-          <div className="border-b border-violet-600/50 dark:border-violet-500/50"></div>
+          <div className="border-b border-violet-600/50 dark:border-violet-400/50"></div>
         </header>
 
         <div className="my-4 flex flex-col lg:flex-row">
@@ -48,7 +48,7 @@ const Article = ({ globalData, articleData, authorData, tagsData }) => {
             })}
 
             <TagsList tagsData={tagsData} />
-            <div className="mt-6 border-b border-violet-600/50 dark:border-violet-500/50"></div>
+            <div className="mt-6 border-b border-violet-600/50 dark:border-violet-400/50"></div>
             <AuthorInfo authorData={authorData} />
           </section>
           <aside className="w-full lg:w-1/3 xl:w-1/4">

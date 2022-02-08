@@ -56,7 +56,7 @@ const Footer = ({
           </div>
         </div>
 
-        <hr className="my-6 h-px border-none bg-violet-500 dark:bg-violet-400" />
+        <hr className="my-6 h-px border-none bg-violet-400 dark:bg-violet-400" />
 
         <div>
           <p className="text-center text-neutral-700 dark:text-neutral-200">

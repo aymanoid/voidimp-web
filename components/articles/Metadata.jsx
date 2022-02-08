@@ -43,7 +43,7 @@ const Metadata = ({ authorData, pubTimestamp }) => {
       <div className="ml-3 rtl:mr-3">
         <div className="flex items-center">
           <Link href={`/authors/${authorData.username}`}>
-            <a className="block text-violet-600 dark:text-violet-500">
+            <a className="block text-violet-600 dark:text-violet-400">
               {authorData.displayName}
             </a>
           </Link>

@@ -3,7 +3,7 @@ import Link from "next/link";
 const FooterLinks = ({ title, links }) => {
   return (
     <div>
-      <h3 className="border-b-2 border-violet-600 font-bold uppercase text-neutral-900 dark:border-violet-500 dark:text-white">
+      <h3 className="border-b-2 border-violet-600 font-bold uppercase text-neutral-900 dark:border-violet-400 dark:text-white">
         {title}
       </h3>
       {links.map((link, index) => {

@@ -66,7 +66,7 @@ const SidebarRecommended = ({ _articlesData }) => {
 
   return (
     <section className="relative mt-6 lg:mt-0">
-      <h3 className="text-lg font-bold uppercase text-neutral-600 shadow-violet-500/40 drop-shadow-lg dark:text-neutral-300">
+      <h3 className="text-lg font-bold uppercase text-neutral-600 shadow-violet-400/40 drop-shadow-lg dark:text-neutral-300">
         🔮 {strings.recommended}
       </h3>
       <div className="space-y-6 pt-6">
@@ -74,7 +74,7 @@ const SidebarRecommended = ({ _articlesData }) => {
           return (
             <article key={index}>
               <Link href={articleData.url}>
-                <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-500">
+                <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
                   <figure>
                     <Picture>
                       <Source

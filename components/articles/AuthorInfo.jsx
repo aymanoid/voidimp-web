@@ -50,7 +50,7 @@ const AuthorInfo = ({ authorData }) => {
         <span className="text-xs uppercase tracking-wider text-neutral-400">
           {strings.writtenBy}
         </span>
-        <h2 className="text-lg font-semibold text-neutral-900 hover:text-violet-600 dark:text-neutral-200 dark:hover:text-violet-500">
+        <h2 className="text-lg font-semibold text-neutral-900 hover:text-violet-600 dark:text-neutral-200 dark:hover:text-violet-400">
           <Link href={`/authors/${authorData.username}`}>
             <a>{authorData.displayName}</a>
           </Link>
@@ -62,7 +62,7 @@ const AuthorInfo = ({ authorData }) => {
               <a className="inline ">
                 {" "}
                 [
-                <span className="inline text-violet-600 dark:text-violet-500">
+                <span className="inline text-violet-600 dark:text-violet-400">
                   ...
                 </span>
                 ]

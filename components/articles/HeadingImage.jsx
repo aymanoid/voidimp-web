@@ -5,7 +5,7 @@ import "lazysizes/plugins/attrchange/ls.attrchange";
 const HeadingImage = ({ imageData }) => {
   return (
     <div className="flex justify-center">
-      <div className="flex w-full rounded-3xl border border-violet-600/50 p-2 dark:border-violet-500/50 lg:w-1/2">
+      <div className="flex w-full rounded-3xl border border-violet-600/50 p-2 dark:border-violet-400/50 lg:w-1/2">
         <figure className="">
           <Picture>
             <Source
