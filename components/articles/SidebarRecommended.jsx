@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Imgix from "react-imgix";
+import Imgix, { Picture, Source } from "react-imgix";
 import "lazysizes";
 import "lazysizes/plugins/attrchange/ls.attrchange";
 
@@ -11,6 +11,10 @@ const articlesData = [
     thumbnail: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
       alt: "s1",
+      dimensions: {
+        width: 1920,
+        height: 1080,
+      },
     },
   },
   {
@@ -20,6 +24,10 @@ const articlesData = [
     thumbnail: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
       alt: "s2",
+      dimensions: {
+        width: 1920,
+        height: 1080,
+      },
     },
   },
   {
@@ -28,6 +36,10 @@ const articlesData = [
     thumbnail: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
       alt: "s3",
+      dimensions: {
+        width: 1920,
+        height: 1080,
+      },
     },
   },
   {
@@ -36,6 +48,10 @@ const articlesData = [
     thumbnail: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
       alt: "s4",
+      dimensions: {
+        width: 1920,
+        height: 1080,
+      },
     },
   },
 ];
@@ -59,17 +75,39 @@ const SidebarRecommended = ({ _articlesData }) => {
             <article key={index}>
               <Link href={articleData.url}>
                 <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-500">
-                  <Imgix
-                    className="lazyload rounded-2xl"
-                    src={articleData.thumbnail.url}
-                    alt={articleData.thumbnail.alt}
-                    sizes="100vw"
-                    attributeConfig={{
-                      src: "data-src",
-                      srcSet: "data-srcset",
-                      sizes: "data-sizes",
-                    }}
-                  />
+                  <figure>
+                    <Picture>
+                      <Source
+                        src={articleData.thumbnail.url}
+                        width={320}
+                        htmlAttributes={{ media: "(min-width: 1024px)" }}
+                      />
+                      <Source
+                        src={articleData.thumbnail.url}
+                        width={1024}
+                        htmlAttributes={{ media: "(min-width: 768px)" }}
+                      />
+                      <Source
+                        src={articleData.thumbnail.url}
+                        width={768}
+                        htmlAttributes={{ media: "(min-width: 640px)" }}
+                      />
+                      <Imgix
+                        className="lazyload rounded-3xl"
+                        src={articleData.thumbnail.url}
+                        width={articleData.thumbnail.dimensions.width}
+                        height={articleData.thumbnail.dimensions.height}
+                        htmlAttributes={{ alt: articleData.thumbnail.alt }}
+                        attributeConfig={{
+                          src: "data-src",
+                          srcSet: "data-srcset",
+                          sizes: "data-sizes",
+                        }}
+                      />
+                      {/* TODO: add and stylize figurecaption tag */}
+                    </Picture>
+                  </figure>
+
                   <h3 className="pt-2 font-semibold text-neutral-700 dark:text-neutral-200 ">
                     {articleData.title}
                   </h3>
