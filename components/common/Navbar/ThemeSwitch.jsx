@@ -1,12 +1,10 @@
 import { useTheme } from "next-themes";
-import dynamic from "next/dynamic";
+import SunSvg from "components/icons/sun.svg";
+import MoonSvg from "components/icons/moon.svg";
 
 const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme();
-  const IconSvg =
-    theme === "dark"
-      ? dynamic(() => import("components/icons/sun.svg"))
-      : dynamic(() => import("components/icons/moon.svg"));
+  const IconSvg = theme === "dark" ? SunSvg : MoonSvg;
 
   return (
     <button

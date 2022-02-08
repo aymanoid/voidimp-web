@@ -1,12 +1,15 @@
-import dynamic from "next/dynamic";
+import TwitterSvg from "components/icons/social/twitter.svg";
+import InstagramSvg from "components/icons/social/instagram.svg";
+import YoutubeSvg from "components/icons/social/youtube.svg";
+import RssSvg from "components/icons/social/rss.svg";
 import Link from "next/link";
 
 const SocialIcon = ({ kind, name, url, size = 6 }) => {
   const IconSvg = {
-    twitter: dynamic(() => import("components/icons/social/twitter.svg")),
-    instagram: dynamic(() => import("components/icons/social/instagram.svg")),
-    youtube: dynamic(() => import("components/icons/social/youtube.svg")),
-    rss: dynamic(() => import("components/icons/social/rss.svg")),
+    twitter: TwitterSvg,
+    instagram: InstagramSvg,
+    youtube: YoutubeSvg,
+    rss: RssSvg,
   }[kind];
 
   return (
