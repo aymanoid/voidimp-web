@@ -11,7 +11,7 @@ const HeadingImage = ({ imageData }) => {
             <Source
               src={imageData.url}
               width={640}
-              height={360}
+              height={640 / (16 / 9)}
               htmlAttributes={{ media: "(min-width: 1024px)" }}
             />
             {/* <Source
@@ -23,13 +23,13 @@ const HeadingImage = ({ imageData }) => {
             <Source
               src={imageData.url}
               width={768}
-              height={432}
+              height={768 / (16 / 9)}
               htmlAttributes={{ media: "(min-width: 640px)" }}
             />
             <Source
               src={imageData.url}
               width={640}
-              height={360}
+              height={640 / (16 / 9)}
               htmlAttributes={{ media: "(min-width: 0px)" }}
             />
             <Imgix
