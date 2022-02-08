@@ -8,9 +8,9 @@ const ImageSegment = ({ imageData }) => {
     <div className="flex justify-center">
       <Imgix
         src={imageData.url}
-        alt={imageData.alt}
         width={width}
         height={height}
+        htmlAttributes={{ alt: imageData.alt }}
         className="rounded-md"
       />
     </div>

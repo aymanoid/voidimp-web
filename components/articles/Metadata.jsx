@@ -28,9 +28,9 @@ const Metadata = ({ authorData, pubTimestamp }) => {
             <Imgix
               className="lazyload absolute inset-0 h-full w-full rounded-full object-cover"
               src={authorData.avatarThumbnail.url}
-              alt={authorData.avatarThumbnail.alt}
               width={48}
               height={48}
+              htmlAttributes={{ alt: authorData.avatarThumbnail.alt }}
               attributeConfig={{
                 src: "data-src",
                 srcSet: "data-srcset",
