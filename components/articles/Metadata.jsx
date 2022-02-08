@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
+import Imgix from "react-imgix";
+import "lazysizes";
+import "lazysizes/plugins/attrchange/ls.attrchange";
 
 const formatDate = (timestamp, locale) => {
   const date = new Date(timestamp);
@@ -23,12 +25,17 @@ const Metadata = ({ authorData, pubTimestamp }) => {
       <Link href={`/authors/${authorData.username}`}>
         <a className="flex items-center space-x-2">
           <div className="relative inline-flex h-12 w-12 flex-shrink-0 items-center justify-center overflow-hidden">
-            <Image
+            <Imgix
+              className="lazyload absolute inset-0 h-full w-full rounded-full object-cover"
               src={authorData.avatarThumbnail.url}
               alt={authorData.avatarThumbnail.alt}
-              layout="fill"
-              objectFit="cover"
-              className="absolute inset-0 h-full w-full rounded-full object-cover"
+              width={48}
+              height={48}
+              attributeConfig={{
+                src: "data-src",
+                srcSet: "data-srcset",
+                sizes: "data-sizes",
+              }}
             />
           </div>
         </a>
