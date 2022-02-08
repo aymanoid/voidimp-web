@@ -92,6 +92,11 @@ const SidebarRecommended = ({ _articlesData }) => {
                         width={768}
                         htmlAttributes={{ media: "(min-width: 640px)" }}
                       />
+                      <Source
+                        src={articleData.thumbnail.url}
+                        width={640}
+                        htmlAttributes={{ media: "(min-width: 0px)" }}
+                      />
                       <Imgix
                         className="lazyload rounded-3xl"
                         src={articleData.thumbnail.url}
