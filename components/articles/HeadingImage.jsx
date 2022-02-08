@@ -1,4 +1,6 @@
 import Imgix, { Picture, Source } from "react-imgix";
+import "lazysizes";
+import "lazysizes/plugins/attrchange/ls.attrchange";
 
 const HeadingImage = ({ imageData }) => {
   return (
@@ -27,11 +29,16 @@ const HeadingImage = ({ imageData }) => {
               htmlAttributes={{ media: "(min-width: 0px)" }}
             />
             <Imgix
-              className="rounded-3xl"
+              className="lazyload rounded-3xl"
               src={imageData.url}
               width={imageData.dimensions.width}
               height={imageData.dimensions.height}
               htmlAttributes={{ alt: imageData.alt }}
+              attributeConfig={{
+                src: "data-src",
+                srcSet: "data-srcset",
+                sizes: "data-sizes",
+              }}
             />
           </Picture>
 
