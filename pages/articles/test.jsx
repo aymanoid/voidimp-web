@@ -204,7 +204,7 @@ const Test = () => {
         </header>
 
         <div className="my-4 flex flex-col lg:flex-row">
-          <section className="w-full space-y-4 lg:w-2/3 lg:ltr:pr-5 lg:rtl:pl-5 xl:w-3/4 xl:ltr:pr-10 xl:rtl:pl-10">
+          <section className="w-full space-y-5 lg:w-2/3 lg:space-y-8 lg:ltr:pr-5 lg:rtl:pl-5 xl:w-3/4 xl:ltr:pr-10 xl:rtl:pl-10">
             {articleData.segments.map((segment, index) => {
               if (segment.type === "text")
                 return <TextSegment key={index} textData={segment.primary} />;
