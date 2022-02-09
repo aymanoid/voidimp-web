@@ -14,6 +14,7 @@ import ImageSegment from "components/articles/ImageSegment";
 import SidebarRecommended from "components/articles/SidebarRecommended";
 import TagsList from "components/articles/TagsList";
 import AuthorInfo from "components/articles/AuthorInfo";
+import LatestArticles from "components/articles/LatestArticles";
 
 const Article = ({ globalData, articleData, authorData, tagsData }) => {
   return (
@@ -56,6 +57,10 @@ const Article = ({ globalData, articleData, authorData, tagsData }) => {
             <SidebarRecommended />
           </aside>
         </article>
+        <div className="mt-6 border-b border-black/50 dark:border-white/50"></div>
+        <div className="mt-6">
+          <LatestArticles />
+        </div>
       </div>
     </Layout>
   );
