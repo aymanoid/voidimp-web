@@ -65,7 +65,7 @@ const SidebarRecommended = ({ _articlesData }) => {
   }[locale];
 
   return (
-    <section className="relative mt-6 lg:mt-0">
+    <section className="relative">
       <h3 className="text-lg font-bold uppercase text-neutral-600 shadow-violet-400/40 drop-shadow-lg dark:text-neutral-300">
         🔮 {strings.recommended}
       </h3>

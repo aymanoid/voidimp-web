@@ -18,27 +18,27 @@ import AuthorInfo from "components/articles/AuthorInfo";
 const Article = ({ globalData, articleData, authorData, tagsData }) => {
   return (
     <Layout globalData={globalData}>
-      <article className="container mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl">
-        <header className="space-y-4">
-          <HeadingImage imageData={articleData.mainImage} />
-          <h1 className="text-center text-3xl font-extrabold text-neutral-700 dark:text-neutral-200 sm:text-4xl">
-            {articleData.headline}
-          </h1>
-          <h2 className="text-center text-xl font-semibold text-neutral-600 dark:text-neutral-300 sm:text-3xl">
-            {articleData.subheadline}
-          </h2>
-          <div className="flex flex-col justify-between space-y-5 md:flex-row md:items-end md:space-y-0 md:space-x-5">
-            <Metadata
-              authorData={authorData}
-              pubTimestamp={articleData.postDate}
-            />
-            <ShareButtons />
-          </div>
-          <div className="border-b border-violet-600/50 dark:border-violet-400/50"></div>
-        </header>
+      <div className="container mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl">
+        <article className="flex flex-row flex-wrap">
+          <header className="space-y-4">
+            <HeadingImage imageData={articleData.mainImage} />
+            <h1 className="text-center text-3xl font-extrabold text-neutral-700 dark:text-neutral-200 sm:text-4xl">
+              {articleData.headline}
+            </h1>
+            <p className="text-center text-xl font-semibold text-neutral-600 dark:text-neutral-300 sm:text-3xl">
+              {articleData.subheadline}
+            </p>
+            <div className="flex flex-col justify-between space-y-5 md:flex-row md:items-end md:space-y-0 md:space-x-5">
+              <Metadata
+                authorData={authorData}
+                pubTimestamp={articleData.postDate}
+              />
+              <ShareButtons />
+            </div>
+            <div className="border-b border-violet-600/50 dark:border-violet-400/50"></div>
+          </header>
 
-        <div className="my-4 flex flex-col lg:flex-row">
-          <section className="w-full space-y-5 lg:w-2/3 lg:space-y-8 lg:ltr:pr-5 lg:rtl:pl-5 xl:w-3/4 xl:ltr:pr-10 xl:rtl:pl-10">
+          <section className="mt-4 w-full space-y-5 lg:w-2/3 lg:space-y-8 lg:ltr:pr-5 lg:rtl:pl-5 xl:w-3/4 xl:ltr:pr-10 xl:rtl:pl-10">
             {articleData.segments.map((segment, index) => {
               if (segment.type === "text")
                 return <TextSegment key={index} textData={segment.primary} />;
@@ -51,11 +51,12 @@ const Article = ({ globalData, articleData, authorData, tagsData }) => {
             <div className="mt-6 border-b border-violet-600/50 dark:border-violet-400/50"></div>
             <AuthorInfo authorData={authorData} />
           </section>
-          <aside className="w-full lg:w-1/3 xl:w-1/4">
+
+          <aside className="mt-4 w-full lg:w-1/3 xl:w-1/4">
             <SidebarRecommended />
           </aside>
-        </div>
-      </article>
+        </article>
+      </div>
     </Layout>
   );
 };
