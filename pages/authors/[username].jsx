@@ -1,6 +1,7 @@
 import { getGlobalData, getAuthorData, getAuthorPaths } from "utils/queries";
 import Layout from "components/common/Layout";
 import AvatarImage from "components/authors/AvatarImage";
+import AuthorArticles from "components/authors/AuthorArticles";
 
 const Author = ({ globalData, authorData }) => {
   return (
@@ -9,12 +10,14 @@ const Author = ({ globalData, authorData }) => {
         <article className="">
           <header className="space-y-4">
             <AvatarImage imageData={authorData.avatar} />
-            <h1 className="text-center text-3xl font-extrabold uppercase text-neutral-700 dark:text-neutral-200 sm:text-4xl">
+            <h1 className="text-center text-3xl font-extrabold uppercase text-black dark:text-white sm:text-4xl">
               {authorData.displayName}
             </h1>
             <p className="text-center">{authorData.bio}</p>
           </header>
         </article>
+        <div className="mt-6 border-b border-violet-600/50 dark:border-violet-400/50"></div>
+        <AuthorArticles authorDisplayName={authorData.displayName} />
       </div>
     </Layout>
   );
