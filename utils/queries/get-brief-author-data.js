@@ -10,36 +10,44 @@ const localeMap = {
 const defaultData = {
   en: {
     displayName: "VoidImp",
-    username: "ayman",
+    username: "default",
     avatarThumbnail: {
       url: "https://images.unsplash.com/photo-1608889175123-8ee362201f81",
       alt: "Default Author Avatar",
+      dimensions: { width: 128, height: 128 },
     },
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ultrices tincidunt arcu non sodales neque. In metus vulputate eu scelerisque felis imperdiet proin fermentum leo.",
+    bio: "An author has not been specified for this article.",
   },
   ar: {
     displayName: "VoidImp",
-    username: "ayman",
+    username: "default",
     avatarThumbnail: {
       url: "https://images.unsplash.com/photo-1608889175123-8ee362201f81",
       alt: "صورة الكاتب الإفتراضية",
+      dimensions: { width: 128, height: 128 },
     },
-    bio: "الألم بحد ذاته هو حب الألم ، المشاكل البيئية الرئيسية ، لكني أعطي هذا النوع من الوقت للتراجع ، بحيث يكون هناك بعض الألم والألم العظيمين. حتى رؤساء القوس المنتقمون ليسوا أعضاء ولا. في خوف من لحوم البقر وموت الأسد.",
+    bio: "لم يتم تحديد كاتب لهذه المقالة.",
   },
 };
 
 const getBriefAuthorData = async (username, locale) => {
-  const response = await client.getByUID("author", username, {
-    lang: localeMap[locale],
-  });
+  let data;
+  try {
+    const response = await client.getByUID("author", username, {
+      lang: localeMap[locale],
+    });
 
-  const data = {
-    displayName: response.data.display_name || defaultData[locale].displayName,
-    username: response.uid || defaultData[locale].username,
-    avatarThumbnail:
-      response.data.avatar.thumbnail || defaultData[locale].avatarThumbnail,
-    bio: response.data.bio || defaultData[locale].bio,
-  };
+    data = {
+      displayName:
+        response.data.display_name || defaultData[locale].displayName,
+      username: response.uid || defaultData[locale].username,
+      avatarThumbnail:
+        response.data.avatar.thumbnail || defaultData[locale].avatarThumbnail,
+      bio: response.data.bio || defaultData[locale].bio,
+    };
+  } catch {
+    data = defaultData[locale];
+  }
 
   if (data.bio.length > 128) {
     let trimmedString = data.bio.substr(0, 128);
