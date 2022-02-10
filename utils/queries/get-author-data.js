@@ -29,7 +29,7 @@ const defaultData = {
 const getAuthorData = async (username, locale) => {
   let data;
   try {
-    const response = await client.getByUID("author", "username", {
+    const response = await client.getByUID("author", username, {
       lang: localeMap[locale],
     });
 
