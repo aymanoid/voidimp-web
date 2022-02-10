@@ -4,3 +4,5 @@ export { default as getArticleData } from "./get-article-data.js";
 export { default as getArticlePaths } from "./get-article-paths.js";
 export { default as getBriefAuthorData } from "./get-brief-author-data.js";
 export { default as getMultipleTagsData } from "./get-multiple-tags-data.js";
+export { default as getAuthorPaths } from "./get-author-paths.js";
+export { default as getAuthorData } from "./get-author-data.js";
