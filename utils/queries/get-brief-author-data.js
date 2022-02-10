@@ -9,24 +9,24 @@ const localeMap = {
 
 const defaultData = {
   en: {
-    displayName: "VoidImp",
+    displayName: "No Display Name",
     username: "default",
     avatarThumbnail: {
       url: "https://images.unsplash.com/photo-1608889175123-8ee362201f81",
-      alt: "Default Author Avatar",
+      alt: "Author Avatar",
       dimensions: { width: 128, height: 128 },
     },
-    bio: "An author has not been specified for this article.",
+    bio: "No bio has been set.",
   },
   ar: {
-    displayName: "VoidImp",
+    displayName: "لا يوجد اسم عرض",
     username: "default",
     avatarThumbnail: {
       url: "https://images.unsplash.com/photo-1608889175123-8ee362201f81",
-      alt: "صورة الكاتب الإفتراضية",
+      alt: "صورة الكاتب",
       dimensions: { width: 128, height: 128 },
     },
-    bio: "لم يتم تحديد كاتب لهذه المقالة.",
+    bio: "لم يتم تعيين السيرة الذاتية.",
   },
 };
 
