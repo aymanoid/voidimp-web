@@ -4,7 +4,9 @@ module.exports = {
     defaultLocale: "en",
   },
   images: {
-    domains: ["images.prismic.io", "i.imgur.com"],
+    domains: ["images.prismic.io", "images.unsplash.com"],
+    loader: "imgix",
+    path: "",
   },
   reactStrictMode: true,
   webpack(config) {
