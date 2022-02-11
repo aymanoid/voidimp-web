@@ -1,9 +1,14 @@
 import { getGlobalData, getAuthorData, getAuthorPaths } from "utils/queries";
+import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
 import AvatarImage from "components/authors/AvatarImage";
 import AuthorArticles from "components/authors/AuthorArticles";
 
 const Author = ({ globalData, authorData }) => {
+  const { query } = useRouter();
+  const currPage = !query.username.includes("pages") ? "1" : query.username[2];
+
+  console.log(currPage);
   return (
     <Layout globalData={globalData}>
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
@@ -26,7 +31,7 @@ const Author = ({ globalData, authorData }) => {
 export const getStaticProps = async ({ locale, params }) => {
   const [globalData, authorData] = await Promise.all([
     getGlobalData(locale),
-    getAuthorData(params.username, locale),
+    getAuthorData(params.username[0], locale),
   ]);
 
   return {
