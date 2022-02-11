@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
+import Image from "next/image";
 import Link from "next/link";
-import Imgix, { Picture, Source } from "react-imgix";
-import "lazysizes";
-import "lazysizes/plugins/attrchange/ls.attrchange";
 
 const articlesData = [
   {
@@ -102,33 +100,15 @@ const AuthorArticles = ({ authorDisplayName, _articlesData }) => {
             >
               <figure className="w-full ltr:mr-5 rtl:ml-5 sm:w-1/2">
                 <Link href={articleData.url}>
-                  <a classNamde="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
-                    <Picture>
-                      <Source
-                        src={articleData.thumbnail.url}
-                        width={460}
-                        height={460 / (16 / 9)}
-                        htmlAttributes={{ media: "(min-width: 640px)" }}
-                      />
-                      <Source
-                        src={articleData.thumbnail.url}
-                        width={640}
-                        height={640 / (16 / 9)}
-                        htmlAttributes={{ media: "(min-width: 0px)" }}
-                      />
-                      <Imgix
-                        className="lazyload rounded-3xl"
-                        src={articleData.thumbnail.url}
-                        width={articleData.thumbnail.dimensions.width}
-                        height={articleData.thumbnail.dimensions.height}
-                        htmlAttributes={{ alt: articleData.thumbnail.alt }}
-                        attributeConfig={{
-                          src: "data-src",
-                          srcSet: "data-srcset",
-                          sizes: "data-sizes",
-                        }}
-                      />
-                    </Picture>
+                  <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
+                    <Image
+                      className="rounded-3xl"
+                      src={articleData.thumbnail.url}
+                      alt={articleData.thumbnail.alt}
+                      width={640}
+                      height={640 / (16 / 9)}
+                      priority={index === 0}
+                    />
                   </a>
                 </Link>
               </figure>
