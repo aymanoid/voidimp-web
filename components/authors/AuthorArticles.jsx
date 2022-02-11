@@ -115,7 +115,7 @@ const AuthorArticles = ({ authorDisplayName, _articlesData }) => {
               <div className="w-full sm:w-1/2">
                 <Link href={articleData.url}>
                   <a>
-                    <span className="mt-4 inline-block rounded-full bg-violet-600 px-2 py-1 align-top font-extrabold uppercase text-violet-100 dark:bg-violet-400 dark:text-neutral-800 sm:mt-0">
+                    <span className="mt-4 inline-block rounded-full bg-violet-600 px-2 py-1 align-top font-extrabold uppercase text-white dark:bg-violet-400 dark:text-neutral-900 sm:mt-0">
                       Leaks
                     </span>
                   </a>
