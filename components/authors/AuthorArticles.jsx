@@ -88,7 +88,7 @@ const AuthorArticles = ({ authorDisplayName, articlesData }) => {
               key={index}
             >
               <figure className="w-full ltr:mr-5 rtl:ml-5 sm:w-1/2">
-                <Link href={articleData.url}>
+                <Link href={`/articles/${articleData.slug}`}>
                   <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
                     <Image
                       className="rounded-3xl"
@@ -102,14 +102,14 @@ const AuthorArticles = ({ authorDisplayName, articlesData }) => {
                 </Link>
               </figure>
               <div className="w-full sm:w-1/2">
-                <Link href={articleData.url}>
+                <Link href="/categories/news">
                   <a>
                     <span className="mt-4 inline-block rounded-full bg-violet-600 px-2 py-1 align-top font-extrabold uppercase text-white dark:bg-violet-400 dark:text-neutral-900 sm:mt-0">
                       {strings.news}
                     </span>
                   </a>
                 </Link>
-                <Link href={articleData.url}>
+                <Link href={`/articles/${articleData.slug}`}>
                   <a>
                     <h3 className="mt-2 text-2xl font-semibold text-black decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:text-white dark:decoration-violet-400">
                       {articleData.headline}
