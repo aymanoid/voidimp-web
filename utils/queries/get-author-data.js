@@ -34,6 +34,7 @@ const getAuthorData = async (username, locale) => {
     });
 
     data = {
+      id: response.id,
       displayName:
         response.data.display_name || defaultData[locale].displayName,
       avatar: response.data.avatar || defaultData[locale].avatar,

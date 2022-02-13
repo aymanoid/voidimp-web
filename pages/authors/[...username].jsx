@@ -1,14 +1,15 @@
-import { getGlobalData, getAuthorData, getAuthorPaths } from "utils/queries";
-import { useRouter } from "next/router";
+import {
+  getGlobalData,
+  getAuthorData,
+  getAuthorPaths,
+  getAuthorArticles,
+} from "utils/queries";
 import Layout from "components/common/Layout";
 import AvatarImage from "components/authors/AvatarImage";
 import AuthorArticles from "components/authors/AuthorArticles";
+import PaginationButtons from "components/authors/PaginationButtons";
 
-const Author = ({ globalData, authorData }) => {
-  const { query } = useRouter();
-  const currPage = !query.username.includes("pages") ? "1" : query.username[2];
-
-  console.log(currPage);
+const Author = ({ globalData, authorData, authorArticles }) => {
   return (
     <Layout globalData={globalData}>
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
@@ -23,21 +24,33 @@ const Author = ({ globalData, authorData }) => {
         </article>
         <div className="mt-6 border-b border-violet-600/50 dark:border-violet-400/50"></div>
         <AuthorArticles authorDisplayName={authorData.displayName} />
+        <PaginationButtons paginationData={authorArticles.paginationData} />
       </div>
     </Layout>
   );
 };
 
 export const getStaticProps = async ({ locale, params }) => {
+  const currPage = !params.username.includes("pages")
+    ? "1"
+    : params.username[2];
+
   const [globalData, authorData] = await Promise.all([
     getGlobalData(locale),
     getAuthorData(params.username[0], locale),
   ]);
 
+  const [authorArticles] = await Promise.all([
+    getAuthorArticles(authorData.id, locale, currPage),
+  ]);
+
+  delete authorData.id;
+
   return {
     props: {
       globalData,
       authorData,
+      authorArticles,
     },
   };
 };
