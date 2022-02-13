@@ -1,5 +1,6 @@
 import client from "utils/prismic";
 import * as prismic from "@prismicio/client";
+import * as prismicH from "@prismicio/helpers";
 
 const localeMap = {
   en: "en-us",
@@ -18,7 +19,6 @@ const getAuthorArticles = async (username, locale, page) => {
     page: page,
   });
 
-  console.log(response);
   const data = {
     paginationData: {
       page: response.page,
@@ -29,6 +29,13 @@ const getAuthorArticles = async (username, locale, page) => {
       nextPage: response.next_page,
       prevPage: response.prev_page,
     },
+    articles: response.results.map((e) => ({
+      headline: prismicH.asText(e.data.headline),
+      subheadline: prismicH.asText(e.data.subheadline),
+      url: locale === "en" ? `/articles/${e.uid}` : `/ar/articles/${e.uid}`,
+      mainImage: { url: e.data.main_image.url, alt: e.data.main_image.alt },
+      postDate: e.data.post_date || e.first_publication_date,
+    })),
   };
 
   return data;

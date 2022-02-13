@@ -23,7 +23,10 @@ const Author = ({ globalData, authorData, authorArticles }) => {
           </header>
         </article>
         <div className="mt-6 border-b border-violet-600/50 dark:border-violet-400/50"></div>
-        <AuthorArticles authorDisplayName={authorData.displayName} />
+        <AuthorArticles
+          authorDisplayName={authorData.displayName}
+          articlesData={authorArticles.articles}
+        />
         <PaginationButtons paginationData={authorArticles.paginationData} />
       </div>
     </Layout>
