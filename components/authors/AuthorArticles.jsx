@@ -82,8 +82,13 @@ const AuthorArticles = ({ authorDisplayName, _articlesData }) => {
     en: {
       latestFrom: "Latest From",
       noArticles: "This author has no articles.",
+      news: "News",
     },
-    ar: { latestFrom: "الأحدث من", noArticles: "ليس لهذا المؤلف أي مقالات." },
+    ar: {
+      latestFrom: "الأحدث من",
+      noArticles: "ليس لهذا المؤلف أي مقالات.",
+      news: "أخبار",
+    },
   }[locale];
 
   return (
@@ -116,7 +121,7 @@ const AuthorArticles = ({ authorDisplayName, _articlesData }) => {
                 <Link href={articleData.url}>
                   <a>
                     <span className="mt-4 inline-block rounded-full bg-violet-600 px-2 py-1 align-top font-extrabold uppercase text-white dark:bg-violet-400 dark:text-neutral-900 sm:mt-0">
-                      Leaks
+                      {strings.news}
                     </span>
                   </a>
                 </Link>
