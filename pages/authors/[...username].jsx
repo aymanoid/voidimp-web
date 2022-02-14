@@ -6,7 +6,7 @@ import {
 } from "utils/queries";
 import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
-import { AuthorSEO } from "components/common/SEO";
+import AuthorSEO from "components/SEO/AuthorSEO";
 import AvatarImage from "components/authors/AvatarImage";
 import AuthorArticles from "components/authors/AuthorArticles";
 import PaginationButtons from "components/authors/PaginationButtons";

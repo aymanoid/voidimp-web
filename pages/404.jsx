@@ -1,5 +1,5 @@
 import Layout from "components/common/Layout";
-import { PageSEO } from "components/common/SEO";
+import PageSEO from "components/SEO/PageSEO";
 import { getGlobalData, get404PageData } from "utils/queries";
 import Link from "next/link";
 
