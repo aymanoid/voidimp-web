@@ -4,14 +4,27 @@ import {
   getAuthorPaths,
   getAuthorArticles,
 } from "utils/queries";
+import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
+import { AuthorSEO } from "components/common/SEO";
 import AvatarImage from "components/authors/AvatarImage";
 import AuthorArticles from "components/authors/AuthorArticles";
 import PaginationButtons from "components/authors/PaginationButtons";
 
 const Author = ({ globalData, authorData, authorArticles }) => {
+  const { query } = useRouter();
+
   return (
     <Layout globalData={globalData}>
+      <AuthorSEO
+        title={`${authorData.displayName} | VoidImp`}
+        username={query.username[0]}
+        currPage={authorArticles.paginationData.page}
+        prevPage={authorArticles.paginationData.prevPage}
+        nextPage={authorArticles.paginationData.nextPage}
+        imageData={authorData.avatar}
+        description={authorData.bio}
+      />
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article className="">
           <header className="space-y-4">
