@@ -1,13 +1,21 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-const CommonSEO = ({ title, ogType, url, imageData, description }) => {
+const CommonSEO = ({
+  title,
+  description,
+  canonicalUrl,
+  ogType,
+  url,
+  imageData,
+}) => {
   const { locale } = useRouter();
 
   return (
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <link rel="canonical" href={canonicalUrl} />
 
       <meta property="og:title" content={title} />
       <meta property="og:type" content={ogType} />

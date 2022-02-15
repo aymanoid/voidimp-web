@@ -6,6 +6,7 @@ import {
   getMultipleTagsData,
 } from "utils/queries";
 import Layout from "components/common/Layout";
+import ArticleSEO from "components/SEO/ArticleSEO";
 import Metadata from "components/articles/Metadata";
 import ShareButtons from "components/articles/ShareButtons";
 import HeadingImage from "components/articles/HeadingImage";
@@ -19,6 +20,16 @@ import LatestArticles from "components/articles/LatestArticles";
 const Article = ({ globalData, articleData, authorData, tagsData }) => {
   return (
     <Layout globalData={globalData}>
+      <ArticleSEO
+        headline={articleData.headline}
+        description={articleData.description}
+        imageData={articleData.mainImage}
+        datePublished={articleData.postDate}
+        dateModified={articleData.updateDate}
+        authorName={authorData.displayName}
+        authorUsername={authorData.username}
+        tagIds={tagsData.map((e) => e.id)}
+      />
       <div className="container mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article className="flex flex-row flex-wrap">
           <header className="space-y-4">
@@ -39,7 +50,11 @@ const Article = ({ globalData, articleData, authorData, tagsData }) => {
             <div className="border-b border-violet-600/50 dark:border-violet-400/50"></div>
           </header>
 
-          <section className="mt-4 w-full space-y-5 lg:w-2/3 lg:space-y-8 lg:ltr:pr-5 lg:rtl:pl-5 xl:w-3/4 xl:ltr:pr-10 xl:rtl:pl-10">
+          <section
+            id="article-body"
+            itemProp="articleBody"
+            className="mt-4 w-full space-y-5 lg:w-2/3 lg:space-y-8 lg:ltr:pr-5 lg:rtl:pl-5 xl:w-3/4 xl:ltr:pr-10 xl:rtl:pl-10"
+          >
             {articleData.segments.map((segment, index) => {
               if (segment.type === "text")
                 return <TextSegment key={index} textData={segment.primary} />;

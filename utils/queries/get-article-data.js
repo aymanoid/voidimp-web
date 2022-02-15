@@ -45,6 +45,7 @@ const getArticleData = async (slug, locale) => {
       };
     }),
     tags: response.data.tags.map((e) => e.tag.uid),
+    description: response.data.description,
   };
 
   return data;
