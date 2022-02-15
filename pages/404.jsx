@@ -6,7 +6,7 @@ import Link from "next/link";
 const FourZeroFour = ({ globalData, seoData, pageData }) => {
   return (
     <Layout globalData={globalData}>
-      <PageSEO seoData={seoData} />
+      {/* <PageSEO seoData={seoData} /> */}
       <div className="container mx-auto px-6 py-16 text-center">
         <div className="mx-auto max-w-lg">
           <h1 className="md:leading-14 mb-8 text-6xl font-extrabold leading-9 tracking-tight text-violet-600 dark:text-violet-400 md:px-6 md:text-8xl">
