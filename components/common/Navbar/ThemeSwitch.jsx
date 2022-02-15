@@ -9,6 +9,7 @@ const ThemeSwitch = () => {
   const { locale } = useRouter();
   const { theme, setTheme } = useTheme();
 
+  // only show real icon when mounted on client, otherwise show empty placeholder
   useEffect(() => setMounted(true), []);
 
   const IconSvg = theme === "dark" ? SunSvg : MoonSvg;
@@ -25,12 +26,14 @@ const ThemeSwitch = () => {
         setTheme(theme === "light" ? "dark" : "light");
       }}
     >
-      {mounted && (
+      {mounted ? (
         <IconSvg
           className="h-6 w-6 fill-current"
           viewBox="0 0 24 24"
           fill="none"
         />
+      ) : (
+        <svg className="h-6 w-6" />
       )}
     </button>
   );
