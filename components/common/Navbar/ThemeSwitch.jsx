@@ -1,11 +1,15 @@
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 import SunSvg from "components/icons/sun.svg";
 import MoonSvg from "components/icons/moon.svg";
 
 const ThemeSwitch = () => {
+  const [mounted, setMounted] = useState(false);
   const { locale } = useRouter();
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
 
   const IconSvg = theme === "dark" ? SunSvg : MoonSvg;
   const strings = {
@@ -21,11 +25,13 @@ const ThemeSwitch = () => {
         setTheme(theme === "light" ? "dark" : "light");
       }}
     >
-      <IconSvg
-        className="h-6 w-6 fill-current"
-        viewBox="0 0 24 24"
-        fill="none"
-      />
+      {mounted && (
+        <IconSvg
+          className="h-6 w-6 fill-current"
+          viewBox="0 0 24 24"
+          fill="none"
+        />
+      )}
     </button>
   );
 };
