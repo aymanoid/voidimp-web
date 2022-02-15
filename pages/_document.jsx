@@ -4,7 +4,7 @@ class VoidImpDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
+        <Head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
           <link rel="icon" href="/favicon.svg" />
           <link rel="preconnect" href="https://images.prismic.io" />
           <link rel="dns-prefetch" href="https://images.prismic.io" />

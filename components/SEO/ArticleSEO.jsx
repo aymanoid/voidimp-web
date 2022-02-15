@@ -11,7 +11,7 @@ const ArticleSEO = ({
   dateModified,
   authorName,
   authorUsername,
-  tagIds,
+  tagsData,
 }) => {
   const { locale, asPath } = useRouter();
 
@@ -41,7 +41,7 @@ const ArticleSEO = ({
       "@type": "Organization",
       name: "VoidImp",
     },
-    articleSection: tagIds,
+    articleSection: tagsData.map((e) => e.id),
   };
 
   return (
@@ -51,10 +51,17 @@ const ArticleSEO = ({
         description={description}
         canonicalUrl={pageUrl}
         ogType={"article"}
-        url={pageUrl}
         imageData={imageData}
       />
       <Head>
+        <meta property="article:published_time" content={datePublished} />
+        <meta property="article:modified_time" content={dateModified} />
+        <meta property="article:author" content={authorName} />
+        {/* <meta property="article:section" content="Category" /> */}
+        {tagsData.map((e, i) => (
+          <meta key={i} property="article:tag" content={e.name} />
+        ))}
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

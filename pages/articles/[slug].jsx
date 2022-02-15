@@ -28,7 +28,7 @@ const Article = ({ globalData, articleData, authorData, tagsData }) => {
         dateModified={articleData.updateDate}
         authorName={authorData.displayName}
         authorUsername={authorData.username}
-        tagIds={tagsData.map((e) => e.id)}
+        tagsData={tagsData}
       />
       <div className="container mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article className="flex flex-row flex-wrap">
