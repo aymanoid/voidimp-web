@@ -15,6 +15,8 @@ const CommonSEO = ({ title, description, canonicalUrl, ogType, imageData }) => {
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageData.url} />
+      <meta property="og:image:width" content={imageData.dimensions.width} />
+      <meta property="og:image:height" content={imageData.dimensions.height} />
       <meta property="og:image:alt" content={imageData.alt} />
       <meta property="og:description" content={description} />
       <meta property="og:locale" content={locale} />
