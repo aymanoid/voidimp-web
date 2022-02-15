@@ -12,6 +12,7 @@ const ArticleSEO = ({
   authorName,
   authorUsername,
   tagsData,
+  categoryName,
 }) => {
   const { locale, asPath } = useRouter();
 
@@ -57,7 +58,7 @@ const ArticleSEO = ({
         <meta property="article:published_time" content={datePublished} />
         <meta property="article:modified_time" content={dateModified} />
         <meta property="article:author" content={authorName} />
-        {/* <meta property="article:section" content="Category" /> */}
+        <meta property="article:section" content={categoryName} />
         {tagsData.map((e, i) => (
           <meta key={i} property="article:tag" content={e.name} />
         ))}

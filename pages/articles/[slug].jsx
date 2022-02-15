@@ -4,6 +4,7 @@ import {
   getArticlePaths,
   getBriefAuthorData,
   getMultipleTagsData,
+  getCategoryData,
 } from "utils/queries";
 import Layout from "components/common/Layout";
 import ArticleSEO from "components/SEO/ArticleSEO";
@@ -17,7 +18,13 @@ import TagsList from "components/articles/TagsList";
 import AuthorInfo from "components/articles/AuthorInfo";
 import LatestArticles from "components/articles/LatestArticles";
 
-const Article = ({ globalData, articleData, authorData, tagsData }) => {
+const Article = ({
+  globalData,
+  articleData,
+  authorData,
+  tagsData,
+  categoryData,
+}) => {
   return (
     <Layout globalData={globalData}>
       <ArticleSEO
@@ -29,6 +36,7 @@ const Article = ({ globalData, articleData, authorData, tagsData }) => {
         authorName={authorData.displayName}
         authorUsername={authorData.username}
         tagsData={tagsData}
+        categoryName={categoryData.name}
       />
       <div className="container mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article className="flex flex-row flex-wrap">
@@ -87,13 +95,15 @@ export const getStaticProps = async ({ locale, params }) => {
     getArticleData(params.slug, locale),
   ]);
 
-  const [authorData, tagsData] = await Promise.all([
+  const [authorData, tagsData, categoryData] = await Promise.all([
     getBriefAuthorData(articleData.authorUsername, locale),
     getMultipleTagsData(articleData.tags, locale),
+    getCategoryData(articleData.category, locale),
   ]);
 
   delete articleData.authorUsername;
   delete articleData.tags;
+  delete articleData.category;
 
   return {
     props: {
@@ -101,6 +111,7 @@ export const getStaticProps = async ({ locale, params }) => {
       articleData,
       authorData,
       tagsData,
+      categoryData,
     },
   };
 };
