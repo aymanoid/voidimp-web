@@ -13,10 +13,7 @@ const AuthorSEO = ({
 }) => {
   const { locale, asPath } = useRouter();
 
-  const origin =
-    typeof window !== "undefined" && window.location.origin
-      ? window.location.origin
-      : "";
+  const origin = "https://voidimp.com";
 
   const url = `${origin}${locale === "ar" ? "/ar" : ""}${asPath}`;
   const loc = (href) =>
