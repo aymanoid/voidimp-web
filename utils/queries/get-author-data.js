@@ -44,8 +44,6 @@ const getAuthorData = async (username, locale) => {
     data = defaultData[locale];
   }
 
-  delete data.avatar.dimensions;
-
   return data;
 };
 

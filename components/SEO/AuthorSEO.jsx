@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
 import CommonSEO from "components/SEO/CommonSEO";
 import Head from "next/head";
+import { urlize } from "utils/helpers";
 
 const AuthorSEO = ({
-  title,
+  authorName,
   username,
   currPage,
   prevPage,
@@ -11,39 +12,62 @@ const AuthorSEO = ({
   imageData,
   description,
 }) => {
-  const { locale, asPath } = useRouter();
+  const { locale } = useRouter();
 
-  const origin = "https://voidimp.com";
+  const title = `${authorName} | VoidImp`;
 
-  const url = `${origin}${locale === "ar" ? "/ar" : ""}${asPath}`;
-  const loc = (href) =>
-    locale === "en" ? `${origin}${href}` : `/${locale}${href}`;
-  const lao = (href) =>
-    locale === "en" ? `${origin}${href}` : `${origin}/${locale}${href}`;
-
-  const canonicalHref =
+  const canonicalUrl = urlize(
     currPage === 1
       ? `/authors/${username}`
-      : `/authors/${username}/pages/${currPage}`;
-  const prevHref =
+      : `/authors/${username}/pages/${currPage}`,
+    locale
+  );
+  const prevUrl = urlize(
     prevPage === 1
       ? `/authors/${username}`
-      : `/authors/${username}/pages/${prevPage}`;
-  const nextHref = `/authors/${username}/pages/${nextPage}`;
+      : `/authors/${username}/pages/${prevPage}`,
+    locale
+  );
+  const nextUrl = urlize(`/authors/${username}/pages/${nextPage}`, locale);
+
+  const schemaData = {
+    "@context": "http://schema.org/",
+    "@type": "Person",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": urlize(`/authors/${username}`, locale),
+    },
+    url: urlize(`/authors/${username}`, locale),
+    name: authorName,
+    image: imageData.url,
+    jobTitle: null,
+    affiliation: {
+      "@type": "Organization",
+      name: "VoidImp",
+    },
+  };
 
   return (
     <>
       <CommonSEO
         title={title}
-        ogType={"profile"}
-        url={url}
-        imageData={imageData}
         description={description}
+        canonicalUrl={canonicalUrl}
+        ogType={"profile"}
+        imageData={imageData}
       />
       <Head>
-        <link rel="canonical" href={lao(canonicalHref)} />
-        {prevPage && <link rel="prev" href={lao(prevHref)} />}
-        {nextPage && <link rel="next" href={lao(nextHref)} />}
+        <meta property="profile:username" content={username} />
+
+        {prevPage && <link rel="prev" href={prevUrl} />}
+        {nextPage && <link rel="next" href={nextUrl} />}
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaData),
+          }}
+        />
       </Head>
     </>
   );

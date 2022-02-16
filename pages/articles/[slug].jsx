@@ -104,6 +104,7 @@ export const getStaticProps = async ({ locale, params }) => {
   delete articleData.authorUsername;
   delete articleData.tags;
   delete articleData.category;
+  delete categoryData.id;
 
   return {
     props: {

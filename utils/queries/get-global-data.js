@@ -21,6 +21,7 @@ const getGlobalData = async (locale) => {
       .map((e) => ({ title: e.primary.title, links: e.items })),
     footerRights: response.data.footer_rights,
     socialLinks: response.data.social_links,
+    metaDescription: response.data.meta_description,
   };
   return data;
 };

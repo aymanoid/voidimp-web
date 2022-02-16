@@ -18,12 +18,13 @@ const Author = ({ globalData, authorData, authorArticles }) => {
     <Layout globalData={globalData}>
       <AuthorSEO
         title={`${authorData.displayName} | VoidImp`}
+        authorName={authorData.displayName}
         username={query.username[0]}
         currPage={authorArticles.paginationData.page}
         prevPage={authorArticles.paginationData.prevPage}
         nextPage={authorArticles.paginationData.nextPage}
         imageData={authorData.avatar}
-        description={authorData.bio}
+        description={globalData.metaDescription}
       />
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article className="">
