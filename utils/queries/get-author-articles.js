@@ -10,14 +10,19 @@ const localeMap = {
 };
 
 const getAuthorArticles = async (username, locale, page) => {
-  const response = await client.get({
-    predicates: [
-      prismic.predicate.at("document.type", "article"),
-      prismic.predicate.at("my.article.author", username),
-    ],
-    lang: localeMap[locale],
-    page: page,
-  });
+  const [response, categoriesRes] = await Promise.all([
+    client.get({
+      predicates: [
+        prismic.predicate.at("document.type", "article"),
+        prismic.predicate.at("my.article.author", username),
+      ],
+      lang: localeMap[locale],
+      page: page,
+    }),
+    client.getAllByType("category", {
+      lang: localeMap[locale],
+    }),
+  ]);
 
   const data = {
     paginationData: {
@@ -35,6 +40,9 @@ const getAuthorArticles = async (username, locale, page) => {
       slug: e.uid,
       mainImage: { url: e.data.main_image.url, alt: e.data.main_image.alt },
       postDate: e.data.post_date || e.first_publication_date,
+      categoryName: categoriesRes.filter(
+        (category) => category.uid === e.data.category.uid
+      )[0].data.name,
     })),
   };
 
