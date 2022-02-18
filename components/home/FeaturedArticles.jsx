@@ -11,7 +11,7 @@ const articlesData = [
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
       alt: "s1",
     },
-    postDate: "2021-03-09T01:02:09+0000",
+    categoryName: "News",
   },
   {
     headline:
@@ -23,7 +23,7 @@ const articlesData = [
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
       alt: "s2",
     },
-    postDate: "2021-11-10T19:56:33+0000",
+    categoryName: "News",
   },
   {
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
@@ -34,7 +34,7 @@ const articlesData = [
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
       alt: "s3",
     },
-    postDate: "2021-10-04T09:50:27+0000",
+    categoryName: "News",
   },
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
@@ -44,7 +44,7 @@ const articlesData = [
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
       alt: "s4",
     },
-    postDate: "2021-08-05T05:03:28+0000",
+    categoryName: "News",
   },
 ];
 
@@ -55,12 +55,10 @@ const FeaturedArticles = ({ _articlesData }) => {
     en: {
       featured: "Featured Articles",
       noArticles: "This section has no articles.",
-      news: "News",
     },
     ar: {
       featured: "مقالات مميزة",
       noArticles: "ليس لهذا القسم أي مقالات.",
-      news: "أخبار",
     },
   }[locale];
 
@@ -80,7 +78,7 @@ const FeaturedArticles = ({ _articlesData }) => {
                 <a className="flex flex-row decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
                   <div className="w-3/5">
                     <span className="inline-block text-sm uppercase text-violet-600 dark:text-violet-400">
-                      {strings.news}
+                      {articleData.categoryName}
                     </span>
 
                     <h3 className="text-lg font-semibold text-black dark:text-white">
