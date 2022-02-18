@@ -13,6 +13,7 @@ const HeroArticle = ({ articleData }) => {
             layout="responsive"
             width={768}
             height={768 / (16 / 9)}
+            priority
           />
           <h3 className="text-center text-xl font-extrabold text-black decoration-violet-600 decoration-2 underline-offset-4 group-hover:underline dark:text-white dark:decoration-violet-400 sm:text-2xl">
             {articleData.headline}
