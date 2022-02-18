@@ -8,3 +8,4 @@ export { default as getAuthorPaths } from "./get-author-paths.js";
 export { default as getAuthorData } from "./get-author-data.js";
 export { default as getAuthorArticles } from "./get-author-articles.js";
 export { default as getCategoryData } from "./get-category-data.js";
+export { default as getHomePageData } from "./get-home-page-data.js";

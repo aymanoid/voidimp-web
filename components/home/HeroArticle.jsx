@@ -1,18 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const articleData = {
-  headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
-  subheadline: "Activision Blizzard games won't be Xbox exclusives just yet.",
-  slug: "haha1",
-  mainImage: {
-    url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
-    alt: "s1",
-  },
-  postDate: "2021-03-09T01:02:09+0000",
-};
-
-const HeroArticle = ({ _articleData }) => {
+const HeroArticle = ({ articleData }) => {
   return (
     <article>
       <Link href={`/articles/${articleData.slug}`}>
