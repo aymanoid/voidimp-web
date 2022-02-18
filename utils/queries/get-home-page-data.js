@@ -9,24 +9,25 @@ const localeMap = {
 };
 
 const getHomePageData = async (locale) => {
-  const response = await client.getSingle("home_page", {
-    lang: localeMap[locale],
-  });
+  const [response, categoriesRes] = await Promise.all([
+    client.getSingle("home_page", {
+      lang: localeMap[locale],
+    }),
+    client.getAllByType("category", {
+      lang: localeMap[locale],
+    }),
+  ]);
 
-  const [heroArticleRes, categoriesRes, ...featuredArticlesReses] =
-    await Promise.all([
-      client.getByUID("article", response.data.hero_article.uid, {
+  const [heroArticleRes, ...featuredArticlesReses] = await Promise.all([
+    client.getByUID("article", response.data.hero_article.uid, {
+      lang: localeMap[locale],
+    }),
+    ...response.data.featured_articles.map((e) => {
+      return client.getByUID("article", e.article.uid, {
         lang: localeMap[locale],
-      }),
-      client.getAllByType("category", {
-        lang: localeMap[locale],
-      }),
-      ...response.data.featured_articles.map((e) => {
-        return client.getByUID("article", e.article.uid, {
-          lang: localeMap[locale],
-        });
-      }),
-    ]);
+      });
+    }),
+  ]);
 
   const data = {
     heroArticle: {
