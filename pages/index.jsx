@@ -1,17 +1,24 @@
 import Layout from "components/common/Layout";
 import { getGlobalData } from "utils/queries";
 import Link from "next/link";
+import HeroArticle from "components/home/HeroArticle";
+import FeaturedArticles from "components/home/FeaturedArticles";
+import SocialAd from "components/home/SocialAd";
 
-const Index = ({ globalData }) => {
+const Home = ({ globalData }) => {
   return (
     <Layout globalData={globalData}>
-      <div>haha</div>
-      <Link href="/articles/this-post-is-for-testing-purposes-only-theres-nothing-interesting-here-to-read">
-        <a>
-          This Post Is for Testing Purposes Only, There’s Nothing Interesting
-          Here To Read
-        </a>
-      </Link>
+      <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
+        <div className="-mx-8 flex flex-wrap divide-x divide-violet-600/50 overflow-hidden dark:divide-violet-400/50 md:flex-row">
+          <section className="flex w-full flex-col px-8 md:w-3/5">
+            <HeroArticle />
+            <div className="mt-4 border-b border-black/50 dark:border-white/50" />
+            <SocialAd />
+          </section>
+
+          <FeaturedArticles />
+        </div>
+      </div>
     </Layout>
   );
 };
@@ -26,4 +33,4 @@ export const getStaticProps = async ({ locale }) => {
   };
 };
 
-export default Index;
+export default Home;
