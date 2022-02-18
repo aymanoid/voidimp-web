@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import LogoSvg from "public/logo.svg";
 
 const Logo = () => {
   return (
@@ -7,12 +7,7 @@ const Logo = () => {
       <Link href="/">
         <a>
           <span>
-            <Image
-              src="/logo.svg"
-              alt="VoidImp Logo"
-              width={1906.2 / 14}
-              height={430.55 / 14}
-            />
+            <LogoSvg width={1906.2 / 14} height={430.55 / 14} />
           </span>
         </a>
       </Link>
