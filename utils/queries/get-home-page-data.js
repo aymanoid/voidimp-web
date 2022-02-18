@@ -13,16 +13,20 @@ const getHomePageData = async (locale) => {
     lang: localeMap[locale],
   });
 
-  const [heroArticleRes, ...featuredArticlesReses] = await Promise.all([
-    client.getByUID("article", response.data.hero_article.uid, {
-      lang: localeMap[locale],
-    }),
-    ...response.data.featured_articles.map((e) => {
-      return client.getByUID("article", e.article.uid, {
+  const [heroArticleRes, categoriesRes, ...featuredArticlesReses] =
+    await Promise.all([
+      client.getByUID("article", response.data.hero_article.uid, {
         lang: localeMap[locale],
-      });
-    }),
-  ]);
+      }),
+      client.getAllByType("category", {
+        lang: localeMap[locale],
+      }),
+      ...response.data.featured_articles.map((e) => {
+        return client.getByUID("article", e.article.uid, {
+          lang: localeMap[locale],
+        });
+      }),
+    ]);
 
   const data = {
     heroArticle: {
@@ -40,6 +44,9 @@ const getHomePageData = async (locale) => {
         headline: prismicH.asText(e.data.headline),
         subheadline: prismicH.asText(e.data.subheadline),
         mainImage: { url: e.data.main_image.url, alt: e.data.main_image.alt },
+        categoryName: categoriesRes.filter(
+          (category) => category.uid === e.data.category.uid
+        )[0].data.name,
       };
     }),
   };
