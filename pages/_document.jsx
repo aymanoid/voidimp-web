@@ -8,6 +8,8 @@ class VoidImpDocument extends Document {
           <link rel="icon" href="/favicon.svg" />
           <link rel="preconnect" href="https://images.prismic.io" />
           <link rel="dns-prefetch" href="https://images.prismic.io" />
+          <link rel="preconnect" href="https://images.unsplash.com" />
+          <link rel="dns-prefetch" href="https://images.unsplash.com" />
         </Head>
         <body className="bg-white antialiased dark:bg-neutral-900">
           <Main />
