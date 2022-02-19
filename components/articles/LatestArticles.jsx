@@ -86,7 +86,7 @@ const LatestArticles = ({ _articlesData }) => {
                         height={640 / (16 / 9)}
                       />
                     </figure>
-                    <h3 className="font-semibold text-neutral-700 dark:text-neutral-200 ">
+                    <h3 className="font-semibold text-black dark:text-white ">
                       {articleData.headline}
                     </h3>
                   </a>
