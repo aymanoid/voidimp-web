@@ -66,7 +66,7 @@ const LatestArticles = ({ _articlesData }) => {
 
   return (
     <section className="relative">
-      <h3 className="text-2xl font-bold uppercase text-violet-600 shadow-violet-400/40 drop-shadow-lg dark:text-violet-400">
+      <h3 className="text-2xl font-bold uppercase text-violet-600 dark:text-violet-400">
         {strings.latest}
       </h3>
       <div className="grid grid-cols-1 gap-6 pt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:gap-8">
