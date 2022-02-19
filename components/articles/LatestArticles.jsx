@@ -58,8 +58,11 @@ const LatestArticles = ({ _articlesData }) => {
   const { locale } = useRouter();
 
   const strings = {
-    en: { latest: "Latest Articles" },
-    ar: { latest: "أحدث المقالات" },
+    en: {
+      latest: "Latest Articles",
+      noArticles: "This section has no articles.",
+    },
+    ar: { latest: "أحدث المقالات", noArticles: "ليس لهذا القسم أي مقالات." },
   }[locale];
 
   return (
@@ -67,29 +70,33 @@ const LatestArticles = ({ _articlesData }) => {
       <h3 className="text-2xl font-bold uppercase text-violet-600 dark:text-violet-400">
         {strings.latest}
       </h3>
-      <div className="grid grid-cols-1 gap-6 pt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:gap-8">
-        {articlesData.map((articleData, index) => {
-          return (
-            <article key={index}>
-              <Link href={articleData.url}>
-                <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
-                  <figure>
-                    <Image
-                      className="rounded-xl"
-                      src={articleData.thumbnail.url}
-                      alt={articleData.thumbnail.alt}
-                      width={640}
-                      height={640 / (16 / 9)}
-                    />
-                  </figure>
-                  <h3 className="font-semibold text-neutral-700 dark:text-neutral-200 ">
-                    {articleData.headline}
-                  </h3>
-                </a>
-              </Link>
-            </article>
-          );
-        })}
+      <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:gap-8">
+        {articlesData.length ? (
+          articlesData.map((articleData, index) => {
+            return (
+              <article key={index}>
+                <Link href={articleData.url}>
+                  <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
+                    <figure>
+                      <Image
+                        className="rounded-xl"
+                        src={articleData.thumbnail.url}
+                        alt={articleData.thumbnail.alt}
+                        width={640}
+                        height={640 / (16 / 9)}
+                      />
+                    </figure>
+                    <h3 className="font-semibold text-neutral-700 dark:text-neutral-200 ">
+                      {articleData.headline}
+                    </h3>
+                  </a>
+                </Link>
+              </article>
+            );
+          })
+        ) : (
+          <p>{strings.noArticles}</p>
+        )}
       </div>
     </section>
   );
