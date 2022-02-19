@@ -4,6 +4,7 @@ import HeroArticle from "components/home/HeroArticle";
 import FeaturedArticles from "components/home/FeaturedArticles";
 import SocialAd from "components/home/SocialAd";
 import TrendingArticles from "components/home/TrendingArticles";
+import LatestArticles from "components/home/LatestArticles";
 
 const Home = ({ globalData, homePageData }) => {
   return (
@@ -21,6 +22,8 @@ const Home = ({ globalData, homePageData }) => {
 
         {/*<div className="mt-8 border-b border-black/50 dark:border-white/50" />*/}
         <TrendingArticles />
+
+        <LatestArticles />
       </div>
     </Layout>
   );
