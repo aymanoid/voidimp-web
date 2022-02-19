@@ -9,11 +9,14 @@ const localeMap = {
 };
 
 const getHomePageData = async (locale) => {
-  const [response, categoriesRes] = await Promise.all([
+  const [response, categoriesRes, articlesRes] = await Promise.all([
     client.getSingle("home_page", {
       lang: localeMap[locale],
     }),
     client.getAllByType("category", {
+      lang: localeMap[locale],
+    }),
+    client.getAllByType("article", {
       lang: localeMap[locale],
     }),
   ]);
@@ -45,6 +48,18 @@ const getHomePageData = async (locale) => {
         headline: prismicH.asText(e.data.headline),
         subheadline: prismicH.asText(e.data.subheadline),
         mainImage: { url: e.data.main_image.url, alt: e.data.main_image.alt },
+        categoryName: categoriesRes.filter(
+          (category) => category.uid === e.data.category.uid
+        )[0].data.name,
+      };
+    }),
+    latestArticles: articlesRes.slice(0, 20).map((e) => {
+      return {
+        slug: e.uid,
+        headline: prismicH.asText(e.data.headline),
+        subheadline: prismicH.asText(e.data.subheadline),
+        mainImage: { url: e.data.main_image.url, alt: e.data.main_image.alt },
+        postDate: e.data.post_date || e.first_publication_date,
         categoryName: categoriesRes.filter(
           (category) => category.uid === e.data.category.uid
         )[0].data.name,
