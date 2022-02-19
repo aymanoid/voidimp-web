@@ -128,7 +128,7 @@ const AuthorArticles = ({ authorDisplayName, articlesData }) => {
           );
         })
       ) : (
-        <div className="mt-6">{strings.noArticles}</div>
+        <p className="mt-6">{strings.noArticles}</p>
       )}
     </div>
   );
