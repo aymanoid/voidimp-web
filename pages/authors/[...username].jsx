@@ -52,6 +52,7 @@ const Author = ({ globalData, authorData, authorArticles }) => {
           topStr={`${strings.latestFrom} ${authorData.displayName}`}
           noArticlesStr={strings.noArticles}
           articlesData={authorArticles.articles}
+          isCentered
         />
         <PaginationButtons paginationData={authorArticles.paginationData} />
       </div>

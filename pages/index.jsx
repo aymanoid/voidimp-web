@@ -1,13 +1,27 @@
+import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
 import { getGlobalData, getHomePageData } from "utils/queries";
 import HeroArticle from "components/home/HeroArticle";
 import FeaturedArticles from "components/home/FeaturedArticles";
 import SocialAd from "components/home/SocialAd";
 import TrendingArticles from "components/home/TrendingArticles";
-import LatestArticles from "components/home/LatestArticles";
+import ArticlesList from "components/common/ArticlesList";
 import HomeSEO from "components/SEO/HomeSEO";
 
 const Home = ({ globalData, homePageData }) => {
+  const { locale } = useRouter();
+
+  const strings = {
+    en: {
+      latest: "Latest Articles",
+      noArticles: "This section has no articles.",
+    },
+    ar: {
+      latest: "اخر المقالات",
+      noArticles: "ليس لهذا القسم أي مقالات.",
+    },
+  }[locale];
+
   return (
     <Layout globalData={globalData}>
       <HomeSEO
@@ -29,7 +43,10 @@ const Home = ({ globalData, homePageData }) => {
         {/*<div className="mt-8 border-b border-black/50 dark:border-white/50" />*/}
         <TrendingArticles />
 
-        <LatestArticles />
+        <ArticlesList
+          topStr={strings.latest}
+          noArticlesStr={strings.noArticles}
+        />
       </div>
     </Layout>
   );
