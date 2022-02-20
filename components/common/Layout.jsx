@@ -1,16 +1,9 @@
-import { useRouter } from "next/router";
-
 import Navbar from "components/common/Navbar";
 import Footer from "components/common/Footer";
 
 const Layout = ({ globalData, children }) => {
-  const { locale } = useRouter();
-
   return (
-    <div
-      dir={locale === "ar" ? "rtl" : "ltr"}
-      className="flex h-screen flex-col justify-between"
-    >
+    <div className="flex h-screen flex-col justify-between">
       <Navbar
         searchBarLabel={globalData.searchBarLabel}
         navbarLinks={globalData.navbarLinks}
