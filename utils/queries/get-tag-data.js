@@ -12,7 +12,6 @@ const getTagData = async (slug, locale) => {
     lang: localeMap[locale],
   });
 
-  console.log(response);
   const data = {
     id: response.id,
     name: response.data.name,
