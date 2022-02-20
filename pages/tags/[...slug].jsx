@@ -10,7 +10,7 @@ import TagSEO from "components/SEO/TagSEO";
 import ArticlesList from "components/common/ArticlesList";
 import PaginationButtons from "components/authors/PaginationButtons";
 
-const Author = ({ globalData, tagData, tagArticles }) => {
+const Tag = ({ globalData, tagData, tagArticles }) => {
   const { locale } = useRouter();
 
   const strings = {
@@ -89,4 +89,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default Author;
+export default Tag;
