@@ -16,11 +16,11 @@ const Author = ({ globalData, authorData, authorArticles }) => {
 
   const strings = {
     en: {
-      latestFrom: "Latest From",
+      latest: "Latest From",
       noArticles: "This author has no articles.",
     },
     ar: {
-      latestFrom: "الأحدث من",
+      latest: "الأحدث من",
       noArticles: "ليس لهذا المؤلف أي مقالات.",
     },
   }[locale];
@@ -49,7 +49,7 @@ const Author = ({ globalData, authorData, authorArticles }) => {
         </article>
         <div className="mt-6 border-b border-violet-600/50 dark:border-violet-400/50"></div>
         <ArticlesList
-          topStr={`${strings.latestFrom} ${authorData.displayName}`}
+          topStr={`${strings.latest} ${authorData.displayName}`}
           noArticlesStr={strings.noArticles}
           articlesData={authorArticles.articles}
           isCentered
