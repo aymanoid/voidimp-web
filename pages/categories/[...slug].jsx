@@ -6,6 +6,7 @@ import {
 } from "utils/queries";
 import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
+import CategorySEO from "components/SEO/CategorySEO";
 import ArticlesList from "components/common/ArticlesList";
 import PaginationButtons from "components/authors/PaginationButtons";
 
@@ -27,6 +28,11 @@ const Category = ({ globalData, categoryData, categoryArticles }) => {
 
   return (
     <Layout globalData={globalData}>
+      <CategorySEO
+        categoryName={categoryData.name}
+        description={globalData.metaDescription}
+        imageData={globalData.metaImage}
+      />
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article>
           <header>
