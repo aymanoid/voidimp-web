@@ -9,12 +9,12 @@ const localeMap = {
   "ar-ma": "ar",
 };
 
-const getAuthorArticles = async (username, locale, page) => {
+const getAuthorArticles = async (id, locale, page) => {
   const [response, categoriesRes] = await Promise.all([
     client.get({
       predicates: [
         prismic.predicate.at("document.type", "article"),
-        prismic.predicate.at("my.article.author", username),
+        prismic.predicate.at("my.article.author", id),
       ],
       lang: localeMap[locale],
       page: page,
