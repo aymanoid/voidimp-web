@@ -59,24 +59,13 @@ const formatDate = (timestamp, locale) => {
   return new Intl.DateTimeFormat(locale, options).format(date);
 };
 
-const AuthorArticles = ({ authorDisplayName, articlesData }) => {
+const ArticlesList = ({ topStr, noArticlesStr, articlesData }) => {
   const { locale } = useRouter();
-
-  const strings = {
-    en: {
-      latestFrom: "Latest From",
-      noArticles: "This author has no articles.",
-    },
-    ar: {
-      latestFrom: "الأحدث من",
-      noArticles: "ليس لهذا المؤلف أي مقالات.",
-    },
-  }[locale];
 
   return (
     <div className="mx-auto mt-12 max-w-4xl">
       <h2 className="text-xl font-bold uppercase text-violet-600 shadow-violet-400/40 drop-shadow-lg dark:text-violet-400">
-        {`${strings.latestFrom} ${authorDisplayName}`}
+        {topStr}
       </h2>
       {articlesData.length ? (
         articlesData.map((articleData, index) => {
@@ -128,10 +117,10 @@ const AuthorArticles = ({ authorDisplayName, articlesData }) => {
           );
         })
       ) : (
-        <p className="mt-6">{strings.noArticles}</p>
+        <p className="mt-6">{noArticlesStr}</p>
       )}
     </div>
   );
 };
 
-export default AuthorArticles;
+export default ArticlesList;

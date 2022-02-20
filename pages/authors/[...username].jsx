@@ -8,11 +8,22 @@ import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
 import AuthorSEO from "components/SEO/AuthorSEO";
 import AvatarImage from "components/authors/AvatarImage";
-import AuthorArticles from "components/authors/AuthorArticles";
+import ArticlesList from "components/common/ArticlesList";
 import PaginationButtons from "components/authors/PaginationButtons";
 
 const Author = ({ globalData, authorData, authorArticles }) => {
-  const { query } = useRouter();
+  const { locale, query } = useRouter();
+
+  const strings = {
+    en: {
+      latestFrom: "Latest From",
+      noArticles: "This author has no articles.",
+    },
+    ar: {
+      latestFrom: "الأحدث من",
+      noArticles: "ليس لهذا المؤلف أي مقالات.",
+    },
+  }[locale];
 
   return (
     <Layout globalData={globalData}>
@@ -37,8 +48,9 @@ const Author = ({ globalData, authorData, authorArticles }) => {
           </header>
         </article>
         <div className="mt-6 border-b border-violet-600/50 dark:border-violet-400/50"></div>
-        <AuthorArticles
-          authorDisplayName={authorData.displayName}
+        <ArticlesList
+          topStr={`${strings.latestFrom} ${authorData.displayName}`}
+          noArticlesStr={strings.noArticles}
           articlesData={authorArticles.articles}
         />
         <PaginationButtons paginationData={authorArticles.paginationData} />
