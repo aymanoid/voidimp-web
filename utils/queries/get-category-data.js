@@ -13,7 +13,7 @@ const getCategoryData = async (id, locale) => {
   });
 
   const data = {
-    id: response.uid,
+    id: response.id,
     name: response.data.name,
   };
   return data;

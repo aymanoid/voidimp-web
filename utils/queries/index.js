@@ -12,3 +12,5 @@ export { default as getHomePageData } from "./get-home-page-data.js";
 export { default as getTagPaths } from "./get-tag-paths.js";
 export { default as getTagData } from "./get-tag-data.js";
 export { default as getTagArticles } from "./get-tag-articles.js";
+export { default as getCategoryPaths } from "./get-category-paths.js";
+export { default as getCategoryArticles } from "./get-category-articles.js";
