@@ -65,6 +65,11 @@ const getHomePageData = async (locale) => {
         )[0].data.name,
       };
     }),
+    seoData: {
+      metaTitle: response.data.meta_title,
+      metaDescription: response.data.meta_description,
+      metaImage: response.data.meta_image,
+    },
   };
 
   return data;
