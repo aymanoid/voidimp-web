@@ -27,7 +27,7 @@ const Home = ({ globalData, homePageData }) => {
       <HomeSEO
         metaTitle={homePageData.seoData.metaTitle}
         description={globalData.metaDescription}
-        imageData={homePageData.seoData.metaImage}
+        imageData={globalData.metaImage}
       />
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <div className="-mx-8 flex flex-wrap md:flex-row">
