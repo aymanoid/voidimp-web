@@ -9,3 +9,6 @@ export { default as getAuthorData } from "./get-author-data.js";
 export { default as getAuthorArticles } from "./get-author-articles.js";
 export { default as getCategoryData } from "./get-category-data.js";
 export { default as getHomePageData } from "./get-home-page-data.js";
+export { default as getTagPaths } from "./get-tag-paths.js";
+export { default as getTagData } from "./get-tag-data.js";
+export { default as getTagArticles } from "./get-tag-articles.js";
