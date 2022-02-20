@@ -15,7 +15,6 @@ const getGlobalData = async (locale) => {
   const data = {
     searchBarLabel: response.data.search_bar_label,
     navbarLinks: response.data.navbar_links,
-    footerDescription: response.data.footer_description,
     footerLinkColumns: response.data.body
       .filter((e) => e.slice_type === "footer_links_column")
       .map((e) => ({ title: e.primary.title, links: e.items })),

@@ -11,7 +11,7 @@ const Layout = ({ globalData, children }) => {
       />
       <main className="relative p-4 lg:p-8">{children}</main>
       <Footer
-        footerDescription={globalData.footerDescription}
+        footerDescription={globalData.metaDescription}
         socialLinks={globalData.socialLinks}
         footerLinkColumns={globalData.footerLinkColumns}
         footerRights={globalData.footerRights}
