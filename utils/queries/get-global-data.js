@@ -21,6 +21,7 @@ const getGlobalData = async (locale) => {
     footerRights: response.data.footer_rights,
     socialLinks: response.data.social_links,
     metaDescription: response.data.meta_description,
+    metaImage: response.data.meta_image,
   };
   return data;
 };
