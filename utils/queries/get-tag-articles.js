@@ -40,9 +40,14 @@ const getTagArticles = async (id, locale, page) => {
       slug: e.uid,
       mainImage: { url: e.data.main_image.url, alt: e.data.main_image.alt },
       postDate: e.data.post_date || e.first_publication_date,
-      categoryName: categoriesRes.filter(
-        (category) => category.uid === e.data.category.uid
-      )[0].data.name,
+      categoryData: {
+        slug: categoriesRes.filter(
+          (category) => category.uid === e.data.category.uid
+        )[0].uid,
+        name: categoriesRes.filter(
+          (category) => category.uid === e.data.category.uid
+        )[0].data.name,
+      },
     })),
   };
 

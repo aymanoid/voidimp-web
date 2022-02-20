@@ -286,10 +286,10 @@ const ArticlesList = ({
                 </Link>
               </figure>
               <div className="w-full sm:w-1/2">
-                <Link href="/categories/news">
+                <Link href={`/categories/${articleData.categoryData.slug}`}>
                   <a>
                     <span className="mt-4 inline-block rounded-full bg-violet-600 px-2 py-1 align-top font-extrabold uppercase text-white dark:bg-violet-400 dark:text-neutral-900 sm:mt-0">
-                      {articleData.categoryName}
+                      {articleData.categoryData.name}
                     </span>
                   </a>
                 </Link>
