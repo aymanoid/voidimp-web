@@ -14,3 +14,4 @@ export { default as getTagData } from "./get-tag-data.js";
 export { default as getTagArticles } from "./get-tag-articles.js";
 export { default as getCategoryPaths } from "./get-category-paths.js";
 export { default as getCategoryArticles } from "./get-category-articles.js";
+export { default as getArticlesSitemapData } from "./get-articles-sitemap-data.js";
