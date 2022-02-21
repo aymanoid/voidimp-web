@@ -35,7 +35,9 @@ const PaginationButtons = ({ paginationData }) => {
   }[locale];
 
   const fromCount =
-    (paginationData.page - 1) * paginationData.resultsPerPage + 1;
+    paginationData.totalResultsSize === 0
+      ? 0
+      : (paginationData.page - 1) * paginationData.resultsPerPage + 1;
   const toCount = Math.min(
     paginationData.totalResultsSize,
     paginationData.page * paginationData.resultsPerPage
