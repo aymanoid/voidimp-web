@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
 import CategorySEO from "components/SEO/CategorySEO";
 import ArticlesList from "components/common/ArticlesList";
-import PaginationButtons from "components/authors/PaginationButtons";
+import PaginationButtons from "components/common/PaginationButtons";
 
 const Category = ({ globalData, categoryData, categoryArticles }) => {
   const { locale } = useRouter();

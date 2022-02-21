@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
 import TagSEO from "components/SEO/TagSEO";
 import ArticlesList from "components/common/ArticlesList";
-import PaginationButtons from "components/authors/PaginationButtons";
+import PaginationButtons from "components/common/PaginationButtons";
 
 const Tag = ({ globalData, tagData, tagArticles }) => {
   const { locale } = useRouter();

@@ -9,7 +9,7 @@ import Layout from "components/common/Layout";
 import AuthorSEO from "components/SEO/AuthorSEO";
 import AvatarImage from "components/authors/AvatarImage";
 import ArticlesList from "components/common/ArticlesList";
-import PaginationButtons from "components/authors/PaginationButtons";
+import PaginationButtons from "components/common/PaginationButtons";
 
 const Author = ({ globalData, authorData, authorArticles }) => {
   const { locale, query } = useRouter();
