@@ -7,7 +7,7 @@ const Logo = () => {
       <Link href="/">
         <a>
           <span>
-            <LogoSvg width={1906.2 / 14} height={430.55 / 14} />
+            <LogoSvg direction="ltr" width={1906.2 / 14} height={430.55 / 14} />
           </span>
         </a>
       </Link>
