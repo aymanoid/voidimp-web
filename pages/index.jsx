@@ -37,7 +37,7 @@ const Home = ({ globalData, homePageData }) => {
             <SocialAd />
           </section>
 
-          <FeaturedArticles articlesData={homePageData.featuredArticles} />
+          <FeaturedArticles isMocked />
         </div>
 
         {/*<div className="mt-8 border-b border-black/50 dark:border-white/50" />*/}
