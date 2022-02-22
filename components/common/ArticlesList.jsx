@@ -254,7 +254,8 @@ const formatDate = (timestamp, locale) => {
 const ArticlesList = ({
   topStr,
   noArticlesStr,
-  articlesData = mockArticlesData,
+  isMocked,
+  articlesData = isMocked ? mockArticlesData : [],
   isCentered,
 }) => {
   const { locale } = useRouter();

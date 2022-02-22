@@ -4,7 +4,7 @@ import Imgix, { Picture, Source } from "react-imgix";
 import "lazysizes";
 import "lazysizes/plugins/attrchange/ls.attrchange";
 
-const articlesData = [
+const mockArticlesData = [
   {
     title: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
     url: "/haha1",
@@ -56,12 +56,18 @@ const articlesData = [
   },
 ];
 
-const SidebarRecommended = ({ _articlesData }) => {
+const SidebarRecommended = ({
+  isMocked,
+  articlesData = isMocked ? mockArticlesData : [],
+}) => {
   const { locale } = useRouter();
 
   const strings = {
-    en: { recommended: "Recommended" },
-    ar: { recommended: "موصى به" },
+    en: {
+      recommended: "Recommended",
+      noArticles: "This section has no articles.",
+    },
+    ar: { recommended: "موصى به", noArticles: "ليس لهذا القسم أي مقالات." },
   }[locale];
 
   return (
@@ -70,61 +76,65 @@ const SidebarRecommended = ({ _articlesData }) => {
         🔮 {strings.recommended}
       </h3>
       <div className="space-y-6 pt-6">
-        {articlesData.map((articleData, index) => {
-          return (
-            <article key={index}>
-              <Link href={articleData.url}>
-                <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
-                  <figure>
-                    <Picture>
-                      <Source
-                        src={articleData.thumbnail.url}
-                        width={320}
-                        height={320 / (16 / 9)}
-                        htmlAttributes={{ media: "(min-width: 1024px)" }}
-                      />
-                      <Source
-                        src={articleData.thumbnail.url}
-                        width={1024}
-                        height={1024 / (16 / 9)}
-                        htmlAttributes={{ media: "(min-width: 768px)" }}
-                      />
-                      <Source
-                        src={articleData.thumbnail.url}
-                        width={768}
-                        height={768 / (16 / 9)}
-                        htmlAttributes={{ media: "(min-width: 640px)" }}
-                      />
-                      <Source
-                        src={articleData.thumbnail.url}
-                        width={640}
-                        height={640 / (16 / 9)}
-                        htmlAttributes={{ media: "(min-width: 0px)" }}
-                      />
-                      <Imgix
-                        className="lazyload rounded-3xl"
-                        src={articleData.thumbnail.url}
-                        width={articleData.thumbnail.dimensions.width}
-                        height={articleData.thumbnail.dimensions.height}
-                        htmlAttributes={{ alt: articleData.thumbnail.alt }}
-                        attributeConfig={{
-                          src: "data-src",
-                          srcSet: "data-srcset",
-                          sizes: "data-sizes",
-                        }}
-                      />
-                      {/* TODO: add and stylize figurecaption tag */}
-                    </Picture>
-                  </figure>
+        {articlesData.length ? (
+          articlesData.map((articleData, index) => {
+            return (
+              <article key={index}>
+                <Link href={articleData.url}>
+                  <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
+                    <figure>
+                      <Picture>
+                        <Source
+                          src={articleData.thumbnail.url}
+                          width={320}
+                          height={320 / (16 / 9)}
+                          htmlAttributes={{ media: "(min-width: 1024px)" }}
+                        />
+                        <Source
+                          src={articleData.thumbnail.url}
+                          width={1024}
+                          height={1024 / (16 / 9)}
+                          htmlAttributes={{ media: "(min-width: 768px)" }}
+                        />
+                        <Source
+                          src={articleData.thumbnail.url}
+                          width={768}
+                          height={768 / (16 / 9)}
+                          htmlAttributes={{ media: "(min-width: 640px)" }}
+                        />
+                        <Source
+                          src={articleData.thumbnail.url}
+                          width={640}
+                          height={640 / (16 / 9)}
+                          htmlAttributes={{ media: "(min-width: 0px)" }}
+                        />
+                        <Imgix
+                          className="lazyload rounded-3xl"
+                          src={articleData.thumbnail.url}
+                          width={articleData.thumbnail.dimensions.width}
+                          height={articleData.thumbnail.dimensions.height}
+                          htmlAttributes={{ alt: articleData.thumbnail.alt }}
+                          attributeConfig={{
+                            src: "data-src",
+                            srcSet: "data-srcset",
+                            sizes: "data-sizes",
+                          }}
+                        />
+                        {/* TODO: add and stylize figurecaption tag */}
+                      </Picture>
+                    </figure>
 
-                  <h3 className="pt-2 font-semibold text-neutral-700 dark:text-neutral-200 ">
-                    {articleData.title}
-                  </h3>
-                </a>
-              </Link>
-            </article>
-          );
-        })}
+                    <h3 className="pt-2 font-semibold text-neutral-700 dark:text-neutral-200 ">
+                      {articleData.title}
+                    </h3>
+                  </a>
+                </Link>
+              </article>
+            );
+          })
+        ) : (
+          <p>{strings.noArticles}</p>
+        )}
       </div>
     </section>
   );

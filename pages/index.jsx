@@ -41,11 +41,12 @@ const Home = ({ globalData, homePageData }) => {
         </div>
 
         {/*<div className="mt-8 border-b border-black/50 dark:border-white/50" />*/}
-        <TrendingArticles />
+        <TrendingArticles isMocked />
 
         <ArticlesList
           topStr={strings.latest}
           noArticlesStr={strings.noArticles}
+          isMocked
         />
       </div>
     </Layout>

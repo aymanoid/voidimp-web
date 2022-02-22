@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
-const articlesData = [
+const mockArticlesData = [
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
     subheadline: "Activision Blizzard games won't be Xbox exclusives just yet.",
@@ -48,7 +48,10 @@ const articlesData = [
   },
 ];
 
-const FeaturedArticles = ({ _articlesData }) => {
+const FeaturedArticles = ({
+  isMocked,
+  articlesData = isMocked ? mockArticlesData : [],
+}) => {
   const { locale } = useRouter();
 
   const strings = {

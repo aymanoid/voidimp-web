@@ -77,12 +77,12 @@ const Article = ({
           </section>
 
           <aside className="mt-4 w-full lg:w-1/3 xl:w-1/4">
-            <SidebarRecommended />
+            <SidebarRecommended isMocked />
           </aside>
         </article>
         <div className="mt-6 border-b border-black/50 dark:border-white/50"></div>
         <div className="mt-6">
-          <LatestArticles />
+          <LatestArticles isMocked />
         </div>
       </div>
     </Layout>
