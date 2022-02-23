@@ -40,7 +40,7 @@ const Article = ({
       />
       <div className="container mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article className="flex flex-row flex-wrap">
-          <header className="space-y-4">
+          <header className="w-full space-y-4">
             <HeadingImage imageData={articleData.mainImage} />
             <h1 className="text-center text-3xl font-extrabold text-neutral-700 dark:text-neutral-200 sm:text-4xl">
               {articleData.headline}
