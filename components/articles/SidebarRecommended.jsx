@@ -124,7 +124,7 @@ const SidebarRecommended = ({
                       </Picture>
                     </figure>
 
-                    <h3 className="pt-2 font-semibold text-neutral-700 dark:text-neutral-200 ">
+                    <h3 className="pt-2 font-semibold text-black dark:text-white">
                       {articleData.title}
                     </h3>
                   </a>
