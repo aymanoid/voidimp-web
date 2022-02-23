@@ -5,7 +5,7 @@ import Image from "next/image";
 const articlesData = [
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
-    slug: "haha1",
+    slug: "",
     thumbnail: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
       alt: "s1",
@@ -14,7 +14,7 @@ const articlesData = [
   {
     headline:
       "Black Myth: Wukong New Year Trailer Reveals Cats Can Be Difficult Mo-Cap Actors",
-    slug: "haha1",
+    slug: "",
     thumbnail: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
       alt: "s2",
@@ -22,7 +22,7 @@ const articlesData = [
   },
   {
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
-    slug: "haha1",
+    slug: "",
     thumbnail: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
       alt: "s3",
@@ -30,7 +30,7 @@ const articlesData = [
   },
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
-    slug: "haha1",
+    slug: "",
     thumbnail: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
       alt: "s4",

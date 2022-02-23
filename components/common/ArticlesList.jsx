@@ -6,7 +6,7 @@ const mockArticlesData = [
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
     subheadline: "Activision Blizzard games won't be Xbox exclusives just yet.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
       alt: "s1",
@@ -19,7 +19,7 @@ const mockArticlesData = [
       "Black Myth: Wukong New Year Trailer Reveals Cats Can Be Difficult Mo-Cap Actors",
     subheadline:
       "The next Assassin's Creed game could be much smaller in scope than we're used to.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
       alt: "s2",
@@ -31,7 +31,7 @@ const mockArticlesData = [
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
     subheadline:
       "As Game Pass becomes even more powerful, indie devs are worried they'll have no choice but to be on it.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
       alt: "s3",
@@ -42,7 +42,7 @@ const mockArticlesData = [
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
     subheadline: "It's a good time to be a Gen 4 fan.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
       alt: "s4",
@@ -53,7 +53,7 @@ const mockArticlesData = [
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
     subheadline: "Activision Blizzard games won't be Xbox exclusives just yet.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
       alt: "s1",
@@ -66,7 +66,7 @@ const mockArticlesData = [
       "Black Myth: Wukong New Year Trailer Reveals Cats Can Be Difficult Mo-Cap Actors",
     subheadline:
       "The next Assassin's Creed game could be much smaller in scope than we're used to.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
       alt: "s2",
@@ -78,7 +78,7 @@ const mockArticlesData = [
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
     subheadline:
       "As Game Pass becomes even more powerful, indie devs are worried they'll have no choice but to be on it.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
       alt: "s3",
@@ -89,7 +89,7 @@ const mockArticlesData = [
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
     subheadline: "It's a good time to be a Gen 4 fan.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
       alt: "s4",
@@ -100,7 +100,7 @@ const mockArticlesData = [
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
     subheadline: "Activision Blizzard games won't be Xbox exclusives just yet.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
       alt: "s1",
@@ -113,7 +113,7 @@ const mockArticlesData = [
       "Black Myth: Wukong New Year Trailer Reveals Cats Can Be Difficult Mo-Cap Actors",
     subheadline:
       "The next Assassin's Creed game could be much smaller in scope than we're used to.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
       alt: "s2",
@@ -125,7 +125,7 @@ const mockArticlesData = [
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
     subheadline:
       "As Game Pass becomes even more powerful, indie devs are worried they'll have no choice but to be on it.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
       alt: "s3",
@@ -136,7 +136,7 @@ const mockArticlesData = [
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
     subheadline: "It's a good time to be a Gen 4 fan.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
       alt: "s4",
@@ -147,7 +147,7 @@ const mockArticlesData = [
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
     subheadline: "Activision Blizzard games won't be Xbox exclusives just yet.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
       alt: "s1",
@@ -160,7 +160,7 @@ const mockArticlesData = [
       "Black Myth: Wukong New Year Trailer Reveals Cats Can Be Difficult Mo-Cap Actors",
     subheadline:
       "The next Assassin's Creed game could be much smaller in scope than we're used to.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
       alt: "s2",
@@ -172,7 +172,7 @@ const mockArticlesData = [
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
     subheadline:
       "As Game Pass becomes even more powerful, indie devs are worried they'll have no choice but to be on it.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
       alt: "s3",
@@ -183,7 +183,7 @@ const mockArticlesData = [
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
     subheadline: "It's a good time to be a Gen 4 fan.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
       alt: "s4",
@@ -194,7 +194,7 @@ const mockArticlesData = [
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
     subheadline: "Activision Blizzard games won't be Xbox exclusives just yet.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
       alt: "s1",
@@ -207,7 +207,7 @@ const mockArticlesData = [
       "Black Myth: Wukong New Year Trailer Reveals Cats Can Be Difficult Mo-Cap Actors",
     subheadline:
       "The next Assassin's Creed game could be much smaller in scope than we're used to.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
       alt: "s2",
@@ -219,7 +219,7 @@ const mockArticlesData = [
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
     subheadline:
       "As Game Pass becomes even more powerful, indie devs are worried they'll have no choice but to be on it.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
       alt: "s3",
@@ -230,7 +230,7 @@ const mockArticlesData = [
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
     subheadline: "It's a good time to be a Gen 4 fan.",
-    slug: "haha1",
+    slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
       alt: "s4",
