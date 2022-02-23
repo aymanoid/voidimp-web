@@ -44,7 +44,9 @@ const getArticleData = async (slug, locale) => {
         primary,
       };
     }),
-    tags: response.data.tags.map((e) => e.tag.uid),
+    tags: !response.data.tags.length
+      ? response.data.tags.map((e) => e.tag.uid)
+      : [],
     category: response.data.category.uid,
     description: response.data.description,
   };
