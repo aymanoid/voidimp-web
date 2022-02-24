@@ -20,5 +20,5 @@ export async function middleware(req, s) {
       "VoidImp is currently under construction, come back soon!"
     );
   }
-  return NextResponse.next();
+  return res;
 }
