@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export async function middleware(req) {
-  const legit = req.cookies.ACCESS_KEY === "cGFzc3dvcmQ=";
+  const legit = req.nextUrl.searchParams.get("key") === "cGFzc3dvcmQ=";
 
   if (process.env.MAINT_MODE === "true" && !legit) {
     return NextResponse.json(
