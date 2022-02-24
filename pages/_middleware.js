@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server";
 
 export async function middleware(req) {
-  if (process.env.MAINT_MODE === "yes") {
-    return NextResponse.rewrite(new URL("/maint", req.url));
-  }
+  const legit = req.cookies.ACCESS_KEY === "cGFzc3dvcmQ=";
 
+  if (process.env.MAINT_MODE === "true" && !legit) {
+    return NextResponse.json(
+      "VoidImp is currently under construction, come back soon!"
+    );
+  }
   return NextResponse.next();
 }
