@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export async function middleware(req) {
-  const allowedIps = ["196.64.236.207"];
+  const allowedIps = ["105.158.115.64"];
 
   const legit = req.ip ? allowedIps.includes(req.ip) : true;
 
