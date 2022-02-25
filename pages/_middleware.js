@@ -5,7 +5,7 @@ export async function middleware(req) {
 
   const legit = req.ip ? allowedIps.includes(req.ip) : true;
 
-  if (process.env.MAINT_MODE === "true" && !legit) {
+  if (!legit) {
     return NextResponse.json(
       "VoidImp is currently under construction, come back soon!"
     );
