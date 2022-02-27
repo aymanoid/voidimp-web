@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Imgix, { Picture, Source } from "react-imgix";
-import "lazysizes";
-import "lazysizes/plugins/attrchange/ls.attrchange";
+import Image from "next/image";
 
 const mockArticlesData = [
   {
@@ -83,45 +81,15 @@ const SidebarRecommended = ({
                 <Link href={articleData.url}>
                   <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
                     <figure>
-                      <Picture>
-                        <Source
-                          src={articleData.thumbnail.url}
-                          width={320}
-                          height={320 / (16 / 9)}
-                          htmlAttributes={{ media: "(min-width: 1024px)" }}
-                        />
-                        <Source
-                          src={articleData.thumbnail.url}
-                          width={1024}
-                          height={1024 / (16 / 9)}
-                          htmlAttributes={{ media: "(min-width: 768px)" }}
-                        />
-                        <Source
-                          src={articleData.thumbnail.url}
-                          width={768}
-                          height={768 / (16 / 9)}
-                          htmlAttributes={{ media: "(min-width: 640px)" }}
-                        />
-                        <Source
-                          src={articleData.thumbnail.url}
-                          width={640}
-                          height={640 / (16 / 9)}
-                          htmlAttributes={{ media: "(min-width: 0px)" }}
-                        />
-                        <Imgix
-                          className="lazyload rounded-3xl"
-                          src={articleData.thumbnail.url}
-                          width={articleData.thumbnail.dimensions.width}
-                          height={articleData.thumbnail.dimensions.height}
-                          htmlAttributes={{ alt: articleData.thumbnail.alt }}
-                          attributeConfig={{
-                            src: "data-src",
-                            srcSet: "data-srcset",
-                            sizes: "data-sizes",
-                          }}
-                        />
-                        {/* TODO: add and stylize figurecaption tag */}
-                      </Picture>
+                      <Image
+                        className="rounded-3xl"
+                        src={articleData.thumbnail.url}
+                        alt={articleData.thumbnail.alt}
+                        width={768}
+                        height={768 / (16 / 9)}
+                      />
+
+                      {/* TODO: add and stylize figurecaption tag */}
                     </figure>
 
                     <h3 className="pt-2 font-semibold text-black dark:text-white">
