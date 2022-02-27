@@ -13,6 +13,13 @@ const getArticleData = async (slug, locale) => {
     lang: localeMap[locale],
   });
 
+  let enResponse;
+  if (locale === "ar") {
+    enResponse = await client.getByUID("article", slug, {
+      lang: "en-us",
+    });
+  }
+
   const data = {
     headline: prismicH.asText(response.data.headline),
     subheadline: prismicH.asText(response.data.subheadline),
@@ -20,7 +27,7 @@ const getArticleData = async (slug, locale) => {
     authorUsername: response.data.author.uid,
     postDate: response.data.post_date || response.first_publication_date,
     updateDate: response.data.update_date || response.last_publication_date,
-    segments: response.data.body?.map((e) => {
+    segments: response.data.body?.map((e, i) => {
       const type = e.slice_type;
       let primary;
       switch (type) {
@@ -37,7 +44,16 @@ const getArticleData = async (slug, locale) => {
           };
           break;
         case "timeline":
-          primary = e.items;
+          primary = e.items.map((e, x) => {
+            const obj = {
+              title: e.title,
+              direction: e.direction,
+              note: e.note,
+            };
+            if (locale === "ar")
+              obj.enTitle = enResponse.data.body[i].items[x].title;
+            return obj;
+          });
           break;
         default:
           primary = e.primary;
