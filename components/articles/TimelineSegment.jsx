@@ -1,50 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-const mockTimelineData = [
-  {
-    title: "Captain America: The First Avenger",
-    note: "",
-    direction: "left",
-  },
-  {
-    title: "Agent Carter",
-    note: "Season 01",
-    direction: "right",
-  },
-  {
-    title: "Agent Carter",
-    note: "Season 02",
-    direction: "right",
-  },
-  {
-    title: "Agent Carter",
-    note: "One-Shot",
-    direction: "right",
-  },
-  {
-    title: "Captain Marvel",
-    note: "",
-    direction: "left",
-  },
-  {
-    title: "Iron Man",
-    note: "Watch credits scene after watching Infinity War",
-    direction: "left",
-  },
-  {
-    title: "Iron Man 2",
-    note: "",
-    direction: "left",
-  },
-  {
-    title: "The Incredible Hulk",
-    note: "",
-    direction: "left",
-  },
-];
-
-const TimelineSegment = ({ timelineData = mockTimelineData }) => {
+const TimelineSegment = ({ timelineData }) => {
   const { locale } = useRouter();
   const [usingEnTiles, setUsingEnTiles] = useState(false);
 
