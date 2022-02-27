@@ -12,6 +12,7 @@ const HeadingImage = ({ imageData }) => {
           className="rounded-3xl"
           priority
         />
+        {/* TODO: delete imageData.dimensions */}
 
         {/* TODO: add and stylize figurecaption tag */}
       </figure>

@@ -88,6 +88,7 @@ const SidebarRecommended = ({
                         width={768}
                         height={768 / (16 / 9)}
                       />
+                      {/* TODO: delete articleData.thumbnail.dimensions */}
 
                       {/* TODO: add and stylize figurecaption tag */}
                     </figure>

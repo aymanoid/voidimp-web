@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Imgix, { Picture, Source } from "react-imgix";
-import "lazysizes";
-import "lazysizes/plugins/attrchange/ls.attrchange";
+import Image from "next/image";
 
 const AuthorInfo = ({ authorData }) => {
   const { locale } = useRouter();
@@ -16,34 +14,14 @@ const AuthorInfo = ({ authorData }) => {
     <div className="group mt-6 flex">
       <Link href={`/authors/${authorData.username}`}>
         <a className="flex items-center ">
-          <div className="relative inline-flex h-12 w-12 flex-shrink-0 items-center justify-center overflow-hidden text-lg font-semibold uppercase sm:h-24 sm:w-24 sm:text-xl ">
-            <Picture>
-              <Source
-                src={authorData.avatarThumbnail.url}
-                width={96}
-                height={96}
-                htmlAttributes={{ media: "(min-width: 640px)" }}
-              />
-              <Source
-                src={authorData.avatarThumbnail.url}
-                width={48}
-                height={48}
-                htmlAttributes={{ media: "(min-width: 0px)" }}
-              />
-              <Imgix
-                className="lazyload absolute inset-0 h-full w-full rounded-xl object-cover"
-                src={authorData.avatarThumbnail.url}
-                width={authorData.avatarThumbnail.dimensions.width}
-                height={authorData.avatarThumbnail.dimensions.height}
-                htmlAttributes={{ alt: authorData.avatarThumbnail.alt }}
-                attributeConfig={{
-                  src: "data-src",
-                  srcSet: "data-srcset",
-                  sizes: "data-sizes",
-                }}
-              />
-            </Picture>
-          </div>
+          <Image
+            className="rounded-xl"
+            src={authorData.avatarThumbnail.url}
+            alt={authorData.avatarThumbnail.alt}
+            width={96}
+            height={96}
+          />
+          {/* TODO: delete authorData.avatarThumbnail.dimensions */}
         </a>
       </Link>
       <div className="flex max-w-lg flex-col ltr:ml-3 rtl:mr-3 ltr:sm:ml-5 rtl:sm:ml-5">
