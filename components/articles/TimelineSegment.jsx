@@ -8,14 +8,16 @@ const TimelineSegment = ({ timelineData }) => {
   return (
     <>
       {locale === "ar" && (
-        <button
-          onClick={() => setUsingEnTiles(!usingEnTiles)}
-          className="rounded-full border border-violet-600 bg-transparent px-4 py-2 font-semibold hover:border-transparent hover:bg-violet-600 dark:border-violet-400 dark:hover:bg-violet-400"
-        >
-          {usingEnTiles
-            ? "إستخدم العناوين العربية"
-            : "إستخدم العناوين الإنجليزية"}
-        </button>
+        <div className="flex justify-end">
+          <button
+            onClick={() => setUsingEnTiles(!usingEnTiles)}
+            className="rounded-full border border-violet-600 bg-transparent px-4 py-2 font-semibold hover:border-transparent hover:bg-violet-600 dark:border-violet-400 dark:hover:bg-violet-400"
+          >
+            {usingEnTiles
+              ? "إستخدم العناوين العربية"
+              : "إستخدم العناوين الإنجليزية"}
+          </button>
+        </div>
       )}
       <div className="mx-auto grid w-full max-w-7xl grid-cols-9 px-2">
         {timelineData.map((e, i) => {
