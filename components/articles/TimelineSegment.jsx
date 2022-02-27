@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { Fragment } from "react";
 
 const TimelineSegment = ({ timelineData }) => {
   const { locale } = useRouter();
@@ -23,7 +24,7 @@ const TimelineSegment = ({ timelineData }) => {
         {timelineData.map((e, i) => {
           if (e.direction === "left") {
             return (
-              <>
+              <Fragment key={i}>
                 <div className="col-span-4 h-full w-full">
                   <div className="h-full w-full rounded-md p-2 ltr:text-right rtl:text-left md:pl-4">
                     <h2 className="text-xl font-semibold text-black dark:text-white">
@@ -41,12 +42,12 @@ const TimelineSegment = ({ timelineData }) => {
                   </div>
                 </div>
                 <div className="col-span-4 h-full w-full"></div>
-              </>
+              </Fragment>
             );
           }
           if (e.direction === "right") {
             return (
-              <>
+              <Fragment key={i}>
                 <div className="col-span-4 h-full w-full"></div>
                 <div className="relative col-span-1 flex h-full w-full items-center justify-center">
                   <div className="h-full w-1 bg-violet-600 dark:bg-violet-400"></div>
@@ -64,7 +65,7 @@ const TimelineSegment = ({ timelineData }) => {
                     </p>
                   </div>
                 </div>
-              </>
+              </Fragment>
             );
           }
         })}
