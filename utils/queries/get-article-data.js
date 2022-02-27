@@ -36,6 +36,9 @@ const getArticleData = async (slug, locale) => {
             caption: prismicH.asHTML(e.primary.caption),
           };
           break;
+        case "timeline":
+          primary = e.items;
+          break;
         default:
           primary = e.primary;
       }

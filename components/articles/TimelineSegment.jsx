@@ -1,57 +1,47 @@
-import Image from "next/image";
-
-const timelineData = [
+const mockTimelineData = [
   {
     title: "Captain America: The First Avenger",
-    portion: "",
-    notes: "",
+    note: "",
     direction: "left",
   },
   {
     title: "Agent Carter",
-    portion: "season 01",
-    notes: "",
+    note: "Season 01",
     direction: "right",
   },
   {
     title: "Agent Carter",
-    portion: "season 02",
-    notes: "",
+    note: "Season 02",
     direction: "right",
   },
   {
     title: "Agent Carter",
-    portion: "one-shot on Iron Man 3 DVD",
-    notes: "",
+    note: "One-Shot",
     direction: "right",
   },
   {
     title: "Captain Marvel",
-    portion: "",
-    notes: "",
+    note: "",
     direction: "left",
   },
   {
     title: "Iron Man",
-    portion: "",
-    notes: "",
+    note: "Watch credits scene after watching Infinity War",
     direction: "left",
   },
   {
     title: "Iron Man 2",
-    portion: "",
-    notes: "",
+    note: "",
     direction: "left",
   },
   {
     title: "The Incredible Hulk",
-    portion: "",
-    notes: "",
+    note: "",
     direction: "left",
   },
 ];
 
-const TimelineBody = ({ _timelineData }) => {
+const TimelineSegment = ({ timelineData = mockTimelineData }) => {
   return (
     <div className="mx-auto grid w-full max-w-7xl grid-cols-9 px-2">
       {timelineData.map((e, i) => {
@@ -59,12 +49,12 @@ const TimelineBody = ({ _timelineData }) => {
           return (
             <>
               <div className="col-span-4 h-full w-full">
-                <div className="h-full w-full rounded-md p-2 md:pl-4">
+                <div className="h-full w-full rounded-md p-2 ltr:text-right rtl:text-left md:pl-4">
                   <h2 className="text-xl font-semibold text-black dark:text-white">
                     {e.title}
                   </h2>
                   <p className="text-neutral-700 dark:text-neutral-400">
-                    {e.portion}
+                    {e.note}
                   </p>
                 </div>
               </div>
@@ -89,12 +79,12 @@ const TimelineBody = ({ _timelineData }) => {
                 </div>
               </div>
               <div className="col-span-4 h-full w-full ">
-                <div className="h-full w-full rounded-md p-2 md:pl-4">
+                <div className="h-full w-full rounded-md p-2 ltr:text-left rtl:text-right md:pl-4">
                   <h2 className="text-xl font-semibold text-black dark:text-white">
                     {e.title}
                   </h2>
                   <p className="text-neutral-700 dark:text-neutral-400">
-                    {e.portion}
+                    {e.note}
                   </p>
                 </div>
               </div>
@@ -106,4 +96,4 @@ const TimelineBody = ({ _timelineData }) => {
   );
 };
 
-export default TimelineBody;
+export default TimelineSegment;

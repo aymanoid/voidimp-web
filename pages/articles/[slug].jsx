@@ -13,6 +13,7 @@ import ShareButtons from "components/articles/ShareButtons";
 import HeadingImage from "components/articles/HeadingImage";
 import TextSegment from "components/articles/TextSegment";
 import ImageSegment from "components/articles/ImageSegment";
+import TimelineSegment from "components/articles/TimelineSegment";
 import SidebarRecommended from "components/articles/SidebarRecommended";
 import TagsList from "components/articles/TagsList";
 import AuthorInfo from "components/articles/AuthorInfo";
@@ -69,6 +70,11 @@ const Article = ({
 
               if (segment.type === "image")
                 return <ImageSegment key={index} imageData={segment.primary} />;
+
+              if (segment.type === "timeline")
+                return (
+                  <TimelineSegment key={index} timelineData={segment.primary} />
+                );
             })}
 
             <TagsList tagsData={tagsData} />
