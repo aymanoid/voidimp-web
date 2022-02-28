@@ -1,6 +1,8 @@
 import client from "utils/prismic";
 
 const handler = async (req, res) => {
+  console.log("reqx", req);
+  console.log("resx", res);
   if (req.body.secret !== process.env.UPDATER_SECRET_TOKEN) {
     return res.status(401).json({ message: "Invalid token" });
   }
