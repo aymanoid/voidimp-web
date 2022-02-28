@@ -63,7 +63,7 @@ const getArticleData = async (slug, locale) => {
         primary,
       };
     }),
-    tags: !response.data.tags.length
+    tags: response.data.tags.length
       ? response.data.tags.map((e) => e.tag.uid)
       : [],
     category: response.data.category.uid,

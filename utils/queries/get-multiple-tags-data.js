@@ -7,7 +7,7 @@ const localeMap = {
   "ar-ma": "ar",
 };
 
-const getTagData = async (tags, locale) => {
+const getMultipleTagsData = async (tags, locale) => {
   const promises = tags.map((e) =>
     client.getByUID("tag", e, {
       lang: localeMap[locale],
@@ -23,4 +23,4 @@ const getTagData = async (tags, locale) => {
   return data;
 };
 
-export default getTagData;
+export default getMultipleTagsData;
