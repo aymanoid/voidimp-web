@@ -6,11 +6,16 @@ const handler = async (req, res) => {
   }
 
   if (req.body.type !== "api-update" || !req.body.documents.length) {
+    console.log("hi 1");
     return res.json({ noUpdate: true });
   }
 
   try {
+    console.log("hi 2");
+
     const prismicRes = await client.getAllByType("article");
+    console.log("hi 3");
+
     const updatedUids = prismicRes
       .filter((e) => req.documents.includes(e.id))
       .map((e) => e.uid);
@@ -24,6 +29,9 @@ const handler = async (req, res) => {
     await Promise.all(promises);
     return res.json({ updated: true });
   } catch (err) {
+    console.error(err);
+    console.log("hi 4");
+
     return res.status(500).send("Error updating");
   }
 };
