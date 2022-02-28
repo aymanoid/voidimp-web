@@ -16,7 +16,6 @@ const getArticlesSitemapData = async () => {
 
   const response = await client.getAllByType("article");
 
-  console.log(response[0].alternate_languages);
   const data = response.map((result) => {
     return {
       slug: result.uid,
