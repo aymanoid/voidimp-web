@@ -17,8 +17,10 @@ const handler = async (req, res) => {
       .map((e) => e.uid);
     const updatedPaths = updatedUids.map((e) => `/articles/${e}`);
     updatedPaths.push(...updatedPaths.map((e) => `/ar${e}`));
+    console.log(updatedPaths);
 
     const promises = updatedPaths.map((e) => res.unstable_revalidate(e));
+    console.log(promises);
 
     await Promise.all(promises);
     return res.json({ updated: true });
