@@ -21,7 +21,7 @@ const ThemeSwitch = () => {
   return (
     <button
       aria-label={strings.btnAriaLabel}
-      className="mx-2 transform text-neutral-700 transition-colors duration-200 hover:text-violet-600 dark:text-neutral-200 dark:hover:text-violet-400 lg:mt-0"
+      className="mx-2 transform text-neutral-700 transition-colors duration-200 hover:text-violet-600 dark:text-neutral-200 dark:hover:text-violet-400 xl:mt-0"
       onClick={() => {
         setTheme(theme === "light" ? "dark" : "light");
       }}
