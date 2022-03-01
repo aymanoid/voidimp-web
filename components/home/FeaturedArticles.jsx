@@ -66,7 +66,7 @@ const FeaturedArticles = ({
   }[locale];
 
   return (
-    <section className="mt-4 flex w-full flex-col px-8 md:mt-0 md:w-2/5">
+    <section className="mt-4 flex w-full flex-col md:mt-0 md:w-2/5 md:px-8">
       <h2 className="text-xl font-bold uppercase text-violet-600 shadow-violet-400/40 drop-shadow-lg dark:text-violet-400">
         {`🌟 ${strings.featured}`}
       </h2>
