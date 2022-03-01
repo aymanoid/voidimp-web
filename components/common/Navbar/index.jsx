@@ -11,13 +11,13 @@ const Navbar = ({ searchBarLabel, navbarLinks, socialLinks }) => {
 
   return (
     <nav className="bg-neutral-100 shadow dark:bg-neutral-800">
-      <div className="container mx-auto px-6 py-4 lg:flex lg:items-center lg:justify-between">
-        <div className="lg:flex lg:items-center">
+      <div className="container mx-auto px-6 py-4 xl:flex xl:items-center xl:justify-between">
+        <div className="xl:flex xl:items-center">
           <div className="flex items-center justify-between">
             <Logo />
 
             {/* Mobile menu button */}
-            <div className="flex lg:hidden">
+            <div className="flex xl:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -37,7 +37,7 @@ const Navbar = ({ searchBarLabel, navbarLinks, socialLinks }) => {
           <div
             className={`${
               isOpen ? "flex" : "hidden"
-            } flex-col capitalize text-gray-600 dark:text-gray-300 lg:-mx-4 lg:flex lg:flex-row lg:items-center lg:px-16`}
+            } flex-col capitalize text-gray-600 dark:text-gray-300 xl:-mx-4 xl:flex xl:flex-row xl:items-center xl:px-16`}
           >
             <NavigationLinks links={navbarLinks} />
 
@@ -48,7 +48,7 @@ const Navbar = ({ searchBarLabel, navbarLinks, socialLinks }) => {
         <div
           className={`${
             isOpen ? "flex" : "hidden"
-          } mt-6 justify-center lg:-mx-2 lg:mt-0 lg:flex`}
+          } mt-6 justify-center xl:-mx-2 xl:mt-0 xl:flex`}
         >
           <div className="mx-2 transform border-r border-neutral-700 transition-colors duration-200 dark:border-neutral-200"></div>
           <ThemeSwitch />
