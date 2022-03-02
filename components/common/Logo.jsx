@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <div>
       <Link href="/">
-        <a>
+        <a aria-label="Homepage">
           <span>
             <LogoSvg direction="ltr" width={1906.2 / 14} height={430.55 / 14} />
           </span>
