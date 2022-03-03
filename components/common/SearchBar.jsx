@@ -1,6 +1,9 @@
+import { useRouter } from "next/router";
 import MagnifierIcon from "components/icons/magnifier.svg";
 
 const SearchBar = ({ searchBarLabel }) => {
+  const { locale } = useRouter();
+
   const origin =
     typeof window !== "undefined" && window.location.origin
       ? window.location.origin
@@ -9,7 +12,10 @@ const SearchBar = ({ searchBarLabel }) => {
       : "http://localhost:3000";
 
   return (
-    <form className="relative mt-4 xl:mx-4 xl:mt-0" action={`${origin}/search`}>
+    <form
+      className="relative mt-4 xl:mx-4 xl:mt-0"
+      action={`${origin}/${locale === "ar" ? "ar/" : ""}search`}
+    >
       <button
         className="absolute inset-y-0 left-0 flex items-center pl-3"
         type="submit"
