@@ -25,6 +25,12 @@ const Author = ({ globalData, authorData, authorArticles }) => {
     },
   }[locale];
 
+  const prevHref =
+    authorArticles.paginationData.prevPage === 1
+      ? `/authors/${query.username[0]}`
+      : `/authors/${query.username[0]}/pages/${authorArticles.paginationData.prevPage}`;
+  const nextHref = `/authors/${query.username[0]}/pages/${authorArticles.paginationData.nextPage}`;
+
   return (
     <Layout globalData={globalData}>
       <AuthorSEO
@@ -54,7 +60,11 @@ const Author = ({ globalData, authorData, authorArticles }) => {
           articlesData={authorArticles.articles}
           isCentered
         />
-        <PaginationButtons paginationData={authorArticles.paginationData} />
+        <PaginationButtons
+          paginationData={authorArticles.paginationData}
+          prevHref={prevHref}
+          nextHref={nextHref}
+        />
       </div>
     </Layout>
   );

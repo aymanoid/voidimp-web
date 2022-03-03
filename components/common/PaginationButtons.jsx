@@ -12,7 +12,7 @@ const paginationData = {
   prevPage: 1,
 };
 
-const PaginationButtons = ({ paginationData }) => {
+const PaginationButtons = ({ paginationData, prevHref, nextHref }) => {
   const { locale } = useRouter();
 
   const strings = {
