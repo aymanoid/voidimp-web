@@ -28,6 +28,7 @@ const SearchBar = ({ searchBarLabel }) => {
       </button>
 
       <input
+        required
         type="text"
         className="w-full rounded-full border-2 border-transparent bg-neutral-200 py-1 pl-10 pr-4 text-neutral-700 placeholder-neutral-500 transition-colors duration-200 hover:border-neutral-500 focus:border-violet-600 focus:bg-white focus:outline-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:hover:border-neutral-400 dark:focus:border-violet-400 dark:focus:bg-neutral-900 xl:w-56"
         placeholder={searchBarLabel}
