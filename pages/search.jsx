@@ -2,6 +2,7 @@ import { getGlobalData, getSearchArticles } from "utils/queries";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Layout from "components/common/Layout";
+import SearchSEO from "components/SEO/SearchSEO";
 import ArticlesList from "components/common/ArticlesList";
 import PaginationButtons from "components/common/PaginationButtons";
 
@@ -16,6 +17,7 @@ const Category = ({ globalData }) => {
 
   const strings = {
     en: {
+      search: "Search",
       searched: "Searched",
       relevant: "Relevant",
       searching: "Searching...",
@@ -23,6 +25,7 @@ const Category = ({ globalData }) => {
       errored: "There was an error searching for articles.",
     },
     ar: {
+      search: "بحث",
       searched: "بحث عن",
       relevant: "ذات صلة",
       searching: "قيد البحث...",
@@ -42,6 +45,15 @@ const Category = ({ globalData }) => {
 
   return (
     <Layout globalData={globalData}>
+      <SearchSEO
+        title={`${strings.search} | VoidImp`}
+        currPage={data && data.paginationData && data.paginationData.page}
+        prevPage={data && data.paginationData && data.paginationData.prevPage}
+        nextPage={data && data.paginationData && data.paginationData.nextPage}
+        imageData={globalData.metaImage}
+        description={globalData.metaDescription}
+      />
+
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article>
           <header>
