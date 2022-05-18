@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 
-const articlesData = [
+const mockArticlesData = [
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
     slug: "",
@@ -38,7 +38,10 @@ const articlesData = [
   },
 ];
 
-const TrendingArticles = ({ _articlesData }) => {
+const TrendingArticles = ({
+  isMocked,
+  articlesData = isMocked ? mockArticlesData : [],
+}) => {
   const { locale } = useRouter();
 
   const strings = {
