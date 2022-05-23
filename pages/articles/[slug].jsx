@@ -18,6 +18,7 @@ import SidebarRecommended from "components/articles/SidebarRecommended";
 import TagsList from "components/articles/TagsList";
 import AuthorInfo from "components/articles/AuthorInfo";
 import LatestArticles from "components/articles/LatestArticles";
+import { fetchAPI } from "utils/api";
 
 const Article = ({
   globalData,
@@ -124,12 +125,16 @@ export const getStaticProps = async ({ locale, params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const articlePaths = await getArticlePaths();
+  const articlesRes = await fetchAPI("/articles", { fields: ["slug", 'locale'], locale: 'all' });
 
   return {
-    paths: articlePaths,
+    paths: articlesRes.data.map((article) => ({
+      params: {
+        slug: article.attributes.slug.replace(`-${article.attributes.locale}`, ''),
+      },
+      locale: article.attributes.locale
+    })),
     fallback: false,
-  };
-};
+  }};
 
 export default Article;
