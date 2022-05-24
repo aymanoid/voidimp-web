@@ -6,7 +6,7 @@ import ThemeSwitch from "components/common/Navbar/ThemeSwitch";
 import LangSwitch from "components/common/Navbar/LangSwitch";
 import SocialIcon from "components/common/SocialIcon";
 
-const Navbar = ({ searchBarLabel, navbarLinks, socialLinks }) => {
+const Navbar = ({ searchBarLabel, headerLinks, socialLinks }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -39,7 +39,7 @@ const Navbar = ({ searchBarLabel, navbarLinks, socialLinks }) => {
               isOpen ? "flex" : "hidden"
             } flex-col capitalize text-gray-600 dark:text-gray-300 xl:-mx-4 xl:flex xl:flex-row xl:items-center xl:px-16`}
           >
-            <NavigationLinks links={navbarLinks} />
+            <NavigationLinks links={headerLinks} />
 
             <SearchBar searchBarLabel={searchBarLabel} />
           </div>
@@ -54,12 +54,12 @@ const Navbar = ({ searchBarLabel, navbarLinks, socialLinks }) => {
           <ThemeSwitch />
           <LangSwitch />
           <div className="mx-2 transform border-r border-neutral-700 transition-colors duration-200 dark:border-neutral-200"></div>
-          {socialLinks.map((link, index) => (
+          {socialLinks.map((link) => (
             <SocialIcon
-              key={index}
-              kind={link.kind}
-              name={link.name}
-              url={link.url}
+              key={link.id}
+              social={link.social}
+              label={link.label}
+              href={link.href}
             />
           ))}
         </div>

@@ -1,11 +1,10 @@
 import {
-  getGlobalData,
   getArticleData,
-  getArticlePaths,
   getBriefAuthorData,
   getMultipleTagsData,
   getCategoryData,
 } from "utils/queries";
+import { getGlobalData } from "utils/_queries";
 import Layout from "components/common/Layout";
 import ArticleSEO from "components/SEO/ArticleSEO";
 import Metadata from "components/articles/Metadata";
@@ -102,6 +101,13 @@ export const getStaticProps = async ({ locale, params }) => {
     getArticleData(params.slug, locale),
   ]);
 
+  console.log(
+    require("util").inspect(globalData, {
+      showHidden: false,
+      depth: null,
+      colors: true,
+    })
+  );
   const [authorData, tagsData, categoryData] = await Promise.all([
     getBriefAuthorData(articleData.authorUsername, locale),
     getMultipleTagsData(articleData.tags, locale),
@@ -125,16 +131,23 @@ export const getStaticProps = async ({ locale, params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const articlesRes = await fetchAPI("/articles", { fields: ["slug", 'locale'], locale: 'all' });
+  const articlesRes = await fetchAPI("/articles", {
+    fields: ["slug", "locale"],
+    locale: "all",
+  });
 
   return {
     paths: articlesRes.data.map((article) => ({
       params: {
-        slug: article.attributes.slug.replace(`-${article.attributes.locale}`, ''),
+        slug: article.attributes.slug.replace(
+          `-${article.attributes.locale}`,
+          ""
+        ),
       },
-      locale: article.attributes.locale
+      locale: article.attributes.locale,
     })),
     fallback: false,
-  }};
+  };
+};
 
 export default Article;

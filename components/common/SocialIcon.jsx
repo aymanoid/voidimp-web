@@ -4,19 +4,19 @@ import YoutubeSvg from "components/icons/social/youtube.svg";
 import RssSvg from "components/icons/social/rss.svg";
 import Link from "next/link";
 
-const SocialIcon = ({ kind, name, url, size = 6 }) => {
+const SocialIcon = ({ social, label, href, size = 6 }) => {
   const IconSvg = {
     twitter: TwitterSvg,
     instagram: InstagramSvg,
     youtube: YoutubeSvg,
     rss: RssSvg,
-  }[kind];
+  }[social];
 
   return (
-    <Link href={url}>
+    <Link href={href}>
       <a
         className="mx-2 transform text-neutral-700 transition-colors duration-200 hover:text-violet-600 dark:text-neutral-200 dark:hover:text-violet-400 lg:mt-0"
-        aria-label={name}
+        aria-label={label}
       >
         <IconSvg
           className={`w-${size} h-${size} fill-current`}

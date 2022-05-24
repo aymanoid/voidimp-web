@@ -29,12 +29,12 @@ const Footer = ({
               </p>
 
               <div className="-mx-2 mt-4 flex">
-                {socialLinks.map((link, index) => (
+                {socialLinks.map((link) => (
                   <SocialIcon
-                    key={index}
-                    kind={link.kind}
-                    name={link.name}
-                    url={link.url}
+                    key={link.id}
+                    social={link.social}
+                    label={link.label}
+                    href={link.href}
                   />
                 ))}
               </div>
@@ -43,10 +43,10 @@ const Footer = ({
 
           <div className="mt-6 lg:mt-0 lg:flex-1">
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-              {footerLinkColumns.map((linkColumn, index) => {
+              {footerLinkColumns.map((linkColumn) => {
                 return (
                   <FooterLinks
-                    key={index}
+                    key={linkColumn.id}
                     title={linkColumn.title}
                     links={linkColumn.links}
                   />
