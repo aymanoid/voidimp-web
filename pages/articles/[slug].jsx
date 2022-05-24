@@ -95,6 +95,15 @@ const Article = ({
   );
 };
 
+export const getStaticPaths = async () => {
+  const paths = await getPathsData("articles");
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
 export const getStaticProps = async ({ locale, params }) => {
   const [globalData, articleData] = await Promise.all([
     getGlobalData(locale),
@@ -128,15 +137,6 @@ export const getStaticProps = async ({ locale, params }) => {
       tagsData,
       categoryData,
     },
-  };
-};
-
-export const getStaticPaths = async () => {
-  const paths = await getPathsData("articles");
-
-  return {
-    paths,
-    fallback: false,
   };
 };
 
