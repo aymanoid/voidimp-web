@@ -101,13 +101,14 @@ export const getStaticProps = async ({ locale, params }) => {
     getArticleData(params.slug, locale),
   ]);
 
-  console.log(
+  /*console.log(
     require("util").inspect(globalData, {
       showHidden: false,
       depth: null,
       colors: true,
     })
-  );
+  );*/
+
   const [authorData, tagsData, categoryData] = await Promise.all([
     getBriefAuthorData(articleData.authorUsername, locale),
     getMultipleTagsData(articleData.tags, locale),
