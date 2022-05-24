@@ -26,3 +26,9 @@ export const hashIds = (obj) => {
 
   return obj;
 };
+
+export const unlocalizeSlug = (slug, locale) => {
+  return slug.endsWith(`-${locale}`)
+    ? slug.slice(0, -(locale.length + 1))
+    : slug;
+};
