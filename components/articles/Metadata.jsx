@@ -20,12 +20,12 @@ const Metadata = ({ authorData, pubTimestamp }) => {
   const pubDate = formatDate(pubTimestamp, locale);
   return (
     <div className="flex flex-shrink-0 items-center font-medium">
-      <Link href={`/authors/${authorData.username}`}>
+      <Link href={`/authors/${authorData.slug}`}>
         <a className="flex items-center space-x-2">
           <Image
             className="rounded-full"
-            src={authorData.avatarThumbnail.url}
-            alt={authorData.avatarThumbnail.alt}
+            src={authorData.avatar.url}
+            alt={authorData.avatar.alternativeText}
             width={48}
             height={48}
           />
@@ -34,7 +34,7 @@ const Metadata = ({ authorData, pubTimestamp }) => {
       </Link>
       <div className="ml-3 rtl:mr-3">
         <div className="flex items-center">
-          <Link href={`/authors/${authorData.username}`}>
+          <Link href={`/authors/${authorData.slug}`}>
             <a className="block text-violet-600 dark:text-violet-400">
               {authorData.displayName}
             </a>

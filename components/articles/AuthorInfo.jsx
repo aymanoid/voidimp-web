@@ -12,12 +12,12 @@ const AuthorInfo = ({ authorData }) => {
 
   return (
     <div className="group mt-6 flex">
-      <Link href={`/authors/${authorData.username}`}>
+      <Link href={`/authors/${authorData.slug}`}>
         <a className="flex items-center ">
           <Image
             className="rounded-xl"
-            src={authorData.avatarThumbnail.url}
-            alt={authorData.avatarThumbnail.alt}
+            src={authorData.avatar.url}
+            alt={authorData.avatar.alternativeText}
             width={96}
             height={96}
           />
@@ -29,14 +29,14 @@ const AuthorInfo = ({ authorData }) => {
           {strings.writtenBy}
         </span>
         <h2 className="text-lg font-semibold text-black hover:text-violet-600 dark:text-white dark:hover:text-violet-400">
-          <Link href={`/authors/${authorData.username}`}>
+          <Link href={`/authors/${authorData.slug}`}>
             <a>{authorData.displayName}</a>
           </Link>
         </h2>
         <span className="text-sm text-neutral-600 dark:text-neutral-300 sm:text-base">
           {authorData.bio.text || authorData.bio}
           {authorData.bio.long ? (
-            <Link href={`/authors/${authorData?.username}`}>
+            <Link href={`/authors/${authorData?.slug}`}>
               <a className="inline ">
                 {" "}
                 [

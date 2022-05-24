@@ -1,10 +1,4 @@
-import {
-  getArticleData,
-  getBriefAuthorData,
-  getMultipleTagsData,
-  getCategoryData,
-} from "utils/queries";
-import { getPathsData, getGlobalData } from "utils/_queries";
+import { getPathsData, getGlobalData, getArticleData } from "utils/_queries";
 import Layout from "components/common/Layout";
 import ArticleSEO from "components/SEO/ArticleSEO";
 import Metadata from "components/articles/Metadata";
@@ -27,6 +21,8 @@ const Article = ({
 }) => {
   return (
     <Layout globalData={globalData}>
+      {/*
+      TODO: make new updated seo component
       <ArticleSEO
         headline={articleData.headline}
         description={articleData.description}
@@ -34,10 +30,10 @@ const Article = ({
         datePublished={articleData.postDate}
         dateModified={articleData.updateDate}
         authorName={authorData.displayName}
-        authorUsername={authorData.username}
+        authorUsername={authorData.slug}
         tagsData={tagsData}
         categoryName={categoryData.name}
-      />
+      />*/}
       <div className="container mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article className="flex flex-row flex-wrap">
           <header className="w-full space-y-4">
@@ -51,7 +47,7 @@ const Article = ({
             <div className="flex flex-col justify-between space-y-5 md:flex-row md:items-end md:space-y-0 md:space-x-5">
               <Metadata
                 authorData={authorData}
-                pubTimestamp={articleData.postDate}
+                pubTimestamp={articleData.publishedAt}
               />
               <ShareButtons />
             </div>
@@ -63,16 +59,16 @@ const Article = ({
             itemProp="articleBody"
             className="mt-4 w-full space-y-5 lg:w-2/3 lg:space-y-8 lg:ltr:pr-5 lg:rtl:pl-5 xl:w-3/4 xl:ltr:pr-10 xl:rtl:pl-10"
           >
-            {articleData.segments.map((segment, index) => {
-              if (segment.type === "text")
-                return <TextSegment key={index} textData={segment.primary} />;
+            {articleData.blocks.map((block, index) => {
+              if (block.__component === "article-blocks.rich-text")
+                return <TextSegment key={index} textData={block.text} />;
 
-              if (segment.type === "image")
-                return <ImageSegment key={index} imageData={segment.primary} />;
+              if (block.__component === "article-blocks.image")
+                return <ImageSegment key={index} imageData={block.image} />;
 
-              if (segment.type === "timeline")
+              if (block.__component === "article-blocks.timeline")
                 return (
-                  <TimelineSegment key={index} timelineData={segment.primary} />
+                  <TimelineSegment key={index} timelineData={block.show} />
                 );
             })}
 
@@ -109,24 +105,9 @@ export const getStaticProps = async ({ locale, params }) => {
     getArticleData(params.slug, locale),
   ]);
 
-  /*console.log(
-    require("util").inspect(globalData, {
-      showHidden: false,
-      depth: null,
-      colors: true,
-    })
-  );*/
-
-  const [authorData, tagsData, categoryData] = await Promise.all([
-    getBriefAuthorData(articleData.authorUsername, locale),
-    getMultipleTagsData(articleData.tags, locale),
-    getCategoryData(articleData.category, locale),
-  ]);
-
-  delete articleData.authorUsername;
-  delete articleData.tags;
-  delete articleData.category;
-  delete categoryData.id;
+  const authorData = articleData.author;
+  const tagsData = articleData.tags;
+  const categoryData = articleData.category;
 
   return {
     props: {

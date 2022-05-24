@@ -5,30 +5,47 @@ export const urlize = (path, locale) => {
   return `${origin}${locale === "ar" ? "/ar" : ""}${path}`;
 };
 
-export const hashIds = (obj) => {
+export const mutateAllValuesByKey = (obj, lookupKey, mutator, locale) => {
   if (typeof obj !== "object") return obj;
 
   for (let key in obj) {
-    if (key === "id") {
-      obj[key] = crypto
-        .createHash("shake256", { outputLength: 4 })
-        .update(obj[key].toString())
-        .digest("hex");
+    if (key === lookupKey) {
+      obj[key] = mutator(obj[key], locale);
     }
     if (Array.isArray(obj[key])) {
       for (const [index] of obj[key].entries()) {
-        obj[key][index] = hashIds(obj[key][index]);
+        obj[key][index] = mutateAllValuesByKey(
+          obj[key][index],
+          lookupKey,
+          mutator,
+          locale
+        );
       }
     } else {
-      obj[key] = hashIds(obj[key]);
+      obj[key] = mutateAllValuesByKey(obj[key], lookupKey, mutator, locale);
     }
   }
 
   return obj;
 };
 
-export const unlocalizeSlug = (slug, locale) => {
+const hasher = (num) => {
+  return crypto
+    .createHash("shake256", { outputLength: 4 })
+    .update(num.toString())
+    .digest("hex");
+};
+
+export const unlocalizer = (slug, locale) => {
   return slug.endsWith(`-${locale}`)
     ? slug.slice(0, -(locale.length + 1))
     : slug;
+};
+
+export const hashIds = (obj) => {
+  return mutateAllValuesByKey(obj, "id", hasher);
+};
+
+export const unlocalizeSlugs = (obj, locale) => {
+  return mutateAllValuesByKey(obj, "slug", unlocalizer, locale);
 };
