@@ -4,7 +4,7 @@ import {
   getMultipleTagsData,
   getCategoryData,
 } from "utils/queries";
-import { getGlobalData } from "utils/_queries";
+import { getPathsData, getGlobalData } from "utils/_queries";
 import Layout from "components/common/Layout";
 import ArticleSEO from "components/SEO/ArticleSEO";
 import Metadata from "components/articles/Metadata";
@@ -132,21 +132,10 @@ export const getStaticProps = async ({ locale, params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const articlesRes = await fetchAPI("/articles", {
-    fields: ["slug", "locale"],
-    locale: "all",
-  });
+  const paths = await getPathsData("articles");
 
   return {
-    paths: articlesRes.data.map((article) => ({
-      params: {
-        slug: article.attributes.slug.replace(
-          `-${article.attributes.locale}`,
-          ""
-        ),
-      },
-      locale: article.attributes.locale,
-    })),
+    paths,
     fallback: false,
   };
 };
