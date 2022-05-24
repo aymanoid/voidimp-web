@@ -17,7 +17,6 @@ import SidebarRecommended from "components/articles/SidebarRecommended";
 import TagsList from "components/articles/TagsList";
 import AuthorInfo from "components/articles/AuthorInfo";
 import LatestArticles from "components/articles/LatestArticles";
-import { fetchAPI } from "utils/api";
 
 const Article = ({
   globalData,
