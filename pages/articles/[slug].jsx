@@ -1,4 +1,9 @@
-import { getPathsData, getGlobalData, getArticleData } from "utils/_queries";
+import {
+  getPathsData,
+  getGlobalData,
+  getArticleData,
+  getRelatedArticlesData,
+} from "utils/_queries";
 import Layout from "components/common/Layout";
 import ArticleSEO from "components/SEO/ArticleSEO";
 import Metadata from "components/articles/Metadata";
@@ -12,7 +17,7 @@ import TagsList from "components/articles/TagsList";
 import AuthorInfo from "components/articles/AuthorInfo";
 import LatestArticles from "components/articles/LatestArticles";
 
-const Article = ({ globalData, articleData }) => {
+const Article = ({ globalData, articleData, relatedArticlesData }) => {
   return (
     <Layout globalData={globalData}>
       <ArticleSEO
@@ -72,12 +77,14 @@ const Article = ({ globalData, articleData }) => {
           </section>
 
           <aside className="mt-4 w-full lg:w-1/3 xl:w-1/4">
-            <SidebarRecommended />
+            <SidebarRecommended
+              articlesData={relatedArticlesData.featuredArticles}
+            />
           </aside>
         </article>
         <div className="mt-6 border-b border-black/50 dark:border-white/50"></div>
         <div className="mt-6">
-          <LatestArticles />
+          <LatestArticles articlesData={relatedArticlesData.latestArticles} />
         </div>
       </div>
     </Layout>
@@ -94,25 +101,17 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ locale, params }) => {
-  const [globalData, articleData] = await Promise.all([
+  const [globalData, articleData, relatedArticlesData] = await Promise.all([
     getGlobalData(locale),
     getArticleData(params.slug, locale),
+    getRelatedArticlesData(params.slug, locale),
   ]);
-
-  /*
-  console.log(
-    require("util").inspect(articleData, {
-      showHidden: false,
-      depth: null,
-      colors: true,
-    })
-  );
-  */
 
   return {
     props: {
       globalData,
       articleData,
+      relatedArticlesData,
     },
   };
 };

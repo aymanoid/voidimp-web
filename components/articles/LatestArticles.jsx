@@ -6,34 +6,34 @@ const mockArticlesData = [
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
     slug: "",
-    thumbnail: {
+    mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
-      alt: "s1",
+      alternativeText: "s1",
     },
   },
   {
     headline:
       "Black Myth: Wukong New Year Trailer Reveals Cats Can Be Difficult Mo-Cap Actors",
     slug: "",
-    thumbnail: {
+    mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
-      alt: "s2",
+      alternativeText: "s2",
     },
   },
   {
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
     slug: "",
-    thumbnail: {
+    mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
-      alt: "s3",
+      alternativeText: "s3",
     },
   },
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
     slug: "",
-    thumbnail: {
+    mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
-      alt: "s4",
+      alternativeText: "s4",
     },
   },
 ];
@@ -67,8 +67,8 @@ const LatestArticles = ({
                     <figure>
                       <Image
                         className="rounded-xl"
-                        src={articleData.thumbnail.url}
-                        alt={articleData.thumbnail.alt}
+                        src={articleData.mainImage.url}
+                        alt={articleData.mainImage.alternativeText}
                         width={640}
                         height={640 / (16 / 9)}
                       />

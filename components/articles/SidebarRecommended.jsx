@@ -4,52 +4,36 @@ import Image from "next/image";
 
 const mockArticlesData = [
   {
-    title: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
-    url: "/haha1",
-    thumbnail: {
+    headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
+    slug: "haha1",
+    mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
-      alt: "s1",
-      dimensions: {
-        width: 1920,
-        height: 1080,
-      },
+      alternativeText: "s1",
     },
   },
   {
-    title:
+    headline:
       "Black Myth: Wukong New Year Trailer Reveals Cats Can Be Difficult Mo-Cap Actors",
-    url: "/haha1",
-    thumbnail: {
+    slug: "haha1",
+    mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
-      alt: "s2",
-      dimensions: {
-        width: 1920,
-        height: 1080,
-      },
+      alternativeText: "s2",
     },
   },
   {
-    title: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
-    url: "/haha1",
-    thumbnail: {
+    headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
+    slug: "haha1",
+    mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
-      alt: "s3",
-      dimensions: {
-        width: 1920,
-        height: 1080,
-      },
+      alternativeText: "s3",
     },
   },
   {
-    title: "So, What Games Are Women Supposed To Play, Exactly?",
-    url: "/haha1",
-    thumbnail: {
+    headline: "So, What Games Are Women Supposed To Play, Exactly?",
+    slug: "haha1",
+    mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
-      alt: "s4",
-      dimensions: {
-        width: 1920,
-        height: 1080,
-      },
+      alternativeText: "s4",
     },
   },
 ];
@@ -75,26 +59,26 @@ const SidebarRecommended = ({
       </h3>
       <div className="space-y-6 pt-6">
         {articlesData.length ? (
-          articlesData.map((articleData, index) => {
+          articlesData.map((articleData) => {
             return (
-              <article key={index}>
-                <Link href={articleData.url}>
+              <article key={articleData.slug}>
+                <Link href={articleData.slug}>
                   <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
                     <figure>
                       <Image
                         className="rounded-3xl"
-                        src={articleData.thumbnail.url}
-                        alt={articleData.thumbnail.alt}
+                        src={articleData.mainImage.url}
+                        alt={articleData.mainImage.alternativeText}
                         width={768}
                         height={768 / (16 / 9)}
                       />
-                      {/* TODO: delete articleData.thumbnail.dimensions */}
+                      {/* TODO: delete articleData.mainImage.dimensions */}
 
                       {/* TODO: add and stylize figurecaption tag */}
                     </figure>
 
                     <h3 className="pt-2 font-semibold text-black dark:text-white">
-                      {articleData.title}
+                      {articleData.headline}
                     </h3>
                   </a>
                 </Link>
