@@ -1,9 +1,8 @@
 import Layout from "components/common/Layout";
-import PageSEO from "components/SEO/PageSEO";
-import { getGlobalData, get404PageData } from "utils/queries";
+import { getGlobalData, get404PageData } from "utils/_queries";
 import Link from "next/link";
 
-const FourZeroFour = ({ globalData, seoData, pageData }) => {
+const FourZeroFour = ({ globalData, pageData }) => {
   return (
     <Layout globalData={globalData}>
       {/* <PageSEO seoData={seoData} /> */}
@@ -36,7 +35,7 @@ export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       globalData,
-      ...pageData,
+      pageData,
     },
   };
 };
