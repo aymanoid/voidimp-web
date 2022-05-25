@@ -24,14 +24,11 @@ const Home = ({ globalData, homePageData }) => {
 
   return (
     <Layout globalData={globalData}>
-      {/*
-      TODO: make new updated seo component
       <HomeSEO
-        metaTitle={homePageData.seoData.metaTitle}
-        description={globalData.metaDescription}
-        imageData={globalData.metaImage}
+        metaTitle={homePageData.seo.metaTitle}
+        metaDescription={homePageData.seo.metaDescription}
+        metaImage={homePageData.seo.metaImage}
       />
-      */}
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <div className="flex flex-wrap md:-mx-8 md:flex-row">
           <section className="flex w-full flex-col border-none border-violet-600/50 ltr:border-r rtl:border-l dark:border-violet-400/50 md:w-3/5 md:border-solid md:px-8">

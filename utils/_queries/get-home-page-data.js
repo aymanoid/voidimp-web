@@ -39,6 +39,11 @@ const getHomePageData = async (locale) => {
           },
         },
       },
+      seo: {
+        populate: {
+          metaImage: { fields: ["alternativeText", "url", "width", "height"] },
+        },
+      },
     },
     locale,
   });
@@ -67,6 +72,9 @@ const getHomePageData = async (locale) => {
       ),
     },
   }));
+
+  data.seo.metaImage = data.seo.metaImage.data.attributes;
+  data.seo.metaImage.url = getCmsMedia(data.seo.metaImage.url);
 
   delete data.createdAt;
   delete data.updatedAt;

@@ -2,23 +2,29 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { urlize } from "utils/helpers";
 
-const CommonSEO = ({ title, description, canonicalUrl, ogType, imageData }) => {
+const CommonSEO = ({
+  metaTitle,
+  metaDescription,
+  canonicalUrl,
+  ogType,
+  metaImage,
+}) => {
   const { locale, asPath } = useRouter();
 
   return (
     <Head>
-      <title>{title}</title>
-      <meta name="description" content={description} />
+      <title>{metaTitle}</title>
+      <meta name="description" content={metaDescription} />
       <link rel="canonical" href={canonicalUrl} />
 
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={metaTitle} />
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={imageData.url} />
-      <meta property="og:image:width" content={imageData.dimensions.width} />
-      <meta property="og:image:height" content={imageData.dimensions.height} />
-      <meta property="og:image:alt" content={imageData.alt} />
-      <meta property="og:description" content={description} />
+      <meta property="og:image" content={metaImage.url} />
+      <meta property="og:image:width" content={metaImage.width} />
+      <meta property="og:image:height" content={metaImage.height} />
+      <meta property="og:image:alt" content={metaImage.alternativeText} />
+      <meta property="og:description" content={metaDescription} />
       <meta property="og:locale" content={locale} />
       <meta
         property="og:locale:alternate"

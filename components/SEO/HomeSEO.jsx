@@ -3,7 +3,7 @@ import { urlize } from "utils/helpers";
 import CommonSEO from "components/SEO/CommonSEO";
 import Head from "next/head";
 
-const HomeSEO = ({ metaTitle, description, imageData }) => {
+const HomeSEO = ({ metaTitle, metaDescription, metaImage }) => {
   const { locale, asPath } = useRouter();
 
   const title =
@@ -18,7 +18,7 @@ const HomeSEO = ({ metaTitle, description, imageData }) => {
     name: "VoidImp",
     potentialAction: {
       "@type": "SearchAction",
-      target: `${pageUrl}/?s={search_term_string}`,
+      target: `${pageUrl}search/?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };
@@ -26,11 +26,11 @@ const HomeSEO = ({ metaTitle, description, imageData }) => {
   return (
     <>
       <CommonSEO
-        title={title}
-        description={description}
+        metaTitle={title}
+        metaDescription={metaDescription}
         canonicalUrl={pageUrl}
         ogType={"website"}
-        imageData={imageData}
+        metaImage={metaImage}
       />
       <Head>
         <script
