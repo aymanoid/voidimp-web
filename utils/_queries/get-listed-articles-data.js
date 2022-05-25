@@ -85,6 +85,7 @@ const getListedArticlesData = async (
       ? null
       : data.pagination.page + 1;
 
+  /*
   console.log(
     require("util").inspect(unlocalizeSlugs(data, locale), {
       showHidden: false,
@@ -92,6 +93,7 @@ const getListedArticlesData = async (
       colors: true,
     })
   );
+  */
 
   return unlocalizeSlugs(data, locale);
 };
