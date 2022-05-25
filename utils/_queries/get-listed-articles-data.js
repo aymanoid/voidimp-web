@@ -1,15 +1,31 @@
 import { fetchAPI, getCmsMedia } from "utils/api";
-import { unlocalizeSlugs, hashIds } from "utils/helpers";
+import { unlocalizeSlugs } from "utils/helpers";
 
-const getAuthorArticlesData = async (slug, locale, currPage) => {
-  const response = await fetchAPI("/articles", {
-    filters: {
+const getListedArticlesData = async (
+  slug,
+  locale,
+  currPage,
+  collectionType
+) => {
+  const filtersMap = {
+    author: {
       author: {
         slug: {
           $eq: `${slug}-${locale}`,
         },
       },
     },
+    category: {
+      category: {
+        slug: {
+          $eq: `${slug}-${locale}`,
+        },
+      },
+    },
+  };
+
+  const response = await fetchAPI("/articles", {
+    filters: filtersMap[collectionType],
     pagination: {
       page: currPage,
       pageSize: 10,
@@ -73,4 +89,4 @@ const getAuthorArticlesData = async (slug, locale, currPage) => {
   return unlocalizeSlugs(data, locale);
 };
 
-export default getAuthorArticlesData;
+export default getListedArticlesData;

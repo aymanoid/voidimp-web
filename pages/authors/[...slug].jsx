@@ -2,7 +2,7 @@ import {
   getPathsData,
   getGlobalData,
   getAuthorData,
-  getAuthorArticlesData,
+  getListedArticlesData,
 } from "utils/_queries";
 import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
@@ -84,7 +84,7 @@ export const getStaticProps = async ({ locale, params }) => {
   const [globalData, authorData, authorArticlesData] = await Promise.all([
     getGlobalData(locale),
     getAuthorData(params.slug[0], locale),
-    getAuthorArticlesData(params.slug[0], locale, currPage),
+    getListedArticlesData(params.slug[0], locale, currPage, "author"),
   ]);
 
   return {
