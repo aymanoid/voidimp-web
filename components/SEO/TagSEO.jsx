@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { urlize } from "utils/helpers";
 import CommonSEO from "components/SEO/CommonSEO";
 
-const TagSEO = ({ tagName, description, imageData }) => {
+const TagSEO = ({ tagName, metaDescription, metaImage }) => {
   const { locale, asPath } = useRouter();
 
   const title =
@@ -11,11 +11,11 @@ const TagSEO = ({ tagName, description, imageData }) => {
 
   return (
     <CommonSEO
-      title={title}
-      description={description}
+      metaTitle={title}
+      metaDescription={metaDescription}
       canonicalUrl={pageUrl}
       ogType={"website"}
-      imageData={imageData}
+      metaImage={metaImage}
     />
   );
 };

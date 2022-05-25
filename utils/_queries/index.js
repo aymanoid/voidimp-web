@@ -6,3 +6,4 @@ export { default as getRelatedArticlesData } from "./get-related-articles-data.j
 export { default as getAuthorData } from "./get-author-data.js";
 export { default as getListedArticlesData } from "./get-listed-articles-data.js";
 export { default as getCategoryData } from "./get-category-data.js";
+export { default as getTagData } from "./get-tag-data.js";

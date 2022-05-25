@@ -22,6 +22,13 @@ const getListedArticlesData = async (
         },
       },
     },
+    tag: {
+      tags: {
+        slug: {
+          $eq: `${slug}-${locale}`,
+        },
+      },
+    },
   };
 
   const response = await fetchAPI("/articles", {

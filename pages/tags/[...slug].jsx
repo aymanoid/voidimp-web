@@ -1,16 +1,16 @@
 import {
+  getPathsData,
   getGlobalData,
   getTagData,
-  getTagPaths,
-  getTagArticles,
-} from "utils/queries";
+  getListedArticlesData,
+} from "utils/_queries";
 import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
 import TagSEO from "components/SEO/TagSEO";
 import ArticlesList from "components/common/ArticlesList";
 import PaginationButtons from "components/common/PaginationButtons";
 
-const Tag = ({ globalData, tagData, tagArticles }) => {
+const Tag = ({ globalData, tagData, tagArticlesData }) => {
   const { locale } = useRouter();
 
   const strings = {
@@ -30,8 +30,13 @@ const Tag = ({ globalData, tagData, tagArticles }) => {
     <Layout globalData={globalData}>
       <TagSEO
         tagName={tagData.name}
-        description={globalData.metaDescription}
-        imageData={globalData.metaImage}
+        metaDescription={"globalData.metaDescription"}
+        metaImage={{
+          url: "https://cms.voidimp.com/uploads/Collage_of_the_MCU_a1625f32b2.jpg",
+          alternativeText: "Collage of the MCU.jpg",
+          width: 1920,
+          height: 1080,
+        }}
       />
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article>
@@ -48,44 +53,39 @@ const Tag = ({ globalData, tagData, tagArticles }) => {
         <ArticlesList
           topStr={`${strings.latest} ${tagData.name}`}
           noArticlesStr={strings.noArticles}
-          articlesData={tagArticles.articles}
+          articlesData={tagArticlesData.data}
           isCentered
         />
-        <PaginationButtons paginationData={tagArticles.paginationData} />
+        <PaginationButtons paginationData={tagArticlesData.pagination} />
       </div>
     </Layout>
   );
 };
 
+export const getStaticPaths = async () => {
+  const paths = await getPathsData("tags", true);
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
 export const getStaticProps = async ({ locale, params }) => {
   const currPage = !params.slug.includes("pages") ? "1" : params.slug[2];
 
-  const [globalData, tagData] = await Promise.all([
+  const [globalData, tagData, tagArticlesData] = await Promise.all([
     getGlobalData(locale),
     getTagData(params.slug[0], locale),
+    getListedArticlesData(params.slug[0], locale, currPage, "tag"),
   ]);
-
-  const [tagArticles] = await Promise.all([
-    getTagArticles(tagData.id, locale, currPage),
-  ]);
-
-  delete tagData.id;
 
   return {
     props: {
       globalData,
       tagData,
-      tagArticles,
+      tagArticlesData,
     },
-  };
-};
-
-export const getStaticPaths = async () => {
-  const tagPaths = await getTagPaths();
-
-  return {
-    paths: tagPaths,
-    fallback: false,
   };
 };
 
