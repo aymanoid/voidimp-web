@@ -95,7 +95,6 @@ const getArticleData = async (slug, locale) => {
 
     for (const [i, v] of data.blocks.entries()) {
       if (v.__component === "article-blocks.timeline") {
-        console.log(data.blocks[i]);
         data.blocks[i].show.forEach((e, x) => {
           e.enTitle = enData.blocks[i].show[x].title;
         });
