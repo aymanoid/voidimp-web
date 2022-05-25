@@ -92,7 +92,7 @@ const FeaturedArticles = ({
                     <Image
                       className="rounded-3xl"
                       src={articleData.mainImage.url}
-                      alternativeText={articleData.mainImage.alternativeText}
+                      alt={articleData.mainImage.alternativeText}
                       width={320}
                       height={320 / (16 / 9)}
                     />
