@@ -7,7 +7,7 @@ const AvatarImage = ({ imageData }) => {
         <Image
           className="rounded-full"
           src={imageData.url}
-          alt={imageData.alt}
+          alt={imageData.alternativeText}
           width={144}
           height={144}
         />

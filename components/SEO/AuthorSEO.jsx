@@ -5,41 +5,35 @@ import { urlize } from "utils/helpers";
 
 const AuthorSEO = ({
   authorName,
-  username,
+  slug,
   currPage,
   prevPage,
   nextPage,
-  imageData,
+  metaImage,
   description,
 }) => {
   const { locale } = useRouter();
 
-  const title = `${authorName} | VoidImp`;
-
   const canonicalUrl = urlize(
-    currPage === 1
-      ? `/authors/${username}`
-      : `/authors/${username}/pages/${currPage}`,
+    currPage === 1 ? `/authors/${slug}` : `/authors/${slug}/pages/${currPage}`,
     locale
   );
   const prevUrl = urlize(
-    prevPage === 1
-      ? `/authors/${username}`
-      : `/authors/${username}/pages/${prevPage}`,
+    prevPage === 1 ? `/authors/${slug}` : `/authors/${slug}/pages/${prevPage}`,
     locale
   );
-  const nextUrl = urlize(`/authors/${username}/pages/${nextPage}`, locale);
+  const nextUrl = urlize(`/authors/${slug}/pages/${nextPage}`, locale);
 
   const schemaData = {
     "@context": "http://schema.org/",
     "@type": "Person",
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": urlize(`/authors/${username}`, locale),
+      "@id": urlize(`/authors/${slug}`, locale),
     },
-    url: urlize(`/authors/${username}`, locale),
+    url: urlize(`/authors/${slug}`, locale),
     name: authorName,
-    image: imageData.url,
+    image: metaImage.url,
     jobTitle: null,
     affiliation: {
       "@type": "Organization",
@@ -50,14 +44,14 @@ const AuthorSEO = ({
   return (
     <>
       <CommonSEO
-        title={title}
-        description={description}
+        metaTitle={`${authorName} | VoidImp`}
+        metaDescription={description}
         canonicalUrl={canonicalUrl}
         ogType={"profile"}
-        imageData={imageData}
+        metaImage={metaImage}
       />
       <Head>
-        <meta property="profile:username" content={username} />
+        <meta property="profile:username" content={slug} />
 
         {prevPage && <link rel="prev" href={prevUrl} />}
         {nextPage && <link rel="next" href={nextUrl} />}

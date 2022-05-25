@@ -1,9 +1,9 @@
 import {
+  getPathsData,
   getGlobalData,
   getAuthorData,
-  getAuthorPaths,
-  getAuthorArticles,
-} from "utils/queries";
+  getAuthorArticlesData,
+} from "utils/_queries";
 import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
 import AuthorSEO from "components/SEO/AuthorSEO";
@@ -11,7 +11,7 @@ import AvatarImage from "components/authors/AvatarImage";
 import ArticlesList from "components/common/ArticlesList";
 import PaginationButtons from "components/common/PaginationButtons";
 
-const Author = ({ globalData, authorData, authorArticles }) => {
+const Author = ({ globalData, authorData, authorArticlesData }) => {
   const { locale, query } = useRouter();
 
   const strings = {
@@ -26,22 +26,21 @@ const Author = ({ globalData, authorData, authorArticles }) => {
   }[locale];
 
   const prevHref =
-    authorArticles.paginationData.prevPage === 1
-      ? `/authors/${query.username[0]}`
-      : `/authors/${query.username[0]}/pages/${authorArticles.paginationData.prevPage}`;
-  const nextHref = `/authors/${query.username[0]}/pages/${authorArticles.paginationData.nextPage}`;
+    authorArticlesData.pagination.prevPage === 1
+      ? `/authors/${query.slug[0]}`
+      : `/authors/${query.slug[0]}/pages/${authorArticlesData.pagination.prevPage}`;
+  const nextHref = `/authors/${query.slug[0]}/pages/${authorArticlesData.pagination.nextPage}`;
 
   return (
     <Layout globalData={globalData}>
       <AuthorSEO
-        title={`${authorData.displayName} | VoidImp`}
         authorName={authorData.displayName}
-        username={query.username[0]}
-        currPage={authorArticles.paginationData.page}
-        prevPage={authorArticles.paginationData.prevPage}
-        nextPage={authorArticles.paginationData.nextPage}
-        imageData={authorData.avatar}
-        description={globalData.metaDescription}
+        slug={query.slug[0]}
+        currPage={authorArticlesData.pagination.page}
+        prevPage={authorArticlesData.pagination.prevPage}
+        nextPage={authorArticlesData.pagination.nextPage}
+        metaImage={authorData.avatar}
+        description={"globalData.metaDescription"}
       />
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article className="">
@@ -57,11 +56,11 @@ const Author = ({ globalData, authorData, authorArticles }) => {
         <ArticlesList
           topStr={`${strings.latest} ${authorData.displayName}`}
           noArticlesStr={strings.noArticles}
-          articlesData={authorArticles.articles}
+          articlesData={authorArticlesData.data}
           isCentered
         />
         <PaginationButtons
-          paginationData={authorArticles.paginationData}
+          paginationData={authorArticlesData.pagination}
           prevHref={prevHref}
           nextHref={nextHref}
         />
@@ -70,37 +69,30 @@ const Author = ({ globalData, authorData, authorArticles }) => {
   );
 };
 
+export const getStaticPaths = async () => {
+  const paths = await getPathsData("authors", true);
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
 export const getStaticProps = async ({ locale, params }) => {
-  const currPage = !params.username.includes("pages")
-    ? "1"
-    : params.username[2];
+  const currPage = !params.slug.includes("pages") ? "1" : params.slug[2];
 
-  const [globalData, authorData] = await Promise.all([
+  const [globalData, authorData, authorArticlesData] = await Promise.all([
     getGlobalData(locale),
-    getAuthorData(params.username[0], locale),
+    getAuthorData(params.slug[0], locale),
+    getAuthorArticlesData(params.slug[0], locale, currPage),
   ]);
-
-  const [authorArticles] = await Promise.all([
-    getAuthorArticles(authorData.id, locale, currPage),
-  ]);
-
-  delete authorData.id;
 
   return {
     props: {
       globalData,
       authorData,
-      authorArticles,
+      authorArticlesData,
     },
-  };
-};
-
-export const getStaticPaths = async () => {
-  const authorPaths = await getAuthorPaths();
-
-  return {
-    paths: authorPaths,
-    fallback: false,
   };
 };
 

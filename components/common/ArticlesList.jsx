@@ -9,10 +9,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
-      alt: "s1",
+      alternativeText: "s1",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline:
@@ -22,10 +22,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
-      alt: "s2",
+      alternativeText: "s2",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
@@ -34,10 +34,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
-      alt: "s3",
+      alternativeText: "s3",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
@@ -45,10 +45,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
-      alt: "s4",
+      alternativeText: "s4",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
@@ -56,10 +56,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
-      alt: "s1",
+      alternativeText: "s1",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline:
@@ -69,10 +69,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
-      alt: "s2",
+      alternativeText: "s2",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
@@ -81,10 +81,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
-      alt: "s3",
+      alternativeText: "s3",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
@@ -92,10 +92,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
-      alt: "s4",
+      alternativeText: "s4",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
@@ -103,10 +103,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
-      alt: "s1",
+      alternativeText: "s1",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline:
@@ -116,10 +116,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
-      alt: "s2",
+      alternativeText: "s2",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
@@ -128,10 +128,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
-      alt: "s3",
+      alternativeText: "s3",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
@@ -139,10 +139,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
-      alt: "s4",
+      alternativeText: "s4",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
@@ -150,10 +150,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
-      alt: "s1",
+      alternativeText: "s1",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline:
@@ -163,10 +163,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
-      alt: "s2",
+      alternativeText: "s2",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
@@ -175,10 +175,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
-      alt: "s3",
+      alternativeText: "s3",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
@@ -186,10 +186,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
-      alt: "s4",
+      alternativeText: "s4",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "TikTok Cosplayer Yandere Freak Charged With Manslaughter",
@@ -197,10 +197,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
-      alt: "s1",
+      alternativeText: "s1",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline:
@@ -210,10 +210,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
-      alt: "s2",
+      alternativeText: "s2",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
@@ -222,10 +222,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
-      alt: "s3",
+      alternativeText: "s3",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
@@ -233,10 +233,10 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
-      alt: "s4",
+      alternativeText: "s4",
     },
-    categoryData: { slug: "news", name: "News" },
-    postDate: "2022-01-22T07:04:45+0000",
+    category: { slug: "news", name: "News" },
+    publishedAt: "2022-01-22T07:04:45+0000",
   },
 ];
 
@@ -270,7 +270,7 @@ const ArticlesList = ({
           return (
             <article
               className="mt-6 flex flex-row flex-wrap border-b border-black/50 pb-6 dark:border-white/50 sm:flex-nowrap"
-              key={index}
+              key={articleData.slug}
             >
               <figure className="w-full ltr:mr-5 rtl:ml-5 sm:w-1/2">
                 <Link href={`/articles/${articleData.slug}`}>
@@ -278,7 +278,7 @@ const ArticlesList = ({
                     <Image
                       className="rounded-3xl"
                       src={articleData.mainImage.url}
-                      alt={articleData.mainImage.alt}
+                      alt={articleData.mainImage.alternativeText}
                       width={640}
                       height={640 / (16 / 9)}
                       priority={index === 0}
@@ -287,10 +287,10 @@ const ArticlesList = ({
                 </Link>
               </figure>
               <div className="w-full sm:w-1/2">
-                <Link href={`/categories/${articleData.categoryData.slug}`}>
+                <Link href={`/categories/${articleData.category.slug}`}>
                   <a>
                     <span className="mt-4 inline-block rounded-full bg-violet-600 px-2 py-1 align-top font-extrabold uppercase text-white dark:bg-violet-400 dark:text-neutral-900 sm:mt-0">
-                      {articleData.categoryData.name}
+                      {articleData.category.name}
                     </span>
                   </a>
                 </Link>
@@ -306,9 +306,9 @@ const ArticlesList = ({
                 </p>
                 <time
                   className="mt-2 inline-block text-sm uppercase text-neutral-700 dark:text-neutral-400"
-                  dateTime={articleData.postDate}
+                  dateTime={articleData.publishedAt}
                 >
-                  {formatDate(articleData.postDate, locale)}
+                  {formatDate(articleData.publishedAt, locale)}
                 </time>
               </div>
             </article>

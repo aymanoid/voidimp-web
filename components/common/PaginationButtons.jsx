@@ -4,9 +4,9 @@ import ArrowSvg from "components/icons/arrow.svg";
 
 const paginationData = {
   page: 2,
-  resultsPerPage: 20,
+  pageSize: 20,
   resultsSize: 20,
-  totalResultsSize: 596,
+  total: 596,
   totalPages: 30,
   nextPage: 3,
   prevPage: 1,
@@ -35,12 +35,12 @@ const PaginationButtons = ({ paginationData, prevHref, nextHref }) => {
   }[locale];
 
   const fromCount =
-    paginationData.totalResultsSize === 0
+    paginationData.total === 0
       ? 0
-      : (paginationData.page - 1) * paginationData.resultsPerPage + 1;
+      : (paginationData.page - 1) * paginationData.pageSize + 1;
   const toCount = Math.min(
-    paginationData.totalResultsSize,
-    paginationData.page * paginationData.resultsPerPage
+    paginationData.total,
+    paginationData.page * paginationData.pageSize
   );
 
   return (
@@ -56,7 +56,7 @@ const PaginationButtons = ({ paginationData, prevHref, nextHref }) => {
         </span>{" "}
         {strings.of}{" "}
         <span className="font-semibold text-black dark:text-white">
-          {paginationData.totalResultsSize}
+          {paginationData.total}
         </span>{" "}
         {strings.articles}
       </span>
