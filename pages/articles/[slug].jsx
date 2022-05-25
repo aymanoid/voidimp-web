@@ -12,7 +12,7 @@ import TagsList from "components/articles/TagsList";
 import AuthorInfo from "components/articles/AuthorInfo";
 import LatestArticles from "components/articles/LatestArticles";
 
-const Article = ({ globalData, articleData, tagsData }) => {
+const Article = ({ globalData, articleData }) => {
   return (
     <Layout globalData={globalData}>
       <ArticleSEO
@@ -25,7 +25,7 @@ const Article = ({ globalData, articleData, tagsData }) => {
         updatedAt={articleData.updatedAt}
         authorName={articleData.author.displayName}
         authorUsername={articleData.author.slug}
-        tagsData={tagsData}
+        tagsData={articleData.tags}
         categoryName={articleData.category.name}
       />
       <div className="container mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl">
@@ -66,7 +66,7 @@ const Article = ({ globalData, articleData, tagsData }) => {
                 );
             })}
 
-            <TagsList tagsData={tagsData} />
+            <TagsList tagsData={articleData.tags} />
             <div className="mt-6 border-b border-violet-600/50 dark:border-violet-400/50"></div>
             <AuthorInfo authorData={articleData.author} />
           </section>
@@ -99,8 +99,7 @@ export const getStaticProps = async ({ locale, params }) => {
     getArticleData(params.slug, locale),
   ]);
 
-  const tagsData = articleData.tags;
-
+  /*
   console.log(
     require("util").inspect(articleData, {
       showHidden: false,
@@ -108,12 +107,12 @@ export const getStaticProps = async ({ locale, params }) => {
       colors: true,
     })
   );
+  */
 
   return {
     props: {
       globalData,
       articleData,
-      tagsData,
     },
   };
 };
