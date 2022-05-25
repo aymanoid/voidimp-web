@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
-import { getGlobalData, getHomePageData } from "utils/queries";
+import { getGlobalData, getHomePageData } from "utils/_queries";
 import HeroArticle from "components/home/HeroArticle";
 import FeaturedArticles from "components/home/FeaturedArticles";
 import SocialAd from "components/home/SocialAd";
@@ -24,11 +24,14 @@ const Home = ({ globalData, homePageData }) => {
 
   return (
     <Layout globalData={globalData}>
+      {/*
+      TODO: make new updated seo component
       <HomeSEO
         metaTitle={homePageData.seoData.metaTitle}
         description={globalData.metaDescription}
         imageData={globalData.metaImage}
       />
+      */}
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <div className="flex flex-wrap md:-mx-8 md:flex-row">
           <section className="flex w-full flex-col border-none border-violet-600/50 ltr:border-r rtl:border-l dark:border-violet-400/50 md:w-3/5 md:border-solid md:px-8">
@@ -37,11 +40,11 @@ const Home = ({ globalData, homePageData }) => {
             <SocialAd />
           </section>
 
-          <FeaturedArticles />
+          <FeaturedArticles articlesData={homePageData.featuredArticles} />
         </div>
 
         {/*<div className="mt-8 border-b border-black/50 dark:border-white/50" />*/}
-        <TrendingArticles />
+        <TrendingArticles articlesData={homePageData.trendingArticles} />
 
         <ArticlesList
           topStr={strings.latest}
@@ -57,6 +60,14 @@ export const getStaticProps = async ({ locale }) => {
     getGlobalData(locale),
     getHomePageData(locale),
   ]);
+
+  console.log(
+    require("util").inspect(homePageData, {
+      showHidden: false,
+      depth: null,
+      colors: true,
+    })
+  );
 
   return {
     props: {

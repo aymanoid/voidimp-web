@@ -9,7 +9,7 @@ const HeroArticle = ({ articleData }) => {
           <Image
             className="rounded-3xl"
             src={articleData.mainImage.url}
-            alt={articleData.mainImage.alt}
+            alt={articleData.mainImage.alternativeText}
             width={768}
             height={768 / (16 / 9)}
             priority

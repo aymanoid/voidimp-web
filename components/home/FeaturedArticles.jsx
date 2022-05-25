@@ -9,9 +9,9 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1615961943966-ab7585d5bf4e",
-      alt: "s1",
+      alternativeText: "s1",
     },
-    categoryName: "News",
+    category: { name: "News" },
   },
   {
     headline:
@@ -21,9 +21,9 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1579400628679-baa28dadbd54",
-      alt: "s2",
+      alternativeText: "s2",
     },
-    categoryName: "News",
+    category: { name: "News" },
   },
   {
     headline: "Final Fantasy 14: Bardam’s Mettle Dungeon Guide",
@@ -32,9 +32,9 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1605804097616-ed12e891e514",
-      alt: "s3",
+      alternativeText: "s3",
     },
-    categoryName: "News",
+    category: { name: "News" },
   },
   {
     headline: "So, What Games Are Women Supposed To Play, Exactly?",
@@ -42,9 +42,9 @@ const mockArticlesData = [
     slug: "",
     mainImage: {
       url: "https://images.unsplash.com/photo-1609365410860-bdd108741ef5",
-      alt: "s4",
+      alternativeText: "s4",
     },
-    categoryName: "News",
+    category: { name: "News" },
   },
 ];
 
@@ -71,17 +71,17 @@ const FeaturedArticles = ({
         {`🌟 ${strings.featured}`}
       </h2>
       {articlesData.length ? (
-        articlesData.map((articleData, index) => {
+        articlesData.map((articleData) => {
           return (
             <article
               className="mt-6 border-b border-black/50 pb-6 dark:border-white/50"
-              key={index}
+              key={articleData.slug}
             >
               <Link href={`/articles/${articleData.slug}`}>
                 <a className="flex flex-row decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
                   <div className="w-3/5">
                     <span className="inline-block text-sm uppercase text-violet-600 dark:text-violet-400">
-                      {articleData.categoryName}
+                      {articleData.category.name}
                     </span>
 
                     <h3 className="text-lg font-semibold text-black dark:text-white">
@@ -92,7 +92,7 @@ const FeaturedArticles = ({
                     <Image
                       className="rounded-3xl"
                       src={articleData.mainImage.url}
-                      alt={articleData.mainImage.alt}
+                      alternativeText={articleData.mainImage.alternativeText}
                       width={320}
                       height={320 / (16 / 9)}
                     />

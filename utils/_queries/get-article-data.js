@@ -101,14 +101,6 @@ const getArticleData = async (slug, locale) => {
     }
   }
 
-  console.log(
-    require("util").inspect(hashIds(unlocalizeSlugs(data, locale)), {
-      showHidden: false,
-      depth: null,
-      colors: true,
-    })
-  );
-
   return hashIds(unlocalizeSlugs(data, locale));
 };
 
