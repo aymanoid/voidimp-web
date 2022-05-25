@@ -34,7 +34,9 @@ const getArticleData = async (slug, locale) => {
         blocks: { populate: "*" },
         seo: {
           populate: {
-            metaImage: { fields: ["alternativeText", "caption", "url"] },
+            metaImage: {
+              fields: ["alternativeText", "caption", "url", "width", "height"],
+            },
           },
         },
       },

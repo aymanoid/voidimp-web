@@ -12,28 +12,22 @@ import TagsList from "components/articles/TagsList";
 import AuthorInfo from "components/articles/AuthorInfo";
 import LatestArticles from "components/articles/LatestArticles";
 
-const Article = ({
-  globalData,
-  articleData,
-  authorData,
-  tagsData,
-  categoryData,
-}) => {
+const Article = ({ globalData, articleData, tagsData }) => {
   return (
     <Layout globalData={globalData}>
-      {/*
-      TODO: make new updated seo component
       <ArticleSEO
+        metaTitle={articleData.seo.metaTitle}
+        metaDescription={articleData.seo.metaDescription}
         headline={articleData.headline}
-        description={articleData.description}
-        imageData={articleData.mainImage}
-        datePublished={articleData.postDate}
-        dateModified={articleData.updateDate}
-        authorName={authorData.displayName}
-        authorUsername={authorData.slug}
+        subheadline={articleData.subheadline}
+        metaImage={articleData.seo.metaImage}
+        publishedAt={articleData.publishedAt}
+        updatedAt={articleData.updatedAt}
+        authorName={articleData.author.displayName}
+        authorUsername={articleData.author.slug}
         tagsData={tagsData}
-        categoryName={categoryData.name}
-      />*/}
+        categoryName={articleData.category.name}
+      />
       <div className="container mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article className="flex flex-row flex-wrap">
           <header className="w-full space-y-4">
@@ -46,7 +40,7 @@ const Article = ({
             </p>
             <div className="flex flex-col justify-between space-y-5 md:flex-row md:items-end md:space-y-0 md:space-x-5">
               <Metadata
-                authorData={authorData}
+                authorData={articleData.author}
                 pubTimestamp={articleData.publishedAt}
               />
               <ShareButtons />
@@ -74,7 +68,7 @@ const Article = ({
 
             <TagsList tagsData={tagsData} />
             <div className="mt-6 border-b border-violet-600/50 dark:border-violet-400/50"></div>
-            <AuthorInfo authorData={authorData} />
+            <AuthorInfo authorData={articleData.author} />
           </section>
 
           <aside className="mt-4 w-full lg:w-1/3 xl:w-1/4">
@@ -105,17 +99,21 @@ export const getStaticProps = async ({ locale, params }) => {
     getArticleData(params.slug, locale),
   ]);
 
-  const authorData = articleData.author;
   const tagsData = articleData.tags;
-  const categoryData = articleData.category;
+
+  console.log(
+    require("util").inspect(articleData, {
+      showHidden: false,
+      depth: null,
+      colors: true,
+    })
+  );
 
   return {
     props: {
       globalData,
       articleData,
-      authorData,
       tagsData,
-      categoryData,
     },
   };
 };

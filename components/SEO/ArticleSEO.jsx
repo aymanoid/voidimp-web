@@ -4,11 +4,13 @@ import CommonSEO from "components/SEO/CommonSEO";
 import Head from "next/head";
 
 const ArticleSEO = ({
+  metaTitle,
+  metaDescription,
   headline,
-  description,
-  imageData,
-  datePublished,
-  dateModified,
+  subheadline,
+  metaImage,
+  publishedAt,
+  updatedAt,
   authorName,
   authorUsername,
   tagsData,
@@ -16,7 +18,6 @@ const ArticleSEO = ({
 }) => {
   const { locale, asPath } = useRouter();
 
-  const title = `${headline} | VoidImp`;
   const pageUrl = urlize(asPath, locale);
 
   const schemaData = {
@@ -29,10 +30,10 @@ const ArticleSEO = ({
     url: pageUrl,
     name: headline,
     headline: headline,
-    description: description,
-    image: imageData.url,
-    datePublished: datePublished,
-    dateModified: dateModified,
+    description: subheadline,
+    image: metaImage.url,
+    datePublished: publishedAt,
+    dateModified: updatedAt,
     author: {
       "@type": "Person",
       name: authorName,
@@ -42,25 +43,25 @@ const ArticleSEO = ({
       "@type": "Organization",
       name: "VoidImp",
     },
-    articleSection: tagsData.map((e) => e.id),
+    articleSection: tagsData.map((e) => e.slug),
   };
 
   return (
     <>
       <CommonSEO
-        title={title}
-        description={description}
+        metaTitle={metaTitle}
+        metaDescription={metaDescription}
         canonicalUrl={pageUrl}
         ogType={"article"}
-        imageData={imageData}
+        metaImage={metaImage}
       />
       <Head>
-        <meta property="article:published_time" content={datePublished} />
-        <meta property="article:modified_time" content={dateModified} />
+        <meta property="article:published_time" content={publishedAt} />
+        <meta property="article:modified_time" content={updatedAt} />
         <meta property="article:author" content={authorName} />
         <meta property="article:section" content={categoryName} />
-        {tagsData.map((e, i) => (
-          <meta key={i} property="article:tag" content={e.name} />
+        {tagsData.map((e) => (
+          <meta key={e.slug} property="article:tag" content={e.name} />
         ))}
 
         <script
