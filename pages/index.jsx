@@ -58,14 +58,6 @@ export const getStaticProps = async ({ locale }) => {
     getHomePageData(locale),
   ]);
 
-  console.log(
-    require("util").inspect(homePageData, {
-      showHidden: false,
-      depth: null,
-      colors: true,
-    })
-  );
-
   return {
     props: {
       globalData,
