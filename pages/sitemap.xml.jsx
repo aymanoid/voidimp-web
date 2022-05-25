@@ -1,6 +1,6 @@
 import React from "react";
 const prettier = require("prettier");
-import { getArticlesSitemapData } from "utils/queries";
+import { getArticlesSitemapData } from "utils/_queries";
 
 const siteUrl = "https://voidimp.com";
 
@@ -13,8 +13,8 @@ const createSitemap = (articles) => `<?xml version="1.0" encoding="UTF-8"?>
                 <url>
                     <loc>${`${siteUrl}/articles/${slug}`}</loc>
                     ${
-                      ar &&
-                      `<xhtml:link
+                      ar
+                        ? `<xhtml:link
                             rel="alternate"
                             hreflang="ar"
                             href="${`${siteUrl}/ar/articles/${slug}`}"/>
@@ -22,6 +22,7 @@ const createSitemap = (articles) => `<?xml version="1.0" encoding="UTF-8"?>
                             rel="alternate"
                             hreflang="en"
                             href="${`${siteUrl}/articles/${slug}`}"/>`
+                        : ""
                     }
                 </url>
             `;
