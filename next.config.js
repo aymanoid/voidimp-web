@@ -1,4 +1,8 @@
-module.exports = {
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.BUNDLE_ANALYZE === "true",
+});
+
+module.exports = withBundleAnalyzer({
   i18n: {
     locales: ["en", "ar"],
     defaultLocale: "en",
@@ -25,4 +29,4 @@ module.exports = {
       },
     ];
   },
-};
+});
