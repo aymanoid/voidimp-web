@@ -40,7 +40,7 @@ const Author = ({ globalData, authorData, authorArticlesData }) => {
         prevPage={authorArticlesData.pagination.prevPage}
         nextPage={authorArticlesData.pagination.nextPage}
         metaImage={authorData.avatar}
-        description={"globalData.metaDescription"}
+        metaDescription={globalData.seo.metaDescription}
       />
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article className="">

@@ -30,13 +30,8 @@ const Tag = ({ globalData, tagData, tagArticlesData }) => {
     <Layout globalData={globalData}>
       <TagSEO
         tagName={tagData.name}
-        metaDescription={"globalData.metaDescription"}
-        metaImage={{
-          url: "https://cms.voidimp.com/uploads/Collage_of_the_MCU_a1625f32b2.jpg",
-          alternativeText: "Collage of the MCU.jpg",
-          width: 1920,
-          height: 1080,
-        }}
+        metaDescription={globalData.seo.metaDescription}
+        metaImage={globalData.seo.metaImage}
       />
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <article>

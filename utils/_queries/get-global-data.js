@@ -1,13 +1,8 @@
 import { fetchAPI } from "utils/api";
-
-const cleanse = (data) => {
-  const { header, footer, common } = data.data.attributes;
-
-  return { header, footer, common };
-};
+import { hashIds } from "utils/helpers";
 
 const getGlobalData = async (locale) => {
-  const data = await fetchAPI("/global", {
+  const response = await fetchAPI("/global", {
     populate: {
       header: {
         populate: "*",
@@ -18,11 +13,22 @@ const getGlobalData = async (locale) => {
       common: {
         populate: "*",
       },
+      seo: {
+        fields: ["metaDescription"],
+        populate: {
+          metaImage: {
+            fields: ["alternativeText", "caption", "url", "width", "height"],
+          },
+        },
+      },
     },
     locale,
   });
 
-  return cleanse(data);
+  const data = response.data.attributes;
+  data.seo.metaImage = data.seo.metaImage.data.attributes;
+
+  return hashIds(data);
 };
 
 export default getGlobalData;

@@ -10,7 +10,7 @@ const AuthorSEO = ({
   prevPage,
   nextPage,
   metaImage,
-  description,
+  metaDescription,
 }) => {
   const { locale } = useRouter();
 
@@ -45,7 +45,7 @@ const AuthorSEO = ({
     <>
       <CommonSEO
         metaTitle={`${authorName} | VoidImp`}
-        metaDescription={description}
+        metaDescription={metaDescription}
         canonicalUrl={canonicalUrl}
         ogType={"profile"}
         metaImage={metaImage}
