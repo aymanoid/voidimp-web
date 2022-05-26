@@ -28,11 +28,6 @@ class VoidImpDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#8b5cf6" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#1e1e1e" />
-
-          <link rel="preconnect" href="https://images.prismic.io" />
-          <link rel="dns-prefetch" href="https://images.prismic.io" />
-          <link rel="preconnect" href="https://images.unsplash.com" />
-          <link rel="dns-prefetch" href="https://images.unsplash.com" />
         </Head>
         <body className="bg-white antialiased dark:bg-neutral-900">
           <Main />
