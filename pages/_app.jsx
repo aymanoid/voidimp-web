@@ -1,5 +1,6 @@
 import "styles/globals.css";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import * as gtag from "utils/gtag";
 import { ThemeProvider } from "next-themes";
 
