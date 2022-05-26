@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import CommonSEO from "components/SEO/CommonSEO";
 import Head from "next/head";
 import { urlize } from "utils/helpers";
+import { getCmsURL } from "utils/api";
 
 const AuthorSEO = ({
   authorName,
@@ -33,7 +34,7 @@ const AuthorSEO = ({
     },
     url: urlize(`/authors/${slug}`, locale),
     name: authorName,
-    image: metaImage.url,
+    image: getCmsURL(metaImage.url),
     jobTitle: null,
     affiliation: {
       "@type": "Organization",

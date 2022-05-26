@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { getCmsURL } from "utils/api";
 import { urlize } from "utils/helpers";
 
 const CommonSEO = ({
@@ -20,7 +21,7 @@ const CommonSEO = ({
       <meta property="og:title" content={metaTitle} />
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={metaImage.url} />
+      <meta property="og:image" content={getCmsURL(metaImage.url)} />
       <meta property="og:image:width" content={metaImage.width} />
       <meta property="og:image:height" content={metaImage.height} />
       <meta property="og:image:alt" content={metaImage.alternativeText} />

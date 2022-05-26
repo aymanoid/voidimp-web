@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { urlize } from "utils/helpers";
 import CommonSEO from "components/SEO/CommonSEO";
 import Head from "next/head";
+import { getCmsURL } from "utils/api";
 
 const ArticleSEO = ({
   metaTitle,
@@ -31,7 +32,7 @@ const ArticleSEO = ({
     name: headline,
     headline: headline,
     description: subheadline,
-    image: metaImage.url,
+    image: getCmsURL(metaImage.url),
     datePublished: publishedAt,
     dateModified: updatedAt,
     author: {
