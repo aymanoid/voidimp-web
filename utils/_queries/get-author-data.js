@@ -1,4 +1,4 @@
-import { fetchAPI, getCmsMedia } from "utils/api";
+import { fetchAPI } from "utils/api";
 
 const getAuthorData = async (slug, locale) => {
   const response = await fetchAPI("/authors", {
@@ -15,10 +15,7 @@ const getAuthorData = async (slug, locale) => {
   });
 
   const data = response.data[0].attributes;
-  data.avatar = {
-    ...data.avatar.data.attributes,
-    url: getCmsMedia(data.avatar.data.attributes.url),
-  };
+  data.avatar = data.avatar.data.attributes;
 
   /*
   console.log(

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image from "components/common/VoidImage";
 
 const HeroArticle = ({ articleData }) => {
   return (
@@ -13,6 +13,7 @@ const HeroArticle = ({ articleData }) => {
             width={768}
             height={768 / (16 / 9)}
             priority
+            cmsMedia
           />
           <h3 className="text-center text-xl font-extrabold text-black decoration-violet-600 decoration-2 underline-offset-4 group-hover:underline dark:text-white dark:decoration-violet-400 sm:text-2xl">
             {articleData.headline}

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "components/common/VoidImage";
 
 const ImageSegment = ({ imageData }) => {
   const width = 426;
@@ -11,6 +11,7 @@ const ImageSegment = ({ imageData }) => {
         height={height}
         alt={imageData.alternativeText}
         className="rounded-md"
+        cmsMedia
       />
     </div>
   );

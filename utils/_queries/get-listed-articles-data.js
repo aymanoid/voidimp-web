@@ -1,4 +1,4 @@
-import { fetchAPI, getCmsMedia } from "utils/api";
+import { fetchAPI } from "utils/api";
 import { unlocalizeSlugs } from "utils/helpers";
 
 const getListedArticlesData = async (
@@ -62,10 +62,7 @@ const getListedArticlesData = async (
       const obj = {
         ...e.attributes,
         publishedAt: e.attributes.manualPublishedAt || e.attributes.publishedAt,
-        mainImage: {
-          ...e.attributes.mainImage.data.attributes,
-          url: getCmsMedia(e.attributes.mainImage.data.attributes.url),
-        },
+        mainImage: e.attributes.mainImage.data.attributes,
         category: e.attributes.category.data.attributes,
       };
 

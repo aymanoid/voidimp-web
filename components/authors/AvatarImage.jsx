@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "components/common/VoidImage";
 
 const AvatarImage = ({ imageData }) => {
   return (
@@ -10,6 +10,7 @@ const AvatarImage = ({ imageData }) => {
           alt={imageData.alternativeText}
           width={144}
           height={144}
+          cmsMedia
         />
       </div>
     </div>

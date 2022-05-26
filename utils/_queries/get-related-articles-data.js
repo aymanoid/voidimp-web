@@ -1,4 +1,4 @@
-import { fetchAPI, getCmsMedia } from "utils/api";
+import { fetchAPI } from "utils/api";
 import { unlocalizeSlugs, hashIds } from "utils/helpers";
 
 // TODO: use something like google analytics to get this data dynamically
@@ -41,20 +41,12 @@ const getRelatedArticlesData = async (slug, locale) => {
 
   const latestArticles = responses[0].data.map((e) => ({
     ...e.attributes,
-    mainImage: {
-      ...e.attributes.mainImage.data.attributes,
-      url: getCmsMedia(e.attributes.mainImage.data.attributes.url),
-    },
+    mainImage: e.attributes.mainImage.data.attributes,
   }));
   let { featuredArticles } = responses[1].data.attributes;
   featuredArticles = featuredArticles.map((e) => ({
     ...e.featuredArticle.data.attributes,
-    mainImage: {
-      ...e.featuredArticle.data.attributes.mainImage.data.attributes,
-      url: getCmsMedia(
-        e.featuredArticle.data.attributes.mainImage.data.attributes.url
-      ),
-    },
+    mainImage: e.featuredArticle.data.attributes.mainImage.data.attributes,
   }));
 
   return hashIds(unlocalizeSlugs({ latestArticles, featuredArticles }, locale));

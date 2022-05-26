@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "components/common/VoidImage";
 
 const mockArticlesData = [
   {
@@ -71,6 +71,7 @@ const SidebarRecommended = ({
                         alt={articleData.mainImage.alternativeText}
                         width={768}
                         height={768 / (16 / 9)}
+                        cmsMedia
                       />
                       {/* TODO: delete articleData.mainImage.dimensions */}
 

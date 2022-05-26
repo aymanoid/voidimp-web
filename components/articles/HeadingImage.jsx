@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "components/common/VoidImage";
 
 const HeadingImage = ({ imageData }) => {
   return (
@@ -11,6 +11,7 @@ const HeadingImage = ({ imageData }) => {
           height={768 / (16 / 9)}
           className="rounded-3xl"
           priority
+          cmsMedia
         />
         {/* TODO: delete imageData.dimensions */}
 

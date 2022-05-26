@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "components/common/VoidImage";
 
 const mockArticlesData = [
   {
@@ -71,6 +71,7 @@ const LatestArticles = ({
                         alt={articleData.mainImage.alternativeText}
                         width={640}
                         height={640 / (16 / 9)}
+                        cmsMedia
                       />
                     </figure>
                     <h3 className="font-semibold text-black dark:text-white ">

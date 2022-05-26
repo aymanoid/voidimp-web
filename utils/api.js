@@ -1,6 +1,6 @@
 import qs from "qs";
 
-const getCmsURL = (path = "") => {
+export const getCmsURL = (path = "") => {
   return `${
     process.env.NEXT_PUBLIC_CMS_API_URL || "http://localhost:1337"
   }${path}`;
@@ -28,9 +28,4 @@ export const fetchAPI = async (path, urlParamsObject = {}, options = {}) => {
   }
   const data = await response.json();
   return data;
-};
-
-export const getCmsMedia = (url) => {
-  const imageUrl = url.startsWith("/") ? getCmsURL(url) : url;
-  return imageUrl;
 };

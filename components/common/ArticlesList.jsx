@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Image from "next/image";
+import Image from "components/common/VoidImage";
 import Link from "next/link";
 
 const mockArticlesData = [
@@ -282,6 +282,7 @@ const ArticlesList = ({
                       width={640}
                       height={640 / (16 / 9)}
                       priority={index === 0}
+                      cmsMedia
                     />
                   </a>
                 </Link>

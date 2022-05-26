@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Image from "next/image";
+import Image from "components/common/VoidImage";
 import Link from "next/link";
 
 const mockArticlesData = [
@@ -95,6 +95,7 @@ const FeaturedArticles = ({
                       alt={articleData.mainImage.alternativeText}
                       width={320}
                       height={320 / (16 / 9)}
+                      cmsMedia
                     />
                   </figure>
                 </a>

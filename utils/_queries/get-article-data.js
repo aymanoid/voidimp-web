@@ -1,4 +1,4 @@
-import { fetchAPI, getCmsMedia } from "utils/api";
+import { fetchAPI } from "utils/api";
 import { unlocalizeSlugs, hashIds } from "utils/helpers";
 
 const getArticleData = async (slug, locale) => {
@@ -79,15 +79,10 @@ const getArticleData = async (slug, locale) => {
   delete data.manualUpdatedAt;
   delete data.manualPublishedAt;
 
-  data.author.avatar.url = getCmsMedia(data.author.avatar.url);
-  data.mainImage.url = getCmsMedia(data.mainImage.url);
-  data.seo.metaImage.url = getCmsMedia(data.seo.metaImage.url);
-
   data.blocks = data.blocks.map((e) => {
-    if (e.__component !== "article-blocks.image") return e;
-    const obj = { ...e, image: e.image.data.attributes };
-    obj.image.url = getCmsMedia(obj.image.url);
-    return obj;
+    return e.__component === "article-blocks.image"
+      ? { ...e, image: e.image.data.attributes }
+      : e;
   });
 
   // shorten the bio if it's longer than 128 chars

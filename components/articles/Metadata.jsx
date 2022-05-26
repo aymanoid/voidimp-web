@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "components/common/VoidImage";
 
 const formatDate = (timestamp, locale) => {
   const date = new Date(timestamp);
@@ -28,6 +28,7 @@ const Metadata = ({ authorData, pubTimestamp }) => {
             alt={authorData.avatar.alternativeText}
             width={48}
             height={48}
+            cmsMedia
           />
           {/* TODO: delete authorData.avatarThumbnail.dimensions */}
         </a>
