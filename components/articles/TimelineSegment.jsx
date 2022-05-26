@@ -28,7 +28,7 @@ const TimelineSegment = ({ timelineData }) => {
                 <div className="col-span-4 h-full w-full">
                   <div className="h-full w-full rounded-md p-2 ltr:text-right rtl:text-left md:pl-4">
                     <h2 className="text-xl font-semibold text-black dark:text-white">
-                      {usingEnTiles ? e.enTitle : e.title}
+                      {usingEnTiles && locale !== "en" ? e.enTitle : e.title}
                     </h2>
                     <p className="text-neutral-700 dark:text-neutral-400">
                       {e.note}
@@ -58,7 +58,7 @@ const TimelineSegment = ({ timelineData }) => {
                 <div className="col-span-4 h-full w-full ">
                   <div className="h-full w-full rounded-md p-2 ltr:text-left rtl:text-right md:pl-4">
                     <h2 className="text-xl font-semibold text-black dark:text-white">
-                      {usingEnTiles ? e.enTitle : e.title}
+                      {usingEnTiles && locale !== "en" ? e.enTitle : e.title}
                     </h2>
                     <p className="text-neutral-700 dark:text-neutral-400">
                       {e.note}
