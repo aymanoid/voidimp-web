@@ -39,11 +39,6 @@ const getHomePageData = async (locale) => {
           },
         },
       },
-      seo: {
-        populate: {
-          metaImage: { fields: ["alternativeText", "url", "width", "height"] },
-        },
-      },
     },
     locale,
   });
@@ -61,8 +56,6 @@ const getHomePageData = async (locale) => {
     ...e.trendingArticle.data.attributes,
     mainImage: e.trendingArticle.data.attributes.mainImage.data.attributes,
   }));
-
-  data.seo.metaImage = data.seo.metaImage.data.attributes;
 
   delete data.createdAt;
   delete data.updatedAt;

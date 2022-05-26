@@ -14,7 +14,7 @@ const getGlobalData = async (locale) => {
         populate: "*",
       },
       seo: {
-        fields: ["metaDescription"],
+        fields: ["metaTitle", "metaDescription"],
         populate: {
           metaImage: {
             fields: ["alternativeText", "caption", "url", "width", "height"],

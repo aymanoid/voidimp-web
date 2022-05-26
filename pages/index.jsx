@@ -25,9 +25,9 @@ const Home = ({ globalData, homePageData }) => {
   return (
     <Layout globalData={globalData}>
       <HomeSEO
-        metaTitle={homePageData.seo.metaTitle}
-        metaDescription={homePageData.seo.metaDescription}
-        metaImage={homePageData.seo.metaImage}
+        metaTitle={globalData.seo.metaTitle}
+        metaDescription={globalData.seo.metaDescription}
+        metaImage={globalData.seo.metaImage}
       />
       <div className="container mx-auto min-h-0 max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <div className="flex flex-wrap md:-mx-8 md:flex-row">
