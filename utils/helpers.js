@@ -49,3 +49,13 @@ export const hashIds = (obj) => {
 export const unlocalizeSlugs = (obj, locale) => {
   return mutateAllValuesByKey(obj, "slug", unlocalizer, locale);
 };
+
+export const deepLog = (obj) => {
+  console.log(
+    require("util").inspect(obj, {
+      showHidden: false,
+      depth: null,
+      colors: true,
+    })
+  );
+};

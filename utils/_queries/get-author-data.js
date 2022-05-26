@@ -17,15 +17,6 @@ const getAuthorData = async (slug, locale) => {
   const data = response.data[0].attributes;
   data.avatar = data.avatar.data.attributes;
 
-  /*
-  console.log(
-    require("util").inspect(data, {
-      showHidden: false,
-      depth: null,
-      colors: true,
-    })
-  );*/
-
   return data;
 };
 
