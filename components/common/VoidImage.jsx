@@ -7,6 +7,7 @@ const VoidImage = ({
   height,
   alt,
   className,
+  priority,
   cmsMedia = false,
 }) => {
   return (
@@ -15,6 +16,7 @@ const VoidImage = ({
       width={width}
       height={height}
       alt={alt}
+      priority={priority}
       className={className}
     />
   );
