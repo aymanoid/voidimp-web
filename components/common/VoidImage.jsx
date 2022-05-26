@@ -1,25 +1,9 @@
 import Image from "next/image";
 import { getCmsURL } from "utils/api";
 
-const VoidImage = ({
-  src,
-  width,
-  height,
-  alt,
-  className,
-  priority,
-  cmsMedia = false,
-}) => {
-  return (
-    <Image
-      src={cmsMedia ? getCmsURL(src) : src}
-      width={width}
-      height={height}
-      alt={alt}
-      priority={priority}
-      className={className}
-    />
-  );
+const VoidImage = (props) => {
+  props.src = props.cmsMedia ? getCmsURL(props.src) : props.src;
+  return <Image {...props} />;
 };
 
 export default VoidImage;
