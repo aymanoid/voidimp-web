@@ -62,7 +62,7 @@ const SidebarRecommended = ({
           articlesData.map((articleData) => {
             return (
               <article key={articleData.slug}>
-                <Link href={articleData.slug}>
+                <Link href={`/articles/${articleData.slug}`}>
                   <a className="decoration-violet-600 decoration-2 underline-offset-2 hover:underline dark:decoration-violet-400">
                     <figure>
                       <Image
