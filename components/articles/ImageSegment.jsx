@@ -1,16 +1,15 @@
-import Imgix from "react-imgix";
+import Image from "next/image";
 
 const ImageSegment = ({ imageData }) => {
   const width = 426;
-  const height =
-    width * (imageData.dimensions.height / imageData.dimensions.width);
+  const height = width * (imageData.height / imageData.width);
   return (
     <div className="flex justify-center">
-      <Imgix
+      <Image
         src={imageData.url}
         width={width}
         height={height}
-        htmlAttributes={{ alt: imageData.alt }}
+        alt={imageData.alternativeText}
         className="rounded-md"
       />
     </div>

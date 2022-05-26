@@ -31,7 +31,13 @@ const getArticleData = async (slug, locale) => {
         mainImage: {
           fields: ["alternativeText", "caption", "url"],
         },
-        blocks: { populate: "*" },
+        blocks: {
+          populate: {
+            text: { populate: "*" },
+            show: { populate: "*" },
+            image: { fields: ["url", "alternativeText", "width", "height"] },
+          },
+        },
         seo: {
           populate: {
             metaImage: {
@@ -77,7 +83,12 @@ const getArticleData = async (slug, locale) => {
   data.mainImage.url = getCmsMedia(data.mainImage.url);
   data.seo.metaImage.url = getCmsMedia(data.seo.metaImage.url);
 
-  // data.author.slug = unlocalizeSlug(data.author.slug);
+  data.blocks = data.blocks.map((e) => {
+    if (e.__component !== "article-blocks.image") return e;
+    const obj = { ...e, image: e.image.data.attributes };
+    obj.image.url = getCmsMedia(obj.image.url);
+    return obj;
+  });
 
   // shorten the bio if it's longer than 128 chars
   if (data.author.bio.length > 128) {
