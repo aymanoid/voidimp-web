@@ -2,6 +2,7 @@ import "styles/globals.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import * as gtag from "utils/gtag";
+import GoogleAnalytics from "components/document/GoogleAnalytics";
 import { ThemeProvider } from "next-themes";
 
 const VoidImpApp = ({ Component, pageProps }) => {
@@ -25,13 +26,16 @@ const VoidImpApp = ({ Component, pageProps }) => {
   }
 
   return (
-    <ThemeProvider
-      defaultTheme="dark"
-      forcedTheme={Component.theme || undefined}
-      attribute="class"
-    >
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <>
+      {true && <GoogleAnalytics />}
+      <ThemeProvider
+        defaultTheme="dark"
+        forcedTheme={Component.theme || undefined}
+        attribute="class"
+      >
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 };
 
