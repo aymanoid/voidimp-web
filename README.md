@@ -8,3 +8,5 @@
 # VoidImp Web
 
 [VoidImp 😈](https://www.voidimp.com/) is an entertainment media website and blog providing content related to gaming, movies, tech, and more!
+
+This repository contains all the code for the frontend part of the website (also some backend code used for data fetching). The project embraces the Jamstack architecture for its performance, scalability, and maintainability benefits.
