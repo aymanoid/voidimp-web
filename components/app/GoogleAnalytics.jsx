@@ -1,19 +1,22 @@
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import * as gtag from "utils/gtag";
 import Script from "next/script";
 
 const GoogleAnalytics = () => {
+  const { events } = useRouter();
+
   useEffect(() => {
     const handleRouteChange = (url) => {
       gtag.pageview(url);
     };
-    router.events.on("routeChangeComplete", handleRouteChange);
-    router.events.on("hashChangeComplete", handleRouteChange);
+    events.on("routeChangeComplete", handleRouteChange);
+    events.on("hashChangeComplete", handleRouteChange);
     return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-      router.events.off("hashChangeComplete", handleRouteChange);
+      events.off("routeChangeComplete", handleRouteChange);
+      events.off("hashChangeComplete", handleRouteChange);
     };
-  }, [router.events]);
+  }, [events]);
 
   return (
     <>
