@@ -13,18 +13,18 @@ This repository contains all the code for the frontend part of the website (also
 
 ## Features
 
-- Fully pre-rendered.
-- Responsive design.
-- Multilingual (EN & AR).
-- Very fast performance.
-- Decoupled from the backend.
+- 📜 Fully pre-rendered.
+- 📱 Responsive design.
+- 🌍 Multilingual (EN & AR).
+- 🚀 Very fast performance.
+- 🦾 Decoupled from the backend.
 
 ## Tech Stack
 
-- Node.js
-- React
-- Next.js
-- Tailwind CSS
+- [Node.js](https://github.com/nodejs/node)
+- [React](https://github.com/facebook/react)
+- [Next.js](https://github.com/vercel/next.js)
+- [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
 
 ## Development
 
@@ -51,4 +51,18 @@ $ npm run dev
 # Or build for production and launch server
 $ npm run build
 $ npm run start
+```
+
+## Project Structure
+
+```sh
+voidimp-web/
+├── components # contains components organized into folders based on where they're used
+├── pages # contains static and dynamic routes of every page of the website
+├── public # contains publicly available files such as icons and whatnot
+├── utils # contains utility code for various areas of the project
+├──── _queries # contains functions used for data fetching/aggregation used in pages
+├──── api.js # contains main function used for fetching data from the cms
+├──── helpers.js # contains helper funtions to perform commonly needed actions
+└── styles # not really used as this project uses Tailwind for styling
 ```
