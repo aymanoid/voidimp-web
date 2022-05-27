@@ -5,4 +5,6 @@
   </picture>
 </a>
 
-# VoidImp Website
+# VoidImp Web
+
+[VoidImp 😈](https://www.voidimp.com/) is an entertainment media website and blog providing content related to gaming, movies, tech, and more!
