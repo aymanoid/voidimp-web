@@ -66,3 +66,9 @@ voidimp-web/
 ├──── helpers.js # contains helper funtions to perform commonly needed actions
 └── styles # not really used as this project uses Tailwind for styling
 ```
+
+## Notice
+
+Copyright (c) 2022 [Aymanoid](https://github.com/aymanoid). All Rights Reserved.
+
+Authored and maintained by Aymanoid.
