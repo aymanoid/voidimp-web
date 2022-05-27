@@ -15,18 +15,31 @@ This repository contains all the code for the frontend part of the website (also
 
 - Fully pre-rendered.
 - Responsive design.
+- Multilingual (EN & AR).
 - Very fast performance.
 - Decoupled from the backend.
 
 ## Tech Stack
 
+- Node.js
 - React
 - Next.js
 - Tailwind CSS
 
 ## Development
 
-```bash
+Clone the repository into your system, make a `.env.local` file inside the project directory with the following data filled out.
+
+```sh
+CMS_API_TOKEN=xxxxxxxxxxxxxxxxx # api token for your strapi instance
+NEXT_PUBLIC_CMS_API_URL=https://cms.example.com # main url of your strapi instance
+BUNDLE_ANALYZE=false # whether to enable next's js bundle analyzer or not
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX # your google analytics id
+```
+
+Then execute the following commands in that directory.
+
+```sh
 # Install dependencies
 $ npm i
 
