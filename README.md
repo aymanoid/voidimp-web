@@ -5,7 +5,7 @@
   </picture>
 </a>
 
-# VoidImp Web
+# VoidImp Site
 
 [VoidImp 😈](https://www.voidimp.com/) is an entertainment media website and blog providing content related to gaming, movies, tech, and more!
 
@@ -28,7 +28,9 @@ This repository contains all the code for the frontend part of the website (also
 
 ## Development
 
-Clone the repository into your system, make a `.env.local` file inside the project directory with the following data filled out.
+1. Clone the repository into your system.
+
+2. Make a `.env.local` file inside the project directory with the following data filled out.
 
 ```sh
 CMS_API_TOKEN=xxxxxxxxxxxxxxxxx # api token for your strapi instance
@@ -37,7 +39,7 @@ BUNDLE_ANALYZE=false # whether to enable next's js bundle analyzer or not
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX # your google analytics id
 ```
 
-Then execute the following commands in that directory.
+3. Execute the following commands in that directory.
 
 ```sh
 # Install dependencies
