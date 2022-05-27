@@ -11,22 +11,29 @@
 
 This repository contains all the code for the frontend part of the website (also some backend code used for data fetching). The project embraces the Jamstack architecture for its performance, scalability, and maintainability benefits.
 
+## Features
+
+- Fully pre-rendered.
+- Responsive design.
+- Very fast performance.
+- Decoupled from the backend.
+
 ## Tech Stack
 
 - React
 - Next.js
 - Tailwind CSS
 
-## Installation
+## Development
 
 ```bash
-# install dependencies
+# Install dependencies
 $ npm i
 
-# serve with hot reload at localhost:3000
+# Run the server in dev mode at localhost:3000
 $ npm run dev
 
-# build for production and launch server
+# Or build for production and launch server
 $ npm run build
 $ npm run start
 ```
