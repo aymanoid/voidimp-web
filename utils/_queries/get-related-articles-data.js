@@ -10,6 +10,7 @@ const getRelatedArticlesData = async (slug, locale) => {
           $ne: `${slug}-${locale}`,
         },
       },
+      sort: ["publishedAt:desc"],
       fields: ["slug", "headline"],
       populate: {
         mainImage: {
