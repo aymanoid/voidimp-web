@@ -63,7 +63,7 @@ const PaginationButtons = ({ paginationData, prevHref, nextHref }) => {
       <div className="mt-2 inline-flex space-x-1 rtl:space-x-reverse">
         {paginationData.prevPage && (
           <Link href={prevHref}>
-            <a className="dark:hover:bg-400-700 inline-flex items-center border bg-transparent py-2 px-4 text-sm font-medium hover:border-transparent hover:bg-violet-600 ltr:rounded-l-full ltr:rounded-r-lg rtl:rounded-l-lg rtl:rounded-r-full dark:border-violet-400 dark:bg-transparent dark:hover:bg-violet-400">
+            <a className="dark:hover:bg-400-700 inline-flex items-center border bg-transparent py-2 px-4 text-sm font-semibold hover:border-transparent hover:bg-violet-600 ltr:rounded-l-full ltr:rounded-r-lg rtl:rounded-l-lg rtl:rounded-r-full dark:border-violet-400 dark:bg-transparent dark:hover:bg-violet-400">
               <ArrowSvg
                 className="h-5 w-5 ltr:mr-2 ltr:-scale-x-100 rtl:ml-2 rtl:scale-x-100"
                 viewBox="0 0 24 24"

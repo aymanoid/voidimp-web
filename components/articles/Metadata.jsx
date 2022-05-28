@@ -28,7 +28,7 @@ const Metadata = ({ authorData, publishedAt }) => {
 
   const publishedAtDate = formatDate(publishedAt, locale);
   return (
-    <div className="flex flex-shrink-0 items-center font-medium">
+    <div className="flex flex-shrink-0 items-center font-semibold">
       <Link href={`/authors/${authorData.slug}`}>
         <a className="flex items-center space-x-2">
           <Image
