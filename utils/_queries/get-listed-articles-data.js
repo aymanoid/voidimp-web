@@ -33,6 +33,7 @@ const getListedArticlesData = async (
 
   const response = await fetchAPI("/articles", {
     filters: filtersMap[collectionType],
+    sort: ["publishedAt:desc"],
     pagination: {
       page: currPage,
       pageSize: 10,
