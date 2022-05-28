@@ -16,8 +16,12 @@ const SocialAd = () => {
 
   return (
     <div className="mt-4 flex justify-center">
-      <Link href="/">
-        <a className="grid h-[100px] w-[320px] place-items-center place-self-end rounded-xl bg-[#1DA1F2] transition duration-200 hover:brightness-110">
+      <Link href="https://twitter.com/voidimpcom">
+        <a
+          className="grid h-[100px] w-[320px] place-items-center place-self-end rounded-xl bg-[#1DA1F2] transition duration-200 hover:brightness-110"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span className="inline-flex font-bold text-black dark:text-neutral-900">
             <TwitterSvg
               className="inline-block h-6 w-6 fill-current ltr:mr-2 rtl:ml-2"
