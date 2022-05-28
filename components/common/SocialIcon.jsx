@@ -17,6 +17,8 @@ const SocialIcon = ({ social, label, href, size = 6 }) => {
       <a
         className="mx-2 transform text-neutral-700 transition-colors duration-200 hover:text-violet-600 dark:text-neutral-200 dark:hover:text-violet-400 lg:mt-0"
         aria-label={label}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <IconSvg
           className={`w-${size} h-${size} fill-current`}
