@@ -11,7 +11,6 @@ import SocialAd from "components/home/SocialAd";
 import TrendingArticles from "components/home/TrendingArticles";
 import ArticlesList from "components/common/ArticlesList";
 import HomeSEO from "components/SEO/HomeSEO";
-import { deepLog } from "utils/helpers";
 
 const Home = ({ globalData, homePageData, listedArticlesData }) => {
   const { locale } = useRouter();
@@ -64,8 +63,6 @@ export const getStaticProps = async ({ locale }) => {
     getHomePageData(locale),
     getListedArticlesData(null, locale, 1, "homePage", 20),
   ]);
-
-  deepLog(listedArticlesData);
 
   return {
     props: {
