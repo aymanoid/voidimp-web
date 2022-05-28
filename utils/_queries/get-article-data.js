@@ -7,14 +7,7 @@ const getArticleData = async (slug, locale) => {
       filters: {
         slug: `${slug}-${locale}`,
       },
-      fields: [
-        "headline",
-        "subheadline",
-        "updatedAt",
-        "publishedAt",
-        "manualUpdatedAt",
-        "manualPublishedAt",
-      ],
+      fields: ["headline", "subheadline", "updatedAt", "publishedAt"],
       populate: {
         author: {
           fields: ["displayName", "bio", "slug"],
@@ -72,12 +65,6 @@ const getArticleData = async (slug, locale) => {
   data.tags = data.tags.data.map((e) => e.attributes);
   data.mainImage = data.mainImage.data.attributes;
   data.seo.metaImage = data.seo.metaImage.data.attributes;
-
-  data.updatedAt = data.manualUpdatedAt || data.updatedAt;
-  data.publishedAt = data.manualPublishedAt || data.publishedAt;
-
-  delete data.manualUpdatedAt;
-  delete data.manualPublishedAt;
 
   data.blocks = data.blocks.map((e) => {
     return e.__component === "article-blocks.image"

@@ -37,14 +37,7 @@ const getListedArticlesData = async (
       page: currPage,
       pageSize: 10,
     },
-    fields: [
-      "headline",
-      "subheadline",
-      "slug",
-      "updatedAt",
-      "publishedAt",
-      "manualPublishedAt",
-    ],
+    fields: ["headline", "subheadline", "slug", "updatedAt", "publishedAt"],
     populate: {
       mainImage: {
         fields: ["url", "alternativeText"],
@@ -61,12 +54,9 @@ const getListedArticlesData = async (
     data: response.data.map((e) => {
       const obj = {
         ...e.attributes,
-        publishedAt: e.attributes.manualPublishedAt || e.attributes.publishedAt,
         mainImage: e.attributes.mainImage.data.attributes,
         category: e.attributes.category.data.attributes,
       };
-
-      delete obj.manualPublishedAt;
 
       return obj;
     }),
