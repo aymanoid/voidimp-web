@@ -14,19 +14,19 @@ const formatDate = (timestamp, locale) => {
   return new Intl.DateTimeFormat(locale, options).format(date);
 };
 
-const Metadata = ({ authorData, updatedAt }) => {
+const Metadata = ({ authorData, publishedAt }) => {
   const { locale } = useRouter();
 
   const strings = {
     en: {
-      lastUpdateDate: "Last updated date",
+      lastPublishDate: "Last publish date",
     },
     ar: {
-      lastUpdateDate: "تاريخ آخر تحديث",
+      lastpublishedAte: "تاريخ آخر نشر",
     },
   }[locale];
 
-  const updatedAtDate = formatDate(updatedAt, locale);
+  const publishedAtDate = formatDate(publishedAt, locale);
   return (
     <div className="flex flex-shrink-0 items-center font-medium">
       <Link href={`/authors/${authorData.slug}`}>
@@ -52,10 +52,10 @@ const Metadata = ({ authorData, updatedAt }) => {
         </div>
         <time
           className="text-neutral-700 dark:text-neutral-200"
-          dateTime={updatedAt}
-          title={strings.lastUpdateDate}
+          dateTime={publishedAt}
+          title={strings.lastPublishDate}
         >
-          {updatedAtDate}
+          {publishedAtDate}
         </time>
       </div>
     </div>

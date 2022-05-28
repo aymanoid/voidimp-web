@@ -46,7 +46,7 @@ const Article = ({ globalData, articleData, relatedArticlesData }) => {
             <div className="flex flex-col justify-between space-y-5 md:flex-row md:items-end md:space-y-0 md:space-x-5">
               <Metadata
                 authorData={articleData.author}
-                updatedAt={articleData.updatedAt}
+                publishedAt={articleData.publishedAt}
               />
               <ShareButtons />
             </div>
