@@ -1,14 +1,19 @@
 import { useRouter } from "next/router";
 import Layout from "components/common/Layout";
-import { getGlobalData, getHomePageData } from "utils/_queries";
+import {
+  getGlobalData,
+  getHomePageData,
+  getListedArticlesData,
+} from "utils/_queries";
 import HeroArticle from "components/home/HeroArticle";
 import FeaturedArticles from "components/home/FeaturedArticles";
 import SocialAd from "components/home/SocialAd";
 import TrendingArticles from "components/home/TrendingArticles";
 import ArticlesList from "components/common/ArticlesList";
 import HomeSEO from "components/SEO/HomeSEO";
+import { deepLog } from "utils/helpers";
 
-const Home = ({ globalData, homePageData }) => {
+const Home = ({ globalData, homePageData, listedArticlesData }) => {
   const { locale } = useRouter();
 
   const strings = {
@@ -46,6 +51,7 @@ const Home = ({ globalData, homePageData }) => {
         <ArticlesList
           topStr={strings.latest}
           noArticlesStr={strings.noArticles}
+          articlesData={listedArticlesData.data}
         />
       </div>
     </Layout>
@@ -53,15 +59,19 @@ const Home = ({ globalData, homePageData }) => {
 };
 
 export const getStaticProps = async ({ locale }) => {
-  const [globalData, homePageData] = await Promise.all([
+  const [globalData, homePageData, listedArticlesData] = await Promise.all([
     getGlobalData(locale),
     getHomePageData(locale),
+    getListedArticlesData(null, locale, 1, "homePage", 20),
   ]);
+
+  deepLog(listedArticlesData);
 
   return {
     props: {
       globalData,
       homePageData,
+      listedArticlesData,
     },
   };
 };

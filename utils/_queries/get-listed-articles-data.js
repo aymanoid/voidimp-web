@@ -5,7 +5,8 @@ const getListedArticlesData = async (
   slug,
   locale,
   currPage,
-  collectionType
+  collectionType,
+  pageSize = 10
 ) => {
   const filtersMap = {
     author: {
@@ -29,6 +30,7 @@ const getListedArticlesData = async (
         },
       },
     },
+    homePage: null,
   };
 
   const response = await fetchAPI("/articles", {
@@ -36,7 +38,7 @@ const getListedArticlesData = async (
     sort: ["publishedAt:desc"],
     pagination: {
       page: currPage,
-      pageSize: 10,
+      pageSize,
     },
     fields: ["headline", "subheadline", "slug", "updatedAt", "publishedAt"],
     populate: {
