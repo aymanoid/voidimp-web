@@ -5,8 +5,6 @@ class VoidImpDocument extends Document {
     return (
       <Html>
         <Head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
-          <meta name="robots" content="noindex, nofollow" />
-
           <link
             rel="apple-touch-icon"
             sizes="180x180"
