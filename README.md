@@ -67,6 +67,11 @@ voidimp-web/
 └── styles # not really used as this project uses Tailwind for styling
 ```
 
+## GTmetrix Report
+
+![Screenshot 2022-05-28 at 16-18-29 GTmetrix Performance Report](https://user-images.githubusercontent.com/56372390/170831759-46802fcc-aa48-4126-936d-bb0f7ac155b0.png)
+![Screenshot 2022-05-28 at 16-18-42 GTmetrix Performance Report](https://user-images.githubusercontent.com/56372390/170831771-7e6cd27b-8e27-475a-ae5e-63be78f76a26.png)
+
 ## Notice
 
 Copyright (c) 2022 [Aymanoid](https://github.com/aymanoid). All Rights Reserved.
