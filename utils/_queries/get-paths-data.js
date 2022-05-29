@@ -21,8 +21,22 @@ const getPathsData = async (collectionType, paged = false) => {
   if (paged) {
     for await (const result of data) {
       const filtersMap = {
-        articles: {
+        authors: {
           author: {
+            slug: {
+              $eq: `${result.slug}-${result.locale}`,
+            },
+          },
+        },
+        categories: {
+          category: {
+            slug: {
+              $eq: `${result.slug}-${result.locale}`,
+            },
+          },
+        },
+        tags: {
+          tags: {
             slug: {
               $eq: `${result.slug}-${result.locale}`,
             },
