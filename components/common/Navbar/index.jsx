@@ -6,7 +6,7 @@ import ThemeSwitch from "components/common/Navbar/ThemeSwitch";
 import LangSwitch from "components/common/Navbar/LangSwitch";
 import SocialIcon from "components/common/SocialIcon";
 
-const Navbar = ({ searchBarLabel, headerLinks, socialLinks }) => {
+const Navbar = ({ searchBarLabel, headerLinks, socialNetworks }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -54,14 +54,21 @@ const Navbar = ({ searchBarLabel, headerLinks, socialLinks }) => {
           <ThemeSwitch />
           <LangSwitch />
           <div className="mx-2 transform border-r border-neutral-700 transition-colors duration-200 dark:border-neutral-200"></div>
-          {socialLinks.map((link) => (
-            <SocialIcon
-              key={link.id}
-              social={link.social}
-              label={link.label}
-              href={link.href}
-            />
-          ))}
+          <SocialIcon
+            social={"twitter"}
+            label={"Twitter"}
+            href={`https://twitter.com/${socialNetworks.twitter.username}`}
+          />
+          <SocialIcon
+            social={"instagram"}
+            label={"Instagram"}
+            href={`https://instagram.com/${socialNetworks.instagram.username}/`}
+          />
+          <SocialIcon
+            social={"youtube"}
+            label={"YouTube"}
+            href={`https://www.youtube.com/channel/${socialNetworks.youtube.username}`}
+          />
         </div>
       </div>
     </nav>

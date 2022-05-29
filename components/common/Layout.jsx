@@ -7,12 +7,12 @@ const Layout = ({ globalData, children }) => {
       <Navbar
         searchBarLabel={globalData.header.searchBarLabel}
         headerLinks={globalData.header.links}
-        socialLinks={globalData.common.socialLinks}
+        socialNetworks={globalData.socialNetworks}
       />
       <main className="relative p-4 lg:p-8">{children}</main>
       <Footer
         footerDescription={globalData.footer.footerDescription}
-        socialLinks={globalData.common.socialLinks}
+        socialNetworks={globalData.socialNetworks}
         footerLinkColumns={globalData.footer.footerColumns}
         footerRights={globalData.footer.footerRights}
       />

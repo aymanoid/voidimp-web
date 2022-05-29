@@ -3,7 +3,7 @@ import FooterLinks from "components/common/Footer/FooterLinks";
 
 const Footer = ({
   footerDescription,
-  socialLinks,
+  socialNetworks,
   footerLinkColumns,
   footerRights,
 }) => {
@@ -29,14 +29,21 @@ const Footer = ({
               </p>
 
               <div className="-mx-2 mt-4 flex">
-                {socialLinks.map((link) => (
-                  <SocialIcon
-                    key={link.id}
-                    social={link.social}
-                    label={link.label}
-                    href={link.href}
-                  />
-                ))}
+                <SocialIcon
+                  social={"twitter"}
+                  label={"Twitter"}
+                  href={`https://twitter.com/${socialNetworks.twitter.username}`}
+                />
+                <SocialIcon
+                  social={"instagram"}
+                  label={"Instagram"}
+                  href={`https://instagram.com/${socialNetworks.instagram.username}/`}
+                />
+                <SocialIcon
+                  social={"youtube"}
+                  label={"YouTube"}
+                  href={`https://www.youtube.com/channel/${socialNetworks.youtube.username}`}
+                />
               </div>
             </div>
           </div>

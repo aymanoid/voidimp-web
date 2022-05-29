@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import TwitterSvg from "components/icons/social/twitter.svg";
 
-const SocialAd = () => {
+const SocialAd = ({ twitterUsername }) => {
   const { locale } = useRouter();
 
   const strings = {
@@ -16,7 +16,7 @@ const SocialAd = () => {
 
   return (
     <div className="mt-4 flex justify-center">
-      <Link href="https://twitter.com/voidimpcom">
+      <Link href={`https://twitter.com/${twitterUsername}`}>
         <a
           className="grid h-[100px] w-[320px] place-items-center place-self-end rounded-xl bg-[#1DA1F2] transition duration-200 hover:brightness-110"
           target="_blank"

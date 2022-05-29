@@ -48,7 +48,7 @@ const Article = ({ globalData, articleData, relatedArticlesData }) => {
                 authorData={articleData.author}
                 publishedAt={articleData.publishedAt}
               />
-              <ShareButtons />
+              <ShareButtons headline={articleData.headline} />
             </div>
             <div className="border-b border-violet-600/50 dark:border-violet-400/50"></div>
           </header>

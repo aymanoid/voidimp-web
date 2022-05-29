@@ -38,7 +38,9 @@ const Home = ({ globalData, homePageData, listedArticlesData }) => {
           <section className="flex w-full flex-col border-none border-violet-600/50 ltr:border-r rtl:border-l dark:border-violet-400/50 md:w-3/5 md:border-solid md:px-8">
             <HeroArticle articleData={homePageData.heroArticle} />
             <div className="mt-4 border-b border-black/50 dark:border-white/50" />
-            <SocialAd />
+            <SocialAd
+              twitterUsername={globalData.socialNetworks.twitter.username}
+            />
           </section>
 
           <FeaturedArticles articlesData={homePageData.featuredArticles} />

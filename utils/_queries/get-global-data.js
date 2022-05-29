@@ -1,5 +1,5 @@
 import { fetchAPI } from "utils/api";
-import { hashIds } from "utils/helpers";
+import { deepLog, hashIds } from "utils/helpers";
 
 const getGlobalData = async (locale) => {
   const response = await fetchAPI("/global", {
@@ -10,7 +10,7 @@ const getGlobalData = async (locale) => {
       footer: {
         populate: ["footerColumns", "footerColumns.links"],
       },
-      common: {
+      socialNetworks: {
         populate: "*",
       },
       seo: {
@@ -27,6 +27,8 @@ const getGlobalData = async (locale) => {
 
   const data = response.data.attributes;
   data.seo.metaImage = data.seo.metaImage.data.attributes;
+
+  deepLog(hashIds(data));
 
   return hashIds(data);
 };
