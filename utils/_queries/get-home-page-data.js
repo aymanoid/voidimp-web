@@ -1,5 +1,5 @@
 import { fetchAPI } from "utils/api";
-import { unlocalizeSlugs, hashIds, deepLog } from "utils/helpers";
+import { unlocalizeSlugs, hashIds } from "utils/helpers";
 
 const getHomePageData = async (locale) => {
   const response = await fetchAPI("/home-page", {
@@ -26,7 +26,6 @@ const getHomePageData = async (locale) => {
             },
           },
         },
-        locale,
       },
       trendingArticles: {
         populate: {
@@ -39,7 +38,6 @@ const getHomePageData = async (locale) => {
             },
           },
         },
-        locale,
       },
     },
     locale,
@@ -63,8 +61,6 @@ const getHomePageData = async (locale) => {
   delete data.updatedAt;
   delete data.publishedAt;
   delete data.locale;
-
-  deepLog(hashIds(unlocalizeSlugs(data, locale)));
 
   return hashIds(unlocalizeSlugs(data, locale));
 };
