@@ -8,8 +8,8 @@ import {
   FacebookIcon,
   EmailShareButton,
   EmailIcon,
-} from "next-share";
-const ShareButtons = () => {
+} from "react-share";
+const ShareButtons = ({ headline, subheadline, socialNetworks }) => {
   const { locale, asPath } = useRouter();
 
   const origin =
@@ -21,16 +21,20 @@ const ShareButtons = () => {
 
   return (
     <div className="flex flex-row items-center space-x-2 rtl:space-x-reverse">
-      <TwitterShareButton url={url}>
+      <TwitterShareButton
+        url={url}
+        title={headline}
+        via={socialNetworks.twitter.username}
+      >
         <TwitterIcon size={32} round />
       </TwitterShareButton>
       <RedditShareButton url={url}>
         <RedditIcon size={32} round />
       </RedditShareButton>
-      <FacebookShareButton url={url}>
+      <FacebookShareButton url={url} quote={headline}>
         <FacebookIcon size={32} round />
       </FacebookShareButton>
-      <EmailShareButton url={url}>
+      <EmailShareButton url={url} subject={headline} body={subheadline}>
         <EmailIcon size={32} round />
       </EmailShareButton>
     </div>
