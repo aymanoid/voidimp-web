@@ -9,11 +9,7 @@ import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Fragment } from "react";
 
-export default function Example({
-  searchBarLabel,
-  headerLinks,
-  socialNetworks,
-}) {
+const Navbar = ({ searchBarLabel, headerLinks, socialNetworks }) => {
   return (
     <Popover className="relative bg-neutral-100 shadow dark:bg-neutral-800">
       <div className="relative z-20">
@@ -122,4 +118,6 @@ export default function Example({
       </Transition>
     </Popover>
   );
-}
+};
+
+export default Navbar;
