@@ -66,7 +66,7 @@ const LangPicker = () => {
                       active
                         ? "text-violet-600 dark:text-violet-400"
                         : "dark:text-neutral-200 text-neutral-700",
-                      "block px-4 py-2 text-sm cursor-pointer ltr:text-left rtl:text-right"
+                      "block px-4 py-2 text-sm cursor-pointer ltr:text-left rtl:text-right font-semibold"
                     )}
                   >
                     <img
