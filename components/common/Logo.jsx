@@ -1,6 +1,6 @@
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
 
 const colorsData = {
   dark: { firstLetters: "#A78BFA", otherLetters: "white" },
@@ -18,7 +18,8 @@ const Logo = () => {
   return (
     <div>
       <Link href="/">
-        <a aria-label="Homepage">
+        <a>
+          <span className="sr-only">VoidImp Logo</span>
           <span>
             <svg
               className="h-8 w-auto"

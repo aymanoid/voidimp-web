@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { useTheme } from "next-themes";
-import SunSvg from "components/icons/sun.svg";
 import MoonSvg from "components/icons/moon.svg";
+import SunSvg from "components/icons/sun.svg";
+import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
