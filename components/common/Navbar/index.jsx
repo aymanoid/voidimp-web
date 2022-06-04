@@ -1,7 +1,7 @@
 import Logo from "../Logo";
 import SearchBar from "../SearchBar";
 import SocialIcon from "../SocialIcon";
-import LangSwitch from "./LangSwitch";
+import LangPicker from "./LangPicker";
 import NavigationLinks from "./NavigationLinks";
 import Seperator from "./Seperator";
 import ThemeSwitch from "./ThemeSwitch";
@@ -16,11 +16,6 @@ export default function Example({
 }) {
   return (
     <Popover className="relative bg-neutral-100 shadow dark:bg-neutral-800">
-      <div
-        className="absolute inset-0 shadow z-30 pointer-events-none"
-        aria-hidden="true"
-      />
-
       <div className="relative z-20">
         <div className="container mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 xl:justify-start xl:space-x-8 rtl:xl:space-x-reverse">
           <Logo />
@@ -42,7 +37,7 @@ export default function Example({
               <SearchBar searchBarLabel={searchBarLabel} />
               <Seperator />
               <ThemeSwitch />
-              <LangSwitch />
+              <LangPicker />
               <Seperator />
               <SocialIcon
                 social={"twitter"}
@@ -103,7 +98,7 @@ export default function Example({
               <div className="flex justify-center">
                 <Seperator />
                 <ThemeSwitch />
-                <LangSwitch />
+                <LangPicker />
                 <Seperator />
                 <SocialIcon
                   social={"twitter"}
