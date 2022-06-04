@@ -22,15 +22,15 @@ export default function Example({
       />
 
       <div className="relative z-20">
-        <div className="container mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-8 rtl:md:space-x-reverse">
+        <div className="container mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 xl:justify-start xl:space-x-8 rtl:xl:space-x-reverse">
           <Logo />
-          <div className="-mr-2 -my-2 md:hidden">
+          <div className="-mr-2 -my-2 xl:hidden">
             <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-500 hover:text-gray-600 focus:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400 dark:focus:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-violet-400">
               <span className="sr-only">Open menu</span>
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
-          <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
+          <div className="hidden xl:flex-1 xl:flex xl:items-center xl:justify-between">
             <Popover.Group
               as="nav"
               className="flex space-x-8 rtl:space-x-reverse"
@@ -39,7 +39,7 @@ export default function Example({
             </Popover.Group>
             <SearchBar searchBarLabel={searchBarLabel} />
 
-            <div className="flex items-center md:ml-12">
+            <div className="flex items-center xl:ml-12">
               <Seperator />
               <ThemeSwitch />
               <LangSwitch />
@@ -75,7 +75,7 @@ export default function Example({
       >
         <Popover.Panel
           focus
-          className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+          className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right xl:hidden"
         >
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-neutral-100 dark:bg-neutral-800 divide-y-2 dark:divide-neutral-700 divide-neutral-200">
             <div className="pt-5 pb-6 px-5">
