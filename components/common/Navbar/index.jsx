@@ -37,9 +37,9 @@ export default function Example({
             >
               <NavigationLinks links={headerLinks} />
             </Popover.Group>
-            <SearchBar searchBarLabel={searchBarLabel} />
 
             <div className="flex items-center xl:ml-12">
+              <SearchBar searchBarLabel={searchBarLabel} />
               <Seperator />
               <ThemeSwitch />
               <LangSwitch />
